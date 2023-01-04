@@ -99,6 +99,8 @@ GEM
       reline (>= 0.3.1)
     debug_inspector (1.1.0)
     erubi (1.11.0)
+    faker (3.1.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -204,6 +206,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker
   jbuilder
   pg (~> 1.1)
   pry-rails
