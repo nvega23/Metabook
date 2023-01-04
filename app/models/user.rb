@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_many :posts,
+    foreign_key: :users_id,
+    class_name: :Post
+
     # spire
 
     def self.find_by_credentials(credential, password)
