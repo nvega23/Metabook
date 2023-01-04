@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_many :posts,
+    foreign_key: :users_id,
+    class_name: :Post
+
     # spire
 
     def self.find_by_credentials(credential, password)
@@ -32,16 +36,16 @@ class User < ApplicationRecord
         user&.authenticate(password)
     end
 
-    def reset_session_token
+    def reset_session_token!
         self.session_token = generate_unique_session_token
         self.save!
         self.session_token
     end
 
     def generate_unique_session_token
-        output = secureRandom.base64
+        output = SecureRandom.base64
         while User.exists?(session_token: output)
-            output = secureRandom.base64
+            output = SecureRandom.base64
         end
         output
     end
