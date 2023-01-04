@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: Facebook_production
-  username: Facebook
-  password: <%= ENV["FACEBOOK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: Facebook_production
+  # username: Facebook
+  # password: <%= ENV["FACEBOOK_DATABASE_PASSWORD"] %>
