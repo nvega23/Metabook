@@ -21,7 +21,6 @@ function Navigation(){
       <div className='link'>
         <br/>
         <div className='button'>
-          <NavLink exact to="/">Back</NavLink>
         </div>
         <br/>
         {sessionLinks}

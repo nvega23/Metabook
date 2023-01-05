@@ -33,7 +33,12 @@ ApplicationRecord.transaction do
     end
 
     Post.create!(
-      body: "hola! me llamo maria!",
+      body: "ferwkhvbwerkufhwildc bekrjrwh crkew",
+      users_id: 1
+    )
+
+    Post.create!(
+      body: "this is my second post",
       users_id: 1
     )
 
