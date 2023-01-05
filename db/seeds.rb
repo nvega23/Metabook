@@ -34,7 +34,7 @@ ApplicationRecord.transaction do
 
     Post.create!(
       body: "hola! me llamo maria!",
-      users_id: 12
+      users_id: 1
     )
 
     puts "Done!"

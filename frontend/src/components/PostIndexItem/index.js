@@ -15,11 +15,7 @@ const PostIndex = () => {
     <div>
       {posts.map(post => (
         <div key={post.id}>
-          <ul>
-            <li>
-              <h4>{post.body}</h4>
-            </li>
-          </ul>
+            <h4>{post.body}</h4>
         </div>
       ))}
     </div>
