@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
 
     def index
         @posts = Post.all
-        @posts = @posts.where(users_id: return_users_id) if return_users_id
+        # @posts = @posts.where(users_id: return_users_id) if return_users_id
 
         if @posts
             render :index
@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
 
         if @post.save
             @posts = Post.all
-            @posts = @posts.where(users_id: return_users_id) if return_users_id
+            # @posts = @posts.where(users_id: return_users_id) if return_users_id
 
             render :index
         else

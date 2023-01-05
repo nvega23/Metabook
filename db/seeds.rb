@@ -32,5 +32,11 @@ ApplicationRecord.transaction do
       })
     end
 
+    Post.create!(
+      body: "hola! me llamo maria!",
+      users_id: 12
+    )
+
     puts "Done!"
+
   end
