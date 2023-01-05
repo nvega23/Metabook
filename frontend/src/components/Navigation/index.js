@@ -21,7 +21,6 @@ function Navigation(){
       <div className='link'>
         <br/>
         <div className='button'>
-          {/* <button to={'/'}>Back</button> */}
           <NavLink exact to="/">Back</NavLink>
         </div>
         <br/>

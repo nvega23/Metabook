@@ -2,25 +2,29 @@ const RECIEVEPOST = 'posts/recievePost'
 const RECIEVEPOSTS = 'posts/recievePosts'
 const REMOVEPOST = 'posts/removePost'
 
-export const recievePosts = posts = ({
-    type: RECIEVEPOSTS,
-    posts
-})
-export const recievePost = post = ({
+export const recievePosts = posts => {
+    return {
+        type: RECIEVEPOSTS,
+        posts
+    }
+}
+
+export const recievePost = post => ({
     type: RECIEVEPOST,
     post
 })
-export const removePost = postId = ({
+
+export const removePost = postId => ({
     type: REMOVEPOST,
     postId
 })
 
 export const getPost = (reportId) => (store) => {
-    if (store.reports && store.reports[reportId]) return store.reports[reportId]
+    if (store.posts && store.posts[reportId]) return store.posts[reportId]
     return null
 }
 export const getPosts = (store) => {
-    if (store.reports) return Object.values(store.reports)
+    if (store.posts) return Object.values(store.posts)
     return []
 }
 
@@ -85,9 +89,9 @@ const postReducer = (state = {}, action) => {
         case RECIEVEPOSTS:
             return {...newState, ...action.posts}
         case RECIEVEPOST:
-            return {...newState, [action.post.id]: action.post}
+            return {...newState, [action.post.id]: action.postId}
         case REMOVEPOST:
-            delete newPost[action.post]
+            delete newPost[action.postId]
             return newPost
         default:
             return state

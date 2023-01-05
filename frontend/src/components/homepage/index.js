@@ -1,10 +1,11 @@
 import React from 'react';
+import PostIndex from '../PostIndexItem';
 
 function HomePage(){
 
   return (
     <>
-        <h1>THIS IS HOME</h1>
+        <PostIndex />
     </>
   )
 }

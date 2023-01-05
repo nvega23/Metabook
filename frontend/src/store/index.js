@@ -4,10 +4,12 @@ import { applyMiddleware } from "redux";
 import { compose } from "redux";
 import thunk from "redux-thunk";
 import session from './session'
+import posts from "./posts";
 
 let enhancer;
 export const rootReducer = combineReducers({
-    session
+    session,
+    posts
 })
 
 if (process.env.NODE_ENV === 'production') {
