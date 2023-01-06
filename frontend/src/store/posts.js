@@ -126,8 +126,8 @@ const postReducer = (state = {}, action) => {
         case RECIEVEPOST:
             return {...newState, [action.post.id]: action.post}
         case REMOVEPOST:
-            delete createPost[action.postId]
-            return createPost
+            delete newState[action.postId]
+            return newState
         default:
             return state
     }

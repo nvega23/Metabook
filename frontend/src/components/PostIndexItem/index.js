@@ -33,10 +33,11 @@ const PostIndex = () => {
     dispatch(fetchAllPosts());
   }, [])
 
-
-  const handleDeletePost = e => {
-    e.preventDefault();
-    return dispatch(removePost(posts));
+  const handleDeletePost = (postId) => {
+    return (e)=> {
+      e.preventDefault();
+      return dispatch(removePost(postId));
+    }
   }
 
   console.log(posts)
@@ -49,7 +50,7 @@ const PostIndex = () => {
             {posts.map(post => (
               <div className="posts">
                   <h4>{post.body}</h4>
-                  <button onClick={handleDeletePost}>remove post</button>
+                  <button onClick={handleDeletePost(post.id)}>remove post</button>
               </div>
             ))}
         </div>
