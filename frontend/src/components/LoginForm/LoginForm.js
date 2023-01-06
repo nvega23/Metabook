@@ -5,7 +5,6 @@ import SignUpFormModal from "../SignUpFormModal";
 import "./LoginForm.css";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import ProfileButton from "../Navigation/ProfileButton";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const sessionUser = useSelector(state => state.session.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,14 +29,7 @@ function LoginForm() {
       else if (data) setErrors([data]);
       else setErrors([res.statusText]);
     });
-    // return <Redirect to={"/HomePage"}/>
   };
-
-  // if (!sessionUser){
-  //   return <Redirect to={"/"} />
-  // } else {
-  //   return <Redirect to="/HomePage" />
-  // }
 
 
   const setDemo = () => {
@@ -46,8 +37,14 @@ function LoginForm() {
     setPassword(`password`);
   }
 
-  return (
-    <>
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (!sessionUser){
+
+
+
+    return (
+      <>
     <form onSubmit={handleSubmit}>
         <h1 className="metabook">Metabook</h1>
         <h5 className="connect">Connect with friends and the world around you on Metabook.</h5>
@@ -86,6 +83,9 @@ function LoginForm() {
     <SignUpFormModal/>
     </>
   );
+  } else {
+    return <Redirect to="/homepage"/>
+  }
 }
-{/* <Redirect to={"/HomePage"}/> */}
+
 export default LoginForm;
