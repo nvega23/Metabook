@@ -22,7 +22,7 @@ ApplicationRecord.transaction do
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
     User.create!(
-      username: 'Demo-lition',
+      username: 'Demo',
       email: 'demo@user.io',
       password: 'password'
     )

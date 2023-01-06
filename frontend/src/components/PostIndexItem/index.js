@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchAllPosts, createPost, removePost } from "../../store/posts";
+import { fetchAllPosts, createPost, removePost, deletePost } from "../../store/posts";
 import './posts.css'
 import { Redirect } from "react-router";
 
@@ -36,7 +36,7 @@ const PostIndex = () => {
   const handleDeletePost = (postId) => {
     return (e)=> {
       e.preventDefault();
-      return dispatch(removePost(postId));
+      return dispatch(deletePost(postId));
     }
   }
 
@@ -45,20 +45,22 @@ const PostIndex = () => {
     return(
       <>
         <div>
-          <h3>{user.username}</h3>
-          <br/>
-            {posts.map(post => (
-              <div className="posts">
-                  <h4>{post.body}</h4>
-                  <button onClick={handleDeletePost(post.id)}>remove post</button>
-              </div>
-            ))}
-        </div>
-        <form onSubmit={handleSubmit}>
+        <form className="postsform" onSubmit={handleSubmit}>
           <input id="body" value={body} onChange={e => setBody(e.target.value)}/>
           <br/>
-          <button>post</button>
+          <button className="postbutton">What's on your mind, {user.username}?</button>
         </form>
+          <br/>
+            {posts.reverse().map(post => (
+              <>
+                  <h4 className="posts">{post.body}</h4>
+                  <button className="remove" onClick={handleDeletePost(post.id)}>
+                    <img src="./images/trashpic.png" alt="trash icon"/>
+                       Move to trash
+                  </button>
+              </>
+            ))}
+        </div>
       </>
     )
   } else {

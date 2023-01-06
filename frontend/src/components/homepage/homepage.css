@@ -1,6 +1,8 @@
 .headers{
+    /* border: 3px solid black; */
     width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }

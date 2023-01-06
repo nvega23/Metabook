@@ -13,7 +13,7 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :username, uniqueness: true, length: { in: 3..30 },
+    validates :username, uniqueness: true, length: { in: 3..30 }, uniqueness: {case_sensitive: true},
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
 
     validates :email, uniqueness: true, length: { in: 5..100 },
