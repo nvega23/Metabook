@@ -39,7 +39,7 @@ export const getPost = (reportId) => (store) => {
 }
 
 export const getPosts = (store) => {
-    if (store.posts) return Object.values(store.posts)
+    if (!store.posts) return Object.values(store.posts)
     return []
 }
 
@@ -95,6 +95,7 @@ export const deletePost = (postId) => async dispatch => {
     })
     if (res.ok){
         dispatch(removePost(postId))
+        return postId
     }
 }
 
@@ -126,8 +127,8 @@ const postReducer = (state = {}, action) => {
         case RECIEVEPOST:
             return {...newState, [action.post.id]: action.post}
         case REMOVEPOST:
-            delete createPost[action.postId]
-            return createPost
+            delete deletePost[action.postId]
+            return deletePost
         default:
             return state
     }

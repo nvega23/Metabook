@@ -58,3 +58,12 @@ button:active:after {
     width: 176px;
   }
 }
+
+.login{
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  width: 396px;
+  margin-left: auto;
+  margin-right: 250px;
+}

@@ -1,7 +1,15 @@
 .posts{
-    border: 3px solid black;
     display: flex;
     justify-content: center;
     width: auto;
     height: 150px;
+}
+.postsform{
+    display: flex;
+    height: 50px;
+    margin-left: 550px;
+}
+.post{
+    color: gray;
+    background-color: lightgray;
 }
