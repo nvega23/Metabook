@@ -1,5 +1,6 @@
 class Api::PostsController < ApplicationController
 
+
     def index
         @posts = Post.all
         # @posts = @posts.where(users_id: return_users_id) if return_users_id
@@ -14,11 +15,12 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
 
+        # debugger
+        @post.users_id = current_user.id
         if @post.save
             @posts = Post.all
             # @posts = @posts.where(users_id: return_users_id) if return_users_id
-
-            render :index
+            render :show
         else
             render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
         end

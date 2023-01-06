@@ -28,6 +28,10 @@ class User < ApplicationRecord
     foreign_key: :users_id,
     class_name: :Post
 
+    has_many :comments,
+    foreign_key: :users_id,
+    class_name: :Comment
+
     # spire
 
     def self.find_by_credentials(credential, password)
