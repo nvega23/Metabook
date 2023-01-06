@@ -3,8 +3,6 @@ import csrfFetch from "./csrf"
 const RECIEVEPOST = 'posts/recievePost'
 const RECIEVEPOSTS = 'posts/recievePosts'
 const REMOVEPOST = 'posts/removePost'
-const RECIEVECOMMENTS = 'posts/comments/RECIEVECOMMENTS'
-const REMOVECOMMENT = 'posts/comments/REMOVECOMMENT'
 
 export const recievePosts = posts => {
     return {
@@ -23,15 +21,6 @@ export const removePost = postId => ({
     postId
 })
 
-export const recieveComments = comments => ({
-    type: RECIEVECOMMENTS,
-    comments
-})
-
-export const removeComments = commentId => ({
-    type: REMOVECOMMENT,
-    commentId
-})
 
 export const getPost = (reportId) => (store) => {
     if (store.posts && store.posts[reportId]) return store.posts[reportId]
@@ -95,26 +84,6 @@ export const deletePost = (postId) => async dispatch => {
     })
     if (res.ok){
         dispatch(removePost(postId))
-    }
-}
-
-export const createComment = (comment) => async dispatch => {
-    const res = await csrfFetch(`api/posts/${comment.post_id}/comments`, {
-        method: "POST",
-        body: JSON.stringify(comment)
-    })
-    if (res.ok){
-        const comment = await res.json()
-        dispatch(recieveComments(comment))
-    }
-}
-
-export const deleteComment = (postId ,commentId) => async dispatch => {
-    const res = await csrfFetch(`api/posts/${postId}/comments/${commentId}`, {
-        method: 'DELETE',
-    })
-    if (res.ok){
-        dispatch(removeComments(commentId))
     }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PostIndex from '../PostIndexItem';
 import './homepage.css'
 
-function HomePage(){
+function profilePage(){
   return (
     <>
       <div className='headers'>
@@ -12,4 +12,4 @@ function HomePage(){
   )
 }
 
-export default HomePage
+export default profilePage
