@@ -58,12 +58,6 @@ const PostIndex = () => {
   if (user){
     return(
       <>
-      <h3>{user.username}</h3>
-        <form className="postsform" onSubmit={handleSubmit}>
-          <input id="body" value={body} onChange={e => setBody(e.target.value)}/>
-          <br/>
-          <button className="post">whats on your mind, {user.username}?</button>
-        </form>
         <div>
         <form className="postsform" onSubmit={handleSubmit}>
           <input id="body" value={body} onChange={e => setBody(e.target.value)}/>
