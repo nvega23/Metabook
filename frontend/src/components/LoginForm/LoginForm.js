@@ -12,7 +12,6 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -71,7 +70,7 @@ function LoginForm() {
     </>
   );
   } else {
-    return <Redirect to="/homepage"/>
+    return <Redirect to="/profilePage"/>
   }
 }
 

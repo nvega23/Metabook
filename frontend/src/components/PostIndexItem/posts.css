@@ -1,9 +1,18 @@
 .posts{
+<<<<<<< HEAD
+=======
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    box-sizing: border-box;
+>>>>>>> posts
     display: flex;
     justify-content: center;
-    width: auto;
+    align-self: center;
+    width: 300px;
     height: 150px;
 }
+<<<<<<< HEAD
 .postsform{
     display: flex;
     height: 50px;
@@ -13,3 +22,35 @@
     color: gray;
     background-color: lightgray;
 }
+=======
+
+.postsform{
+    background-color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 150px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postbutton{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: gray;
+    background-color: lightgray;
+}
+
+.remove{
+    box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    color: gray;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: lightgray;
+    display: flex;
+    justify-content: flex-end;
+}
+>>>>>>> posts

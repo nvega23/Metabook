@@ -1,20 +1,15 @@
 import React from 'react';
 import PostIndex from '../PostIndexItem';
-import PostIndexForm from '../PostIndexItem/postindexform';
 import './homepage.css'
-// import * as user from '../Navigation/ProfileButton';
 
-function HomePage(){
-  // const sessionUser = useSelector(state => state.session.user);
+function profilePage(){
   return (
     <>
-      <label>
-        <h1 className='headers'> <u>Posts</u></h1>
-      </label>
-      <PostIndex/>
-      {/* <PostIndexForm /> */}
+      <div className='headers'>
+        <PostIndex/>
+      </div>
     </>
   )
 }
 
-export default HomePage
+export default profilePage

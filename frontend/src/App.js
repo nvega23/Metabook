@@ -9,7 +9,7 @@ function App() {
     <>
       <Navigation />
         <Switch>
-          <Route path="/homepage">
+          <Route path="/profilePage">
             <HomePage />
           </Route>
           <Route path="/">

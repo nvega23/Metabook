@@ -20,8 +20,6 @@ function Navigation(){
     <>
       <div className='link'>
         <br/>
-        <div className='button'>
-        </div>
         <br/>
         {sessionLinks}
         <br/>
