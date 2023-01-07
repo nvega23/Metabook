@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, removePost, deletePost, updatePost, fetchPost } from "../../store/posts";
 import './posts.css'
 import { Redirect } from "react-router";
-import editPost from "./editpost";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -15,7 +14,7 @@ const PostIndex = () => {
       return Object.values(state.posts).filter((post)=>post.users_id === user.id)
     }
   });
-  const postId = useParams(getPost(posts))
+  // const postId = useParams(getPost(posts))
   // const postId = useParams()
 
   const handleSubmit = e => {
