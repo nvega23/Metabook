@@ -44,7 +44,7 @@ function LoginForm() {
 
     return (
       <>
-    <form onSubmit={handleSubmit}>
+    <form className="login" onSubmit={handleSubmit}>
         <h1 className="metabook">Metabook</h1>
         <h5 className="connect">Connect with friends and the world around you on Metabook.</h5>
       <ul>

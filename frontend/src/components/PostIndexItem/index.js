@@ -3,58 +3,43 @@ import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, removePost, deletePost, updatePost, fetchPost } from "../../store/posts";
 import './posts.css'
 import { Redirect } from "react-router";
-import editPost from "./editpost";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
-  const [body, setBody] = useState("")
+  const [body, setBody] = useState("");
+  const [editBody, setEditBody] = useState("");
   const [edit, setEdit] = useState(false)
   const posts = useSelector((state) =>{
     if (user){
-      return Object.values(state.posts).filter((post)=>post.users_id === user.id)
+      return Object.values(state.posts).filter((post)=>post.users_id === user.id).reverse()
     }
   });
 
   const handleSubmit = e => {
-    e.preventDefault()
-    const posts = {
-      body: body
-    }
-    dispatch(createPost(posts))
-    dispatch(removePost(posts))
-    setBody('')
+    e.preventDefault();
+    dispatch(createPost({ body }));
+    setBody('');
   }
-
-  useEffect((postId)=>{
-    dispatch(removePost(postId))
-  }, [])
 
   useEffect(()=>{
     dispatch(fetchAllPosts());
-  }, [])
+  }, [dispatch])
 
-  useEffect((postId)=>{
-    dispatch(fetchPost(postId))
-    setEdit(true)
-}, [dispatch])
-
-  const handleDeletePost = (postId) => {
-    return (e)=> {
-      e.preventDefault();
-      return dispatch(deletePost(postId));
-    }
+  const handleDeletePost = (e, postId) => {
+    e.preventDefault();
+    return dispatch(deletePost(postId));
   }
 
-  const handleEditPost = (postId) => {
-    return (e)=> {
-      e.preventDefault();
-      dispatch(updatePost(postId));
-      setEdit(true)
-    }
+  const handleEditPost = (e, post) => {
+    e.preventDefault();
+    // const newPost = { ...post };
+    // newPost[body] = editBody;
+    const newPost = { ...post, body: editBody };
+    dispatch(updatePost(newPost));
+    setEdit(false);
   }
 
-  console.log(posts)
   if (user){
     return(
       <>
@@ -65,7 +50,7 @@ const PostIndex = () => {
           <button className="postbutton">What's on your mind, {user.username}?</button>
         </form>
           <br/>
-            {posts.reverse().map(post => (
+            {posts.map(post => (
               <>
                   <h4 className="posts">
                     {user.username}
@@ -73,13 +58,22 @@ const PostIndex = () => {
                     <br/>
                     {post.body}
                   </h4>
-                  <button className="remove" onClick={handleDeletePost(post.id)}>
+                  <button className="remove" onClick={(e)=>handleDeletePost(e, post.id)}>
                     <img src="./images/trashpic.png" alt="trash icon"/>
                        Move to trash
                   </button>
-                  <button value={edit} onClick={handleEditPost(post.id)}>
-                    Edit
+                  <button onClick={() => {
+                    setEdit(prev => !prev);
+                    setEditBody(post.body);
+                  }}>
+                    Edit Post
                   </button>
+                  { edit && <form>
+                    <textarea value={editBody} onChange={e => setEditBody(e.target.value)} />
+                    <button onClick={(e)=>handleEditPost(e, post)}>
+                      Update Post
+                    </button>
+                  </form>}
               </>
             ))}
         </div>

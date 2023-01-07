@@ -1,6 +1,4 @@
 class Api::PostsController < ApplicationController
-
-
     def index
         @posts = Post.all
         # @posts = @posts.where(users_id: return_users_id) if return_users_id
