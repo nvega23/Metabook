@@ -49,7 +49,8 @@ const PostIndex = () => {
   const handleEditPost = (postId) => {
     return (e)=> {
       e.preventDefault();
-      return dispatch(updatePost(postId));
+      dispatch(updatePost(postId));
+      setEdit(true)
     }
   }
 
@@ -76,7 +77,7 @@ const PostIndex = () => {
                     <img src="./images/trashpic.png" alt="trash icon"/>
                        Move to trash
                   </button>
-                  <button onClick={handleEditPost(post.id)}>
+                  <button value={edit} onClick={handleEditPost(post.id)}>
                     Edit
                   </button>
               </>
