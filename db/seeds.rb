@@ -51,6 +51,14 @@ ApplicationRecord.transaction do
       users_id: 2
     )
 
+    # post2 = Post.create!(
+    #   body: "this is my second post",
+    #   users_id: 2
+    # )
+
+    # post2.photo.attach(io: URI.open('https://images.unsplash.com/photo-1673280293847-97ad70e7512a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'),
+    # filename: "italy.png")
+
     puts "Done!"
 
-  end
+end

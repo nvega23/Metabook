@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
+import profilePage from "../profilePage";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -28,6 +30,11 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  const profile = () => {
+    if (logout){
+      return <Redirect to={profilePage} />
+    }
+  }
 
   return (
     <>
@@ -40,6 +47,9 @@ function ProfileButton({ user }) {
           {user.username}
           <br/>
           {user.email}
+          {/* <link to="profilePage"><profilePage/></link> */}
+          {/* <button onClick={<Redirect to="/profilePage"/>}>profile</button> */}
+          <button onClick={profile}>profile</button>
           <br/>
           <button onClick={logout}>Log Out</button>
         </ul>

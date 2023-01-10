@@ -5,6 +5,7 @@ import SignUpFormModal from "../SignUpFormModal";
 import "./LoginForm.css";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import NewsFeed from "../newsfeed";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -39,9 +40,6 @@ function LoginForm() {
   const sessionUser = useSelector(state => state.session.user);
 
   if (!sessionUser){
-
-
-
     return (
       <>
     <form className="login" onSubmit={handleSubmit}>
@@ -83,7 +81,9 @@ function LoginForm() {
     </>
   );
   } else {
+    // return <Redirect to="/newsFeed"/>
     return <Redirect to="/profilePage"/>
+
   }
 }
 

@@ -1,4 +1,6 @@
 class Api::PostsController < ApplicationController
+    wrap_parameters include: Post.attribute_names + [:photo]
+
     def index
         @posts = Post.all
         # @posts = @posts.where(users_id: return_users_id) if return_users_id
@@ -12,7 +14,6 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-
         # debugger
         @post.users_id = current_user.id
         if @post.save
@@ -46,7 +47,7 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:body, :users_id)
+        params.require(:post).permit(:body, :photo ,:users_id)
     end
 
     def return_users_id

@@ -2,7 +2,7 @@ import React from 'react';
 import PostIndex from '../PostIndexItem';
 import './homepage.css'
 
-function profilePage(){
+const profilePage = () => {
   return (
     <>
       <div className='headers'>

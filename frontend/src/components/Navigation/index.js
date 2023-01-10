@@ -21,7 +21,7 @@ function Navigation(){
       <div className='link'>
         <br/>
         <br/>
-        {sessionLinks}
+          {sessionLinks}
         <br/>
       </div>
       <br/>

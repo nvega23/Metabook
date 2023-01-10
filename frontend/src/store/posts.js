@@ -3,6 +3,7 @@ import csrfFetch from "./csrf"
 const RECIEVEPOST = 'posts/recievePost'
 const RECIEVEPOSTS = 'posts/recievePosts'
 const REMOVEPOST = 'posts/removePost'
+const RECIEVE_LIKES = 'posts/recieve_likes'
 
 export const recievePosts = posts => {
     return {
@@ -21,6 +22,10 @@ export const removePost = postId => ({
     postId
 })
 
+export const recieve_likes = post => ({
+    type: RECIEVE_LIKES,
+    post
+})
 
 export const getPost = (reportId) => (store) => {
     if (store.posts && store.posts[reportId]) return store.posts[reportId]
@@ -87,6 +92,26 @@ export const deletePost = (postId) => async dispatch => {
     }
 }
 
+export const createLike = (postId) => async dispatch => {
+    const res = await csrfFetch(`/api/posts/${postId}/likes`, {
+        method: 'POST'
+    })
+    if (res.ok){
+        const like = await res.json()
+        dispatch(recieve_likes(like))
+    }
+}
+
+export const deleteLike = (postId, likeId) => async dispatch => {
+    const res = await csrfFetch(`/api/posts/${postId}/likes/${likeId}`, {
+        method: 'DELETE',
+    })
+    if (res.ok){
+        const like = await res.json()
+        dispatch(recieve_likes(like))
+    }
+}
+
 const postReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
@@ -96,6 +121,9 @@ const postReducer = (state = {}, action) => {
             return {...newState, [action.post.id]: action.post}
         case REMOVEPOST:
             delete newState[action.postId]
+            return newState
+        case RECIEVE_LIKES:
+            newState[action.post.id] = action.post
             return newState
         default:
             return state
