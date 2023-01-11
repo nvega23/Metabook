@@ -4,6 +4,7 @@ class Api::CommentsController < ApplicationController
     before_action :find_comment, only: [:destroy]
 
     def create
+        debugger
         @comments = @post.comments.create(comment_params)
         if @comments.save!
             render 'api/posts/show'
