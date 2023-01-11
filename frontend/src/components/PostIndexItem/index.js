@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import './posts.css'
 import { Redirect } from "react-router";
-import { createComment, fetchComment } from "../../store/comments";
+import { createComment, fetchComment, fetchComments } from "../../store/comments";
 import LikeButton from "../postindex/like";
 import { fetchAllLikes } from "../../store/likes";
+import commentButton from "../postindex/comment";
+import removeEditButton from "../Navigation/removeEditButton";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -21,20 +23,6 @@ const PostIndex = () => {
     }
   });
 
-  const [commentBody, setCommentBody] = useState("");
-  const [comment, setComment] = useState(false)
-
-  const handleCommentPost = (e) => {
-    e.preventDefault();
-    // const newComment = { ...comment, body: commentBody };
-    dispatch(createComment({ body }))
-  }
-
-  // const handleCommentPost = async e => {
-  //   e.preventDefault()
-  //   dispatch(fetchComment())
-  // }
-
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(createPost({ body }));
@@ -44,6 +32,7 @@ const PostIndex = () => {
   useEffect(()=>{
     dispatch(fetchAllPosts());
     dispatch(fetchAllLikes());
+    dispatch(fetchComments())
   }, [dispatch])
 
   const handleDeletePost = (e, postId) => {
@@ -57,23 +46,6 @@ const PostIndex = () => {
     dispatch(updatePost(newPost));
     setEdit(false);
   }
-
-  // const [like, setLike] = useState(false)
-
-  // let likes = useSelector((state) =>{
-  //   if (state.likes){
-  //     return Object.values(state.likes).filter((like)=>like.user_id === user.id )
-  //   }
-  // });
-
-  // const handleLike = (e, postId) => {
-  //   e.preventDefault()
-  //   if (!likes){
-  //     dispatch(deleteLike(postId, user.id))
-  //   } else {
-  //     dispatch(createLike(postId, user.id))
-  //   }
-  // }
 
   // const [photoFile, setPhotoFile] = useState(null)
   // const [photoUrl, setPhotoUrl] = useState(null)
@@ -152,16 +124,7 @@ const PostIndex = () => {
                     </button>
                   </form>}
 
-
-                  <button onClick={() => {setComment(prev => !prev); setCommentBody(comment.body);}}>
-                    comment
-                  </button>
-                  { comment && <form>
-                    <textarea value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-                    <button onClick={(e)=>handleCommentPost(e, post)}>
-                      comment on post
-                    </button>
-                  </form>}
+                  {/* <commentButton post = {post} body = {post.body}/> */}
               </>
             ))}
         </div>

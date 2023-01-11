@@ -58,3 +58,15 @@ button:active:after {
     width: 176px;
   }
 }
+
+.login{
+  border: 3px solid black;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 1.43;
+}

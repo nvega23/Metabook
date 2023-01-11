@@ -42,30 +42,20 @@ function LoginForm() {
   if (!sessionUser){
     return (
       <>
-    <form className="login" onSubmit={handleSubmit}>
         <h1 className="metabook">Metabook</h1>
         <h5 className="connect">Connect with friends and the world around you on Metabook.</h5>
+    <form className="login" onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
       <label>
-        <input
-          type="text"
-          value={credential}
-          placeholder="Username or Email"
-          onChange={(e) => setCredential(e.target.value)}
-          required
-          />
+        <input type="text" value={credential} placeholder="Username or Email"
+        onChange={(e) => setCredential(e.target.value)} required/>
       </label>
       <br/>
       <label>
-        <input
-          type="password"
-          value={password}
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          />
+        <input type="password" value={password} placeholder="password"
+        onChange={(e) => setPassword(e.target.value)} required/>
       </label>
       <br/>
       <br/>
@@ -73,7 +63,7 @@ function LoginForm() {
     </form>
 
     <br/>
-    <form onSubmit={handleSubmit}>
+    <form className="login" onSubmit={handleSubmit}>
       <button onClick={()=>setDemo()} className ="button"> Log in as a demo user?</button>
     </form>
     <br/>

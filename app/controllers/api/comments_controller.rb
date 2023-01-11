@@ -4,7 +4,6 @@ class Api::CommentsController < ApplicationController
     before_action :find_comment, only: [:destroy]
 
     def create
-        debugger
         @comments = @post.comments.create(comment_params)
         if @comments.save!
             render 'api/posts/show'
@@ -25,7 +24,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def find_post
-        @post = Post.find(params[:post_id])
+        @post = Post.find(params[:id])
     end
 
     def find_comment

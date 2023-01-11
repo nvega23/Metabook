@@ -56,5 +56,13 @@
     .button-65 {
       padding: 14px 22px;
       width: 176px;
-    }
+  }
+  .signup{
+    border: 3px solid black;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+  }
 }
