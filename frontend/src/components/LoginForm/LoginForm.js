@@ -44,28 +44,29 @@ function LoginForm() {
       <>
         <h1 className="metabook">Metabook</h1>
         <h5 className="connect">Connect with friends and the world around you on Metabook.</h5>
-    <form className="login" onSubmit={handleSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
       <label>
-        <input type="text" value={credential} placeholder="Username or Email"
+        <input className="username" type="text" value={credential} placeholder="Username or Email"
         onChange={(e) => setCredential(e.target.value)} required/>
       </label>
       <br/>
+      <br/>
       <label>
-        <input type="password" value={password} placeholder="password"
+        <input className="username" type="password" value={password} placeholder="password"
         onChange={(e) => setPassword(e.target.value)} required/>
       </label>
       <br/>
       <br/>
-      <button type="submit">Log In</button>
+      <button className="log_in" type="submit">Log In</button>
+    </form>
+    <form className="loginForm" onSubmit={handleSubmit}>
+      <button onClick={()=>setDemo()} className ="button"> Log in as a demo user?</button>
     </form>
 
     <br/>
-    <form className="login" onSubmit={handleSubmit}>
-      <button onClick={()=>setDemo()} className ="button"> Log in as a demo user?</button>
-    </form>
     <br/>
     <SignUpFormModal/>
     </>

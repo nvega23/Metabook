@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
   };
 
   const profile = () => {
-    if (logout){
+    if (!logout){
       return <Redirect to={profilePage} />
     }
   }
@@ -44,12 +44,11 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          {user.username}
-          <br/>
-          {user.email}
           {/* <link to="profilePage"><profilePage/></link> */}
           {/* <button onClick={<Redirect to="/profilePage"/>}>profile</button> */}
-          <button onClick={profile}>profile</button>
+          <button onClick={profile}>{user.username}</button>
+          <br/>
+          {user.email}
           <br/>
           <button onClick={logout}>Log Out</button>
         </ul>

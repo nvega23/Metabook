@@ -2,12 +2,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import './posts.css'
+import { Modal } from '../../context/Modal';
 import { Redirect } from "react-router";
 import { createComment, fetchComment, fetchComments } from "../../store/comments";
 import LikeButton from "../postindex/like";
 import { fetchAllLikes } from "../../store/likes";
-import commentButton from "../postindex/comment";
+import CommentButton from "../postindex/comment";
 import removeEditButton from "../Navigation/removeEditButton";
+
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -15,6 +17,7 @@ const PostIndex = () => {
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
   const [edit, setEdit] = useState(false)
+  const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.post_id)
   const posts = useSelector((state) =>{
@@ -31,8 +34,6 @@ const PostIndex = () => {
 
   useEffect(()=>{
     dispatch(fetchAllPosts());
-    dispatch(fetchAllLikes());
-    dispatch(fetchComments())
   }, [dispatch])
 
   const handleDeletePost = (e, postId) => {
@@ -98,33 +99,39 @@ const PostIndex = () => {
           <br/>
           <br/>
           <button className="postbutton">What's on your mind, {user.username}?</button>
+          {/* onClick={()=>showModal(true)} */}
+          {/* {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+            </Modal>
+          )} */}
         </form>
+
+
           <br/>
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    {user.username}
-                    <br/>
-                    <br/>
+                    {post.id}
                     {post.body}
+                    <br/>
+
+                      <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
+                        <img src="./images/trashpic.png" alt="trash icon"/>
+                      </button>
+                      <br/>
+                      <button className="removeEdit" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
+                        <img src="./images/pencil.png" alt="pencil icon"/>Edit
+                      </button>
+                      { edit && <form>
+                        <textarea value={editBody} onChange={e => setEditBody(e.target.value)} />
+                        <button onClick={(e)=>handleEditPost(e, post)}>
+                          Update Post
+                        </button>
+                      </form>}
                     <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
+                    <CommentButton post = {post} body = {post.body}/>
+                    <br/>
                   </h4>
-                  <button className="remove" onClick={(e)=>handleDeletePost(e, post.id)}>
-                    <img src="./images/trashpic.png" alt="trash icon"/>
-                       Move to trash
-                  </button>
-
-                  <button onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
-                    <img src="./images/pencil.png" alt="trash icon"/>Edit
-                  </button>
-                  { edit && <form>
-                    <textarea value={editBody} onChange={e => setEditBody(e.target.value)} />
-                    <button onClick={(e)=>handleEditPost(e, post)}>
-                      Update Post
-                    </button>
-                  </form>}
-
-                  {/* <commentButton post = {post} body = {post.body}/> */}
               </>
             ))}
         </div>

@@ -1,8 +1,9 @@
 import csrfFetch from "./csrf"
+import { RECIEVECOMMENTS, RECIEVECOMMENT, REMOVECOMMENT } from "./comments.js"
 
 export const RECIEVEPOST = 'posts/recievePost'
 export const RECIEVEPOSTS = 'posts/recievePosts'
-const REMOVEPOST = 'posts/removePost'
+export const REMOVEPOST = 'posts/removePost'
 
 export const recievePosts = payload => {
     return {
@@ -95,6 +96,13 @@ const postReducer = (state = {}, action) => {
             return {...newState, [action.payload.post.id]: action.payload.post}
         case REMOVEPOST:
             delete newState[action.postId]
+            return newState
+        case RECIEVECOMMENTS:
+            return {...newState, ...action.comment}
+        case RECIEVECOMMENT:
+            return {...newState, [action.comment.id]: action.comment}
+        case REMOVECOMMENT:
+            delete newState[action.commentId]
             return newState
         default:
             return state

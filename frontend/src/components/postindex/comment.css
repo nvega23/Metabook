@@ -1,0 +1,8 @@
+.commentText{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 150px;
+}

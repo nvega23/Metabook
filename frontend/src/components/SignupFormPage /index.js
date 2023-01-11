@@ -87,5 +87,4 @@ const SignupFormPage = () => {
     );
 }
 
-
 export default SignupFormPage
