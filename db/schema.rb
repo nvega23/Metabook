@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_223324) do
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["users_id"], name: "index_comments_on_users_id"
   end
-
+ 
   create_table "likes", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false

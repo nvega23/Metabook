@@ -2,9 +2,8 @@ class Api::PostsController < ApplicationController
     wrap_parameters include: Post.attribute_names + [:photo]
 
     def index
-        @posts = Post.all
+        @posts = Post.all.includes(:comments, :likes)
         # @posts = @posts.where(users_id: return_users_id) if return_users_id
-
         if @posts
             render :index
         else

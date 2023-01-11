@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    resources :likes, only: [:index]
   end
 
   # get '*path', to: "static_pages#frontend_index"

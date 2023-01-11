@@ -5,11 +5,15 @@ import { compose } from "redux";
 import thunk from "redux-thunk";
 import session from './session'
 import posts from "./posts";
+import likes from "./likes"
+import comments from "./comments"
 
 let enhancer;
 export const rootReducer = combineReducers({
     session,
-    posts
+    posts,
+    likes,
+    comments
 })
 
 if (process.env.NODE_ENV === 'production') {

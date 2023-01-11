@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchAllPosts, createPost, deletePost, updatePost, createLike, deleteLike, getPosts } from "../../store/posts";
+import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import './posts.css'
 import { Redirect } from "react-router";
-import { fetchComment } from "../../store/comments";
+import { createComment, fetchComment } from "../../store/comments";
+import LikeButton from "../postindex/like";
+import { fetchAllLikes } from "../../store/likes";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -11,6 +13,8 @@ const PostIndex = () => {
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
   const [edit, setEdit] = useState(false)
+  const likes = useSelector((store) => Object.values(store.likes))
+  const likedPosts = likes.map((ele)=> ele.post_id)
   const posts = useSelector((state) =>{
     if (user){
       return Object.values(state.posts).filter((post)=>post.users_id === user.id).reverse()
@@ -20,17 +24,16 @@ const PostIndex = () => {
   const [commentBody, setCommentBody] = useState("");
   const [comment, setComment] = useState(false)
 
-  // const handleCommentSubmit = (e) => {
-  //     e.preventDefault()
-  //     dispatch(fetchComment(comment.id))
-  // }
-
-  const handleCommentPost = (e, post) => {
+  const handleCommentPost = (e) => {
     e.preventDefault();
-    const newPost = { ...post, body: commentBody };
-    dispatch(updatePost(newPost));
-    setEdit(false);
+    // const newComment = { ...comment, body: commentBody };
+    dispatch(createComment({ body }))
   }
+
+  // const handleCommentPost = async e => {
+  //   e.preventDefault()
+  //   dispatch(fetchComment())
+  // }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,6 +43,7 @@ const PostIndex = () => {
 
   useEffect(()=>{
     dispatch(fetchAllPosts());
+    dispatch(fetchAllLikes());
   }, [dispatch])
 
   const handleDeletePost = (e, postId) => {
@@ -54,19 +58,22 @@ const PostIndex = () => {
     setEdit(false);
   }
 
-  const [like, setLike] = useState(false)
+  // const [like, setLike] = useState(false)
 
-  const handleLike = (e, postId) => {
-    e.preventDefault()
-    if (!like){
-      dispatch(createLike(postId))
-      setLike(true)
-    } else {
-      dispatch(deleteLike(postId))
-      setLike(false)
-    }
-  }
+  // let likes = useSelector((state) =>{
+  //   if (state.likes){
+  //     return Object.values(state.likes).filter((like)=>like.user_id === user.id )
+  //   }
+  // });
 
+  // const handleLike = (e, postId) => {
+  //   e.preventDefault()
+  //   if (!likes){
+  //     dispatch(deleteLike(postId, user.id))
+  //   } else {
+  //     dispatch(createLike(postId, user.id))
+  //   }
+  // }
 
   // const [photoFile, setPhotoFile] = useState(null)
   // const [photoUrl, setPhotoUrl] = useState(null)
@@ -128,24 +135,15 @@ const PostIndex = () => {
                     <br/>
                     <br/>
                     {post.body}
-                    <form className="likes">
-                      <button value={post.id} onClick={handleLike}>
-                        {!like ?
-                          // <video src="./images/likegif.mp4" ></video>
-                          <img src="./images/like.png" alt="trash icon"/>
-                          :
-                          <img src="./images/thumb-down.png" alt="trash icon"/>
-                        }
-                        {user.username}
-                      </button>
-                    </form>
+                    <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                   </h4>
                   <button className="remove" onClick={(e)=>handleDeletePost(e, post.id)}>
                     <img src="./images/trashpic.png" alt="trash icon"/>
                        Move to trash
                   </button>
+
                   <button onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
-                    Edit Post
+                    <img src="./images/pencil.png" alt="trash icon"/>Edit
                   </button>
                   { edit && <form>
                     <textarea value={editBody} onChange={e => setEditBody(e.target.value)} />
@@ -154,7 +152,8 @@ const PostIndex = () => {
                     </button>
                   </form>}
 
-                  <button onClick={() => {setComment(prev => !prev); setCommentBody(post.body);}}>
+
+                  <button onClick={() => {setComment(prev => !prev); setCommentBody(comment.body);}}>
                     comment
                   </button>
                   { comment && <form>

@@ -1,30 +1,24 @@
 import csrfFetch from "./csrf"
 
-const RECIEVEPOST = 'posts/recievePost'
-const RECIEVEPOSTS = 'posts/recievePosts'
+export const RECIEVEPOST = 'posts/recievePost'
+export const RECIEVEPOSTS = 'posts/recievePosts'
 const REMOVEPOST = 'posts/removePost'
-const RECIEVE_LIKES = 'posts/recieve_likes'
 
-export const recievePosts = posts => {
+export const recievePosts = payload => {
     return {
         type: RECIEVEPOSTS,
-        posts
+        payload
     }
 }
 
-export const recievePost = post => ({
+export const recievePost = payload => ({
     type: RECIEVEPOST,
-    post
+    payload
 })
 
 export const removePost = postId => ({
     type: REMOVEPOST,
     postId
-})
-
-export const recieve_likes = post => ({
-    type: RECIEVE_LIKES,
-    post
 })
 
 export const getPost = (reportId) => (store) => {
@@ -92,38 +86,15 @@ export const deletePost = (postId) => async dispatch => {
     }
 }
 
-export const createLike = (postId) => async dispatch => {
-    const res = await csrfFetch(`/api/posts/${postId}/likes`, {
-        method: 'POST'
-    })
-    if (res.ok){
-        const like = await res.json()
-        dispatch(recieve_likes(like))
-    }
-}
-
-export const deleteLike = (postId, likeId) => async dispatch => {
-    const res = await csrfFetch(`/api/posts/${postId}/likes/${likeId}`, {
-        method: 'DELETE',
-    })
-    if (res.ok){
-        const like = await res.json()
-        dispatch(recieve_likes(like))
-    }
-}
-
 const postReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
         case RECIEVEPOSTS:
-            return {...newState, ...action.posts}
+            return {...newState, ...action.payload.posts}
         case RECIEVEPOST:
-            return {...newState, [action.post.id]: action.post}
+            return {...newState, [action.payload.post.id]: action.payload.post}
         case REMOVEPOST:
             delete newState[action.postId]
-            return newState
-        case RECIEVE_LIKES:
-            newState[action.post.id] = action.post
             return newState
         default:
             return state

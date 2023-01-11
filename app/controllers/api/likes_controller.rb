@@ -1,22 +1,30 @@
 class Api::LikesController < ApplicationController
+    wrap_parameters include: Like.attribute_names + ['postId']
 
     def create
-        @like = current_user.likes.new(like_params)
-        if !like.save
-            flash[:notice] = @like.errors.full_messages.to_sentence
+        @like = Like.new(like_params)
+        @like.user_id = current_user.id
+        if !@like.save!
+            render json: { errors: @like.errors.full_messages }
+        else
+            render :show
         end
-        redirect_to @like.post
+    end
+
+    def index
+        @likes = Like.where(user_id: current_user.id)
+        render :index
     end
 
     def destroy
         @like = current_user.likes.find(params[:id])
         post = @like.post
         @like.destroy
-        redirect_to post
+        render :show
     end
 
     private
     def like_params
-        params.require(:like).permit(:post_id)
+        params.require(:like).permit(:post_id, :user_id)
     end
 end

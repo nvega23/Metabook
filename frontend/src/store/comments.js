@@ -1,8 +1,13 @@
 import csrfFetch from "./csrf"
 
-// const RECIEVECOMMENTS = 'posts/comments/RECIEVECOMMENTS'
+const RECIEVECOMMENTS = 'posts/comments/RECIEVECOMMENTS'
 const RECIEVECOMMENT = 'posts/comments/RECIEVECOMMENT'
 const REMOVECOMMENT = 'posts/comments/REMOVECOMMENT'
+
+export const recieveComments = comments => ({
+    type: RECIEVECOMMENTS,
+    comments
+})
 
 export const recieveComment = comment => ({
     type: RECIEVECOMMENT,
@@ -13,6 +18,14 @@ export const removeComment = commentId => ({
     type: REMOVECOMMENT,
     commentId
 })
+
+export const fetchComments = () => async dispatch => {
+    const res = await csrfFetch(`/api/posts/`)
+    if (res.ok){
+        const comment = await res.json()
+        dispatch(recieveComments(comment))
+    }
+}
 
 export const fetchComment = (commentId) => async dispatch => {
     const res = await csrfFetch(`/api/posts/${commentId}`)
@@ -60,6 +73,8 @@ export const deleteComment = (postId ,commentId) => async dispatch => {
 const commentReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
+        case RECIEVECOMMENTS:
+            return {...newState, ...action.comment}
         case RECIEVECOMMENT:
             return {...newState, [action.comment.id]: action.comment}
         case REMOVECOMMENT:
