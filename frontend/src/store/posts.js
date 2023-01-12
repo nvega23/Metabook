@@ -1,26 +1,26 @@
 import csrfFetch from "./csrf"
+import { RECIEVECOMMENTS, RECIEVECOMMENT, REMOVECOMMENT } from "./comments.js"
 
-const RECIEVEPOST = 'posts/recievePost'
-const RECIEVEPOSTS = 'posts/recievePosts'
-const REMOVEPOST = 'posts/removePost'
+export const RECIEVEPOST = 'posts/recievePost'
+export const RECIEVEPOSTS = 'posts/recievePosts'
+export const REMOVEPOST = 'posts/removePost'
 
-export const recievePosts = posts => {
+export const recievePosts = payload => {
     return {
         type: RECIEVEPOSTS,
-        posts
+        payload
     }
 }
 
-export const recievePost = post => ({
+export const recievePost = payload => ({
     type: RECIEVEPOST,
-    post
+    payload
 })
 
 export const removePost = postId => ({
     type: REMOVEPOST,
     postId
 })
-
 
 export const getPost = (reportId) => (store) => {
     if (store.posts && store.posts[reportId]) return store.posts[reportId]
@@ -41,7 +41,7 @@ export const fetchPost = (postId) => async dispatch => {
 }
 
 export const fetchAllPosts = () => async dispatch => {
-    const res = await csrfFetch('api/posts')
+    const res = await csrfFetch('/api/posts')
     if (res.ok){
         const post = await res.json()
         dispatch(recievePosts(post))
@@ -49,7 +49,7 @@ export const fetchAllPosts = () => async dispatch => {
 }
 
 export const createPost = (post) => async dispatch => {
-    const res = await csrfFetch(`api/posts`, {
+    const res = await csrfFetch(`/api/posts`, {
         method: "POST",
         body: JSON.stringify(post),
         headers: {
@@ -92,9 +92,9 @@ const postReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
         case RECIEVEPOSTS:
-            return {...newState, ...action.posts}
+            return {...newState, ...action.payload.posts}
         case RECIEVEPOST:
-            return {...newState, [action.post.id]: action.post}
+            return {...newState, [action.payload.post.id]: action.payload.post}
         case REMOVEPOST:
             delete newState[action.postId]
             return newState

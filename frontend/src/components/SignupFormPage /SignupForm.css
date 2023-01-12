@@ -56,5 +56,33 @@
     .button-65 {
       padding: 14px 22px;
       width: 176px;
-    }
+  }
+}
+.signup{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #dadde1;
+  margin-left: auto;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 1.43;
+  padding: 16px;
+  width: 300px;
+  position: relative;
+}
+
+.input{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  background-color: rgb(234, 234, 234);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 12px;
+  padding: 6px;
 }
