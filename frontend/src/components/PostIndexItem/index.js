@@ -79,7 +79,7 @@ const PostIndex = () => {
       <>
         <div>
         <form onSubmit={handleSubmit}>
-          <div className="postsform">
+          <div >
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <br/>
@@ -96,22 +96,18 @@ const PostIndex = () => {
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    <u>{user.username}</u>
+                    <u className="username">{user.username}</u>
                       <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
-                      { edit && <form>
-                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
-                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
-                          Update Post
-                        </button>
-                      </form>}
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
-                    {post.body}
+                    <h4 className="postBody">
+                      {post.body}
+                    </h4>
                     <br/>
                     <br/>
 
@@ -120,8 +116,15 @@ const PostIndex = () => {
                     )}
                     <br/>
                     <br/>
+                    { edit && <form>
+                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
+                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
+                          Save
+                        </button>
+                      </form>}
                     <div className="likesComments">
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
+                      <br/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                     </div>
                     <br/>

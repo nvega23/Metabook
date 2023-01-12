@@ -21,6 +21,7 @@ function Navigation(){
       <div className='link'>
         <br/>
         <br/>
+          <h1 className='title'>Metabook</h1>
           {sessionLinks}
         <br/>
       </div>

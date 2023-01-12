@@ -39,7 +39,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-      <img src="images/menu2.png"/>
+      <img src="images/maleicon.png"/>
         <i className="fa-solid fa-user-circle" />
       </button>
       {showMenu && (

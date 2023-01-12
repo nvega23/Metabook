@@ -9,6 +9,8 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
+        # debugger
+
         @comments = @post.comments.create(comment_params)
         @comments.users_id = current_user.id
         if @comments.save!
@@ -19,6 +21,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
+        debugger
         if @comments.update(comment_params)
             render :show
         else
@@ -42,11 +45,11 @@ class Api::CommentsController < ApplicationController
     end
 
     def find_post
-        @post = Post.find(params[:post_id])
+        @post = Post.find_by(id: params[:post_id])
     end
 
     def find_comment
-        @comments = @post.comments.find(params[:id])
+        @comments = @post.comments.find_by(id: params[:id])
     end
 
 end

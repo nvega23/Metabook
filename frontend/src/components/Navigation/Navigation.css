@@ -66,10 +66,22 @@ button {
         text-align: center;
     } */
 }
+
+.title{
+  /* border: 3px solid black; */
+  font-family: 'Poppins-SemiBold', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: #2f80ed;
+  position: static;
+}
+
 .link {
-    display: flex;
-    justify-content: flex-start;
-    position: fixed;
+  /* border: 3px solid black; */
+  display: flex;
+  justify-content: space-between;
+    /* justify-content: flex-end; */
+  position: static;
 }
 
 .bob{

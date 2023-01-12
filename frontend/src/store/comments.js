@@ -47,8 +47,8 @@ export const createComment = (postId, body) => async dispatch => {
     }
 }
 
-export const updateComment = (comment) => async dispatch => {
-    const res = await csrfFetch(`/api/posts/comments/${comment.id}`, {
+export const updateComment = (postId, commentId, comment) => async dispatch => {
+    const res = await csrfFetch(`/api/posts/${postId}comments/${commentId}`, {
         method: "PATCH",
         body: JSON.stringify(comment),
         Headers: {
@@ -67,17 +67,17 @@ export const deleteComment = (postId ,commentId) => async dispatch => {
         method: 'DELETE',
     })
     if (res.ok){
-        dispatch(removeComment(postId, commentId))
+        dispatch(removeComment(commentId))
     }
 }
 
 const commentReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
-        // case RECIEVEPOSTS:
-        //     return {...newState, ...action.payload.comments}
-        // case RECIEVEPOST:
-        //     return {...newState, [action.payload.comment.id]: action.payload.comment}
+        case RECIEVEPOSTS:
+            return {...newState, ...action.payload.comments}
+        case RECIEVEPOST:
+            return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
         case RECIEVECOMMENTS:
             return {...newState, ...action.comment}
         case RECIEVECOMMENT:

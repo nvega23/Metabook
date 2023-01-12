@@ -56,35 +56,35 @@ ApplicationRecord.transaction do
 
     post2 = Post.create!(body: "Moon.",users_id: 2)
     post2.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/moon.jpeg'),
-    filename: "italy.png")
+    filename: "moon.jpeg'")
 
     post3 = Post.create!(body: "Nice views!! 😎",users_id: 1)
     post3.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/italy.jpg'),
-    filename: "eldenring.jpeg")
+    filename: "italy.jpg")
 
-    post4 = Post.create!(body: "= 🌉",users_id: 2)
+    post4 = Post.create!(body: " 🌉",users_id: 2)
     post4.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/bridge.jpeg'),
-    filename: "eldenring.jpeg")
+    filename: "bridge.jpeg")
 
     post5 = Post.create!(body: "No words needed...",users_id: 2)
     post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg'),
-    filename: "eldenring.jpeg")
+    filename: "church.jpeg")
 
     post6 = Post.create!(body: "No words needed...",users_id: 2)
     post6.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/IMG_0252.JPG'),
-    filename: "eldenring.jpeg")
+    filename: "IMG_0252.JPG")
 
     post7 = Post.create!(body: "2D :D",users_id: 2)
     post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/2d.jpeg'),
-    filename: "eldenring.jpeg")
+    filename: "2d.jpeg")
 
-    post5 = Post.create!(body: "Oakland cares more about giving out tickets than real crime",users_id: 2)
-    post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/oaklandticket.jpeg'),
-    filename: "eldenring.jpeg")
+    post8 = Post.create!(body: "Oakland cares more about giving out tickets than real crime",users_id: 2)
+    post8.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/oaklandticket.jpeg'),
+    filename: "oaklandticket.jpeg")
 
-    post5 = Post.create!(body: "Peace",users_id: 2)
-    post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/religion.jpeg'),
-    filename: "eldenring.jpeg")
+    post9 = Post.create!(body: "Peace",users_id: 2)
+    post9.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/religion.jpeg'),
+    filename: "religion.jpeg")
 
     puts "Done!"
 
