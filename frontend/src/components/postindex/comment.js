@@ -29,10 +29,10 @@ const CommentButton = ({post, body}) => {
         dispatch(fetchComment(post.id, comment.id))
     }
 
-    const handleEditComment = async e => {
+    const handleEditComment = (e, commentId) => {
         e.preventDefault()
         const newComment = { ...comment, body: commentBody };
-        dispatch(updateComment(newComment))
+        dispatch(updateComment(postId, newComment, commentId))
     }
 
     const handleDeleteComment = (e, commentId) => {
@@ -46,41 +46,28 @@ const CommentButton = ({post, body}) => {
                 <img src="./images/comments.png" alt="trash icon"/>
             </button>
             <br/>
-            <br/>
-            <br/>
-            <br/>
             {comments.map(comment => (
                 <>
                     <u>
                         <br/>
-                        <br/>
                         {user.username}
                     </u>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    {post.id}
-                    {comment.body}
-                    {comment.id}
-                    <br/>
-                    <br/>
                     <form onSubmit={handleDeleteComment}>
-                        <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                            Remove
-                        </button>
-                    <br/>
                         <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
                             Edit comment
                         </button>
+                        <br/>
+                        <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
+                            Remove
+                        </button>
                     </form>
-                    <LikeButton post = {post} isLiked = {likedComments.includes(comment.id)} comment = {comment}/>
+                    <h5 className="commentBody">
+                        {comment.body}
+                    </h5>
+                    {/* <LikeButton post = {post} isLiked = {likedComments.includes(comment.id)} comment = {comment}/> */}
                 </>
             ))}
             { comment && <form>
-                <br/>
-                <br/>
-                <br/>
             <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
             <button onClick={handleCommentPost}>
                 Write a comment...

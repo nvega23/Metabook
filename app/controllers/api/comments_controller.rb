@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
     wrap_parameters include: Comment.attribute_names + ['usersId', 'postId']
     before_action :find_post
-    before_action :find_comment, only: [:destroy]
+    before_action :find_comment, only: [:destroy, :update]
 
     def index
         @comments = Comment.all
@@ -9,8 +9,6 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
-        # debugger
-
         @comments = @post.comments.create(comment_params)
         @comments.users_id = current_user.id
         if @comments.save!
@@ -21,8 +19,8 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        debugger
-        if @comments.update(comment_params)
+        @comment = Comment.find(params[:id])
+        if @comments.update!(comment_params)
             render :show
         else
             render json: { errors: @comment.errors.full_messages }

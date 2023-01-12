@@ -91,7 +91,6 @@ const PostIndex = () => {
             </Modal>
           )} */}
         </form>
-
           <br/>
             {posts.map(post => (
               <>
@@ -122,11 +121,11 @@ const PostIndex = () => {
                           Save
                         </button>
                       </form>}
-                    <div className="likesComments">
+                    {/* <div className="likesComments"> */}
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <br/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
-                    </div>
+                    {/* </div> */}
                     <br/>
                   </h4>
               </>
