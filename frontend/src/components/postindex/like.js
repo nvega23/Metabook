@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLike, createLike } from "../../store/likes";
+import "./likes.css"
 
 const LikeButton = ({post, isLiked, likes}) => {
     const user = useSelector(state => state.session.user)
@@ -17,8 +18,8 @@ const LikeButton = ({post, isLiked, likes}) => {
 
     return (
         <>
-            <form className="likes">
-                <button onClick={(e)=>handleLike(e, post.id)}>
+            <form>
+                <button className="likes" onClick={(e)=>handleLike(e, post.id)}>
                 {!isLiked ?
                     <img src="./images/like.png" alt="Like"/>
                     :

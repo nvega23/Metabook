@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPosts, getPosts } from "../../store/posts";
 import { useEffect } from "react";
 import PostIndex from "../PostIndexItem";
+import LikeButton from "../postindex/like";
 import "./style.css"
 
 const NewsFeed = () => {
@@ -33,12 +34,13 @@ const NewsFeed = () => {
     return (
         <>
             <h1>hi im the newsFeed</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="postsform" onSubmit={handleSubmit}>
                 {allPosts.map(post => (
                     <>
                         <h2 className="newsfeed" >
                             <div className="username">
                                 {user.username}
+                                <LikeButton/>
                             </div>
                             {post.body}
                         </h2>

@@ -23,7 +23,7 @@ class Post < ApplicationRecord
     has_many :likes
 
     #will either be one picture on post or many pictures on post
-    # has_one_attached :photo
+    has_one_attached :photo
     # has_many_attached :photos
 
     # validate :ensure_photo

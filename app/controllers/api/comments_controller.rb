@@ -5,14 +5,14 @@ class Api::CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
-        render 'api/posts/show'
+        render :show
     end
 
     def create
         @comments = @post.comments.create(comment_params)
         @comments.users_id = current_user.id
         if @comments.save!
-            render 'api/posts/show'
+            render :show
         else
             render json: { errors: @comment.errors.full_messages }
         end
@@ -20,7 +20,7 @@ class Api::CommentsController < ApplicationController
 
     def update
         if @comments.update(comment_params)
-            render 'api/posts/show'
+            render :show
         else
             render json: { errors: @comment.errors.full_messages }
         end
@@ -29,7 +29,7 @@ class Api::CommentsController < ApplicationController
     def destroy
         if @comments
             @comments.destroy
-            render 'api/posts/show'
+            render :show
         else
             render json: { errors: @comment.errors.full_messages }
         end

@@ -1,11 +1,12 @@
 import { createComment, deleteComment, fetchComment, updateComment } from "../../store/comments";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './comment.css'
 
 const CommentButton = ({post, body}) => {
     const dispatch = useDispatch();
     const postId = post.id
+    // const comments = useSelector((state)=> )
     const [commentBody, setCommentBody] = useState("");
     const [comment, setComment] = useState(false)
 
@@ -32,11 +33,13 @@ const CommentButton = ({post, body}) => {
 
     return (
         <>
-            <button onClick={() => {setComment(prev => !prev); setCommentBody(comment.body);}}>
+            <button className="commentButton" onClick={() => {setComment(prev => !prev); setCommentBody(comment.body);}}>
                 <img src="./images/comments.png" alt="trash icon"/>
             </button>
-
             { comment && <form>
+                <br/>
+                <br/>
+                <br/>
             <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
             <button onClick={handleCommentPost}>
                 Write a comment...

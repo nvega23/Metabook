@@ -38,9 +38,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={openMenu}>
+      <img src="images/menu2.png"/>
         <i className="fa-solid fa-user-circle" />
-        <link/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -48,7 +48,6 @@ function ProfileButton({ user }) {
           {/* <button onClick={<Redirect to="/profilePage"/>}>profile</button> */}
           <button onClick={profile}>{user.username}</button>
           <br/>
-          {user.email}
           <br/>
           <button onClick={logout}>Log Out</button>
         </ul>

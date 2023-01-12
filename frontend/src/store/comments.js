@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf"
+import { RECIEVEPOST, RECIEVEPOSTS } from "./posts"
 
 export const RECIEVECOMMENTS = 'posts/comments/RECIEVECOMMENTS'
 export const RECIEVECOMMENT = 'posts/comments/RECIEVECOMMENT'
@@ -73,6 +74,10 @@ export const deleteComment = (postId ,commentId) => async dispatch => {
 const commentReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
+        // case RECIEVEPOSTS:
+        //     return {...newState, ...action.payload.comments}
+        // case RECIEVEPOST:
+        //     return {...newState, [action.payload.comment.id]: action.payload.comment}
         case RECIEVECOMMENTS:
             return {...newState, ...action.comment}
         case RECIEVECOMMENT:

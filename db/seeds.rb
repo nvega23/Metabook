@@ -9,6 +9,7 @@
 ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Like.destroy_all
     Comment.destroy_all
     Post.destroy_all
     User.destroy_all
@@ -18,6 +19,8 @@ ApplicationRecord.transaction do
     ApplicationRecord.connection.reset_pk_sequence!('users')
     #makes id start at 1 again, otherwise it will continue
     ApplicationRecord.connection.reset_pk_sequence!('posts')
+    ApplicationRecord.connection.reset_pk_sequence!('comments')
+    ApplicationRecord.connection.reset_pk_sequence!('likes')
 
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -51,14 +54,41 @@ ApplicationRecord.transaction do
       users_id: 2
     )
 
-    # post2 = Post.create!(
-    #   body: "this is my second post",
-    #   users_id: 2
-    # )
+    post2 = Post.create!(body: "Moon.",users_id: 2)
+    post2.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/moon.jpeg'),
+    filename: "italy.png")
 
-    # post2.photo.attach(io: URI.open('https://images.unsplash.com/photo-1673280293847-97ad70e7512a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'),
-    # filename: "italy.png")
+    post3 = Post.create!(body: "Nice views!! 😎",users_id: 1)
+    post3.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/italy.jpg'),
+    filename: "eldenring.jpeg")
+
+    post4 = Post.create!(body: "= 🌉",users_id: 2)
+    post4.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/bridge.jpeg'),
+    filename: "eldenring.jpeg")
+
+    post5 = Post.create!(body: "No words needed...",users_id: 2)
+    post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg'),
+    filename: "eldenring.jpeg")
+
+    post6 = Post.create!(body: "No words needed...",users_id: 2)
+    post6.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/IMG_0252.JPG'),
+    filename: "eldenring.jpeg")
+
+    post7 = Post.create!(body: "2D :D",users_id: 2)
+    post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/2d.jpeg'),
+    filename: "eldenring.jpeg")
+
+    post5 = Post.create!(body: "Oakland cares more about giving out tickets than real crime",users_id: 2)
+    post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/oaklandticket.jpeg'),
+    filename: "eldenring.jpeg")
+
+    post5 = Post.create!(body: "Peace",users_id: 2)
+    post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/religion.jpeg'),
+    filename: "eldenring.jpeg")
 
     puts "Done!"
 
 end
+# post5 = Post.create!(body: "No words needed...",users_id: 2)
+# post5.photo.attach(io: URI.open(''),
+# filename: "eldenring.jpeg")

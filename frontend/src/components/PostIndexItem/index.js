@@ -2,13 +2,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import './posts.css'
-import { Modal } from '../../context/Modal';
 import { Redirect } from "react-router";
-import { createComment, fetchComment, fetchComments } from "../../store/comments";
 import LikeButton from "../postindex/like";
-import { fetchAllLikes } from "../../store/likes";
 import CommentButton from "../postindex/comment";
-import removeEditButton from "../Navigation/removeEditButton";
 
 
 const PostIndex = () => {
@@ -48,57 +44,47 @@ const PostIndex = () => {
     setEdit(false);
   }
 
-  // const [photoFile, setPhotoFile] = useState(null)
-  // const [photoUrl, setPhotoUrl] = useState(null)
+  const [photoFile, setPhotoFile] = useState(null)
+  const [photoUrl, setPhotoUrl] = useState(null)
 
-  // const handlePhoto = (e) => {
-  //   const file = e.currentTarget.files[0]
-  //   setPhotoFile(file)
-  // }
+  const handlePhoto = (e) => {
+    const file = e.currentTarget.files[0]
+    setPhotoFile(file)
+  }
 
-  // const handlePhotoSubmit = () => async e => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append('post[body]', body);
-  //   if (photoFile) {
-  //     formData.append('post[photo]', photoFile);
-  //   }
-  //   const response = await fetch('/api/posts', {
-  //     method: 'POST',
-  //     body: formData
-  //   });
-  //   if (response.ok) {
-  //     const message = await response.json();
-  //     console.log(message.message);
-  //     setBody("");
-  //     setPhotoFile(null);
-  //     setPhotoUrl(null);
-  //   }
-  // }
+  const handlePhotoSubmit = () => async e => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('post[body]', body);
+    if (photoFile) {
+      formData.append('post[photo]', photoFile);
+    }
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      const message = await response.json();
+      console.log(message.message);
+      setBody("");
+      setPhotoFile(null);
+      setPhotoUrl(null);
+    }
+  }
 
-  // const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
+  const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
 
   if (user){
     return(
       <>
-
-      {/* //     <form onSubmit={handlePhotoSubmit}>
-      //       <label htmlFor="post-title">Title of Post</label>
-      //       <input type="text"
-      //         id="post-title"
-      //         value={body}
-      //         onChange={handleSubmit}/>
-      //       <input type="file" onChange={handlePhoto}/>
-      //       <h3>Image preview</h3>
-      //       {preview}
-      //       <button>Make a new Post!</button>
-      //     </form> */}
         <div>
-        <form className="postsform" onSubmit={handleSubmit}>
-          <input id="body" value={body} onChange={e => setBody(e.target.value)}/>
-          <br/>
-          <br/>
-          <button className="postbutton">What's on your mind, {user.username}?</button>
+        <form onSubmit={handleSubmit}>
+          <div className="postsform">
+            <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
+            <br/>
+            <br/>
+            <button className="postbutton">What's on your mind, {user.username}?</button>
+          </div>
           {/* onClick={()=>showModal(true)} */}
           {/* {showModal && (
             <Modal onClose={() => setShowModal(false)}>
@@ -106,30 +92,38 @@ const PostIndex = () => {
           )} */}
         </form>
 
-
           <br/>
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    {post.id}
-                    {post.body}
-                    <br/>
-
+                    <u>{user.username}</u>
+                      <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
+                        <img src="./images/pencil.png" alt="pencil icon"/>Edit
+                      </button>
+                      { edit && <form>
+                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
+                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
+                          Update Post
+                        </button>
+                      </form>}
+                      <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
-                      <button className="removeEdit" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/>Edit
-                      </button>
-                      { edit && <form>
-                        <textarea value={editBody} onChange={e => setEditBody(e.target.value)} />
-                        <button onClick={(e)=>handleEditPost(e, post)}>
-                          Update Post
-                        </button>
-                      </form>}
-                    <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
-                    <CommentButton post = {post} body = {post.body}/>
+                    {post.body}
+                    <br/>
+                    <br/>
+
+                    { post.photo_url && (
+                      <img className="images" src={post.photo_url}></img>
+                    )}
+                    <br/>
+                    <br/>
+                    <div className="likesComments">
+                      <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
+                      <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
+                    </div>
                     <br/>
                   </h4>
               </>

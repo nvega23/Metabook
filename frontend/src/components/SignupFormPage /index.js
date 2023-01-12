@@ -42,43 +42,24 @@ const SignupFormPage = () => {
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
           <label>
-            <input
-              type="text"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+          <label>
+            <input className="input" type="text" value={username} placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)} required/>
+          </label>
+            <input className="input" type="text" value={email} placeholder="Email" onChange={(e) =>
+            setEmail(e.target.value)} required/>
           </label>
           <br/>
-          <label>
-            <input
-              type="text"
-              value={username}
-              placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label>
           <br/>
           <label>
-            <input
-              type="password"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <input className="input" type="password" value={password} placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)} required/>
           </label>
           <br/>
+          <br/>
           <label>
-            <input
-              type="password"
-              value={confirmPassword}
-              placeholder="Confirm Password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+            <input className="input" type="password" value={confirmPassword} placeholder="Confirm Password"
+              onChange={(e) => setConfirmPassword(e.target.value)} required/>
           </label>
           <br/>
           <br/>

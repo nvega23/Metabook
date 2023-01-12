@@ -63,7 +63,7 @@ function LoginForm() {
       <button className="log_in" type="submit">Log In</button>
     </form>
     <form className="loginForm" onSubmit={handleSubmit}>
-      <button onClick={()=>setDemo()} className ="button"> Log in as a demo user?</button>
+      <button className="log_in" onClick={()=>setDemo()}> Log in as a demo user?</button>
     </form>
 
     <br/>

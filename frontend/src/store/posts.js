@@ -97,13 +97,6 @@ const postReducer = (state = {}, action) => {
         case REMOVEPOST:
             delete newState[action.postId]
             return newState
-        case RECIEVECOMMENTS:
-            return {...newState, ...action.comment}
-        case RECIEVECOMMENT:
-            return {...newState, [action.comment.id]: action.comment}
-        case REMOVECOMMENT:
-            delete newState[action.commentId]
-            return newState
         default:
             return state
     }
