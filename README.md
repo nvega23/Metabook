@@ -21,13 +21,16 @@ Functionality & MVPS
         Users can create, edit, and delete posts which appear on their profiles
         All users posts appear on the main feed on the homepage
 
+<img width="620" alt="Screenshot 2023-01-13 at 9 41 34 AM" src="https://user-images.githubusercontent.com/93811834/212385195-25bb3181-326d-422b-a550-a50e1027e83c.png">
+
+
+
     3. Comments
         Users can create and delete comments, which will appear below the post
 
-<img width="769" alt="Screenshot 2023-01-13 at 9 06 06 AM" src="https://user-images.githubusercontent.com/93811834/212377943-2bf39543-626e-4a28-96ad-31f64645d2e0.png">
+<img width="236" alt="Screenshot 2023-01-13 at 9 40 53 AM" src="https://user-images.githubusercontent.com/93811834/212385081-b08b67ab-de65-42b5-8e5a-6d02be37c017.png">
 
-
-<img width="763" alt="Screenshot 2023-01-13 at 9 35 58 AM" src="https://user-images.githubusercontent.com/93811834/212383317-d9ea09e0-f300-4f55-81f5-89596ef45708.png">
+ 
 
 Technologies, Libraries, APIs
     Javascript
