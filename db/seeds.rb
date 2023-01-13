@@ -44,7 +44,6 @@
       })
     end
 
-    Post.create(body: "hey Demo", users_id: 1)
 
     post2 = Post.create!(body: "Moon.",users_id: 1)
     post2.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/moon.jpeg'),
@@ -62,13 +61,9 @@
     post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg'),
     filename: "church.jpeg")
 
-    post6 = Post.create!(body: "No words needed...",users_id: 1)
-    post6.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/IMG_0252.JPG'),
-    filename: "IMG_0252.JPG")
-
-    post7 = Post.create!(body: "2D :D",users_id: 1)
-    post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/2d.jpeg'),
-    filename: "2d.jpeg")
+    # post7 = Post.create!(body: "2D :D",users_id: 1)
+    # post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/2d.jpeg'),
+    # filename: "2d.jpeg")
 
     post8 = Post.create!(body: "Oakland cares more about giving out tickets than real crime",users_id: 2)
     post8.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/oaklandticket.jpeg'),
@@ -77,6 +72,20 @@
     post9 = Post.create!(body: "Peace",users_id: 1)
     post9.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/religion.jpeg'),
     filename: "religion.jpeg")
+
+    post10 = Post.create!(body: "perfect view",users_id: 2)
+    post10.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/waterfall.jpeg'),
+    filename: "waterfall.jpeg")
+
+    post11 = Post.create!(body: "rate my setup",users_id: 1)
+    post11.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/deskSetUp.jpeg'),
+    filename: "waterfall.jpeg")
+
+    post12 = Post.create!(body: "...",users_id: 1)
+    post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/newyork.jpeg'),
+    filename: "newyork.jpeg")
+
+    comment1 = Comment.create!(post_id: 9, users_id: 2, body: "nice shot!")
 
     puts "Done!"
 
