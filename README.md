@@ -3,6 +3,7 @@
 Metabook is a facebook clone by Nestor Vega
 
 Instructions
+
     1. Upon entering, the user is directed to the login page, where they can either login if they
         have an existing, or sign up and make a new account. A Demo user is also available
 
