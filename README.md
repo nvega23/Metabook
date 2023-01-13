@@ -23,9 +23,11 @@ Functionality & MVPS
 
     3. Comments
         Users can create and delete comments, which will appear below the post
-        
+
 <img width="769" alt="Screenshot 2023-01-13 at 9 06 06 AM" src="https://user-images.githubusercontent.com/93811834/212377943-2bf39543-626e-4a28-96ad-31f64645d2e0.png">
 
+
+<img width="763" alt="Screenshot 2023-01-13 at 9 35 58 AM" src="https://user-images.githubusercontent.com/93811834/212383317-d9ea09e0-f300-4f55-81f5-89596ef45708.png">
 
 Technologies, Libraries, APIs
     Javascript
