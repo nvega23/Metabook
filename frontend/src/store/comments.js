@@ -77,6 +77,13 @@ const commentReducer = (state = {}, action) => {
         case RECIEVEPOSTS:
             return {...newState, ...action.payload.comments}
         case RECIEVEPOST:
+            //
+            // if (action.payload.post.comment) {
+            //     return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
+            // } else {
+            //     return {...newState};
+            // }
+            // //
             return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
         case RECIEVECOMMENTS:
             return {...newState, ...action.comment}

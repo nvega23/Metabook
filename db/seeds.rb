@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-ApplicationRecord.transaction do
+# ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     Like.destroy_all
@@ -44,17 +44,9 @@ ApplicationRecord.transaction do
       })
     end
 
-    Post.create!(
-      body: "this is my first post",
-      users_id: 1
-    )
+    Post.create(body: "hey Demo", users_id: 1)
 
-    Post.create!(
-      body: "this is my second post",
-      users_id: 2
-    )
-
-    post2 = Post.create!(body: "Moon.",users_id: 2)
+    post2 = Post.create!(body: "Moon.",users_id: 1)
     post2.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/moon.jpeg'),
     filename: "moon.jpeg'")
 
@@ -62,19 +54,19 @@ ApplicationRecord.transaction do
     post3.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/italy.jpg'),
     filename: "italy.jpg")
 
-    post4 = Post.create!(body: " 🌉",users_id: 2)
+    post4 = Post.create!(body: " 🌉",users_id: 1)
     post4.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/bridge.jpeg'),
     filename: "bridge.jpeg")
 
-    post5 = Post.create!(body: "No words needed...",users_id: 2)
+    post5 = Post.create!(body: "No words needed...",users_id: 1)
     post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg'),
     filename: "church.jpeg")
 
-    post6 = Post.create!(body: "No words needed...",users_id: 2)
+    post6 = Post.create!(body: "No words needed...",users_id: 1)
     post6.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/IMG_0252.JPG'),
     filename: "IMG_0252.JPG")
 
-    post7 = Post.create!(body: "2D :D",users_id: 2)
+    post7 = Post.create!(body: "2D :D",users_id: 1)
     post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/2d.jpeg'),
     filename: "2d.jpeg")
 
@@ -82,13 +74,13 @@ ApplicationRecord.transaction do
     post8.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/oaklandticket.jpeg'),
     filename: "oaklandticket.jpeg")
 
-    post9 = Post.create!(body: "Peace",users_id: 2)
+    post9 = Post.create!(body: "Peace",users_id: 1)
     post9.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/religion.jpeg'),
     filename: "religion.jpeg")
 
     puts "Done!"
 
-end
+# end
 # post5 = Post.create!(body: "No words needed...",users_id: 2)
 # post5.photo.attach(io: URI.open(''),
 # filename: "eldenring.jpeg")

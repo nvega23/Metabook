@@ -12,7 +12,7 @@ const CommentButton = ({post, body}) => {
     const postId = post.id
     const comments = useSelector((state) =>{
         if (user){
-          return Object.values(state.comments).filter((comment)=>comment.post_id === post.id)
+          return Object.values(state.comments).filter((comment)=>comment.postId === post.id)
         }
     });
 

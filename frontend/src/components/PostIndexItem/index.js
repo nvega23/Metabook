@@ -6,7 +6,6 @@ import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 
-
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
@@ -15,14 +14,13 @@ const PostIndex = () => {
   const [edit, setEdit] = useState(false)
   const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
-  const likedPosts = likes.map((ele)=> ele.post_id)
+  const likedPosts = likes.map((ele)=> ele.postId)
   const posts = useSelector((state) =>{
     if (user){
-      return Object.values(state.posts).filter((post)=>post.users_id === user.id).reverse()
+      return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
     }
   });
-  // const postId = useParams(getPost(posts))
-  // const postId = useParams()
+  console.log(likes, "im the like")
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -111,9 +109,8 @@ const PostIndex = () => {
                     </h4>
                     <br/>
                     <br/>
-
-                    { post.photo_url && (
-                      <img className="images" src={post.photo_url}></img>
+                    { post.photoUrl && (
+                      <img className="images" src={post.photoUrl} alt="photo"></img>
                     )}
                     <br/>
                     <br/>

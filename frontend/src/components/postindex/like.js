@@ -9,13 +9,14 @@ const LikeButton = ({post, isLiked, likes}) => {
     const handleLike = (e, postId) => {
         e.preventDefault()
         if (isLiked){
-            const likeId = likes.find(ele => ele.post_id === postId).id
+            const likeId = likes.find(ele => ele.postId === postId).id
             dispatch(deleteLike(postId, likeId))
         } else {
             dispatch(createLike(postId, user.id))
         }
     }
 
+    console.log(isLiked)
     return (
         <>
             <form>
