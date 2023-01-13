@@ -8,6 +8,8 @@ Instructions
         have an existing, or sign up and make a new account. A Demo user is also available
 
     2. User will now be redirected to their profile page, where they can create a post, edit a post, and delete a post.
+    
+<img width="1278" alt="Screenshot 2023-01-13 at 9 06 42 AM" src="https://user-images.githubusercontent.com/93811834/212377744-6bc1a85d-1e62-4366-abf2-ed984cac69f2.png">
 
 Functionality & MVPS
 
@@ -21,6 +23,9 @@ Functionality & MVPS
 
     3. Comments
         Users can create and delete comments, which will appear below the post
+        
+<img width="769" alt="Screenshot 2023-01-13 at 9 06 06 AM" src="https://user-images.githubusercontent.com/93811834/212377943-2bf39543-626e-4a28-96ad-31f64645d2e0.png">
+
 
 Technologies, Libraries, APIs
     Javascript
