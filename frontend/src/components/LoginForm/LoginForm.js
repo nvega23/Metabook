@@ -5,7 +5,6 @@ import SignUpFormModal from "../SignUpFormModal";
 import "./LoginForm.css";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import NewsFeed from "../newsfeed";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -20,10 +19,9 @@ function LoginForm() {
     .catch(async (res) => {
       let data;
       try {
-        // .clone() essentially allows you to read the response body twice
         data = await res.clone().json();
       } catch {
-        data = await res.text(); // Will hit this case if the server is down
+        data = await res.text();
       }
       if (data?.errors) setErrors(data.errors);
       else if (data) setErrors([data]);
@@ -61,20 +59,16 @@ function LoginForm() {
       <br/>
       <br/>
       <button className="log_in" type="submit">Log In</button>
-    </form>
-    <form className="loginForm" onSubmit={handleSubmit}>
+      <br/>
+      <br/>
       <button className="log_in" onClick={()=>setDemo()}> Log in as a demo user?</button>
     </form>
-
-    <br/>
-    <br/>
-    <SignUpFormModal/>
+      <br/>
+      <SignUpFormModal/>
     </>
   );
   } else {
-    // return <Redirect to="/newsFeed"/>
     return <Redirect to="/profilePage"/>
-
   }
 }
 

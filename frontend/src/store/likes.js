@@ -49,7 +49,6 @@ export const deleteLike = (postId, likeId) => async dispatch => {
         method: 'DELETE',
     })
     if (res.ok){
-        // const like = await res.json()
         dispatch(remove_like(likeId))
     }
 }
@@ -60,9 +59,9 @@ const likeReducer = (state = {}, action) => {
         case RECIEVEPOSTS:
             return {...newState, ...action.payload.likes}
         case RECIEVEPOST:
-            return {...newState, [action.payload.likes.id]: action.payload.likes}
+            return {...newState, [action.payload.like.id]: action.payload.like}
         case RECIEVE_LIKES:
-            return {...newState, ...action.likes.likes}
+            return {...newState, ...action.likes}
         case RECIEVE_LIKE:
             return {...newState, [action.like.id]: action.like}
         case REMOVE_LIKE:

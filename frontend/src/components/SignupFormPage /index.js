@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
 const SignupFormPage = () => {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector(state => state.session.user);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([])
-
-
-    // if(sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -46,6 +41,8 @@ const SignupFormPage = () => {
             <input className="input" type="text" value={username} placeholder="Username"
             onChange={(e) => setUsername(e.target.value)} required/>
           </label>
+          <br/>
+          <br/>
             <input className="input" type="text" value={email} placeholder="Email" onChange={(e) =>
             setEmail(e.target.value)} required/>
           </label>

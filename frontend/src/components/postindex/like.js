@@ -16,7 +16,6 @@ const LikeButton = ({post, isLiked, likes}) => {
         }
     }
 
-    console.log(isLiked)
     return (
         <>
             <form>
@@ -24,7 +23,7 @@ const LikeButton = ({post, isLiked, likes}) => {
                 {!isLiked ?
                     <img src="./images/like.png" alt="Like"/>
                     :
-                    <img src="./images/unlike.png" alt="unlike"/>
+                    <img src="./images/bl3.png" alt="unlike"/>
                 }
                 </button>
             </form>

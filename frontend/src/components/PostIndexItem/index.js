@@ -20,7 +20,6 @@ const PostIndex = () => {
       return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
     }
   });
-  console.log(likes, "im the like")
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -64,8 +63,6 @@ const PostIndex = () => {
       body: formData
     });
     if (response.ok) {
-      const message = await response.json();
-      console.log(message.message);
       setBody("");
       setPhotoFile(null);
       setPhotoUrl(null);
@@ -95,7 +92,8 @@ const PostIndex = () => {
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    <u className="username">{user.username}</u>
+                    <h3 className="username">{user.username}</h3>
+                    <br/>
                       <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
@@ -106,6 +104,12 @@ const PostIndex = () => {
                       <br/>
                     <h4 className="postBody">
                       {post.body}
+                    { edit && <form>
+                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
+                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
+                          Save
+                        </button>
+                      </form>}
                     </h4>
                     <br/>
                     <br/>
@@ -114,15 +118,8 @@ const PostIndex = () => {
                     )}
                     <br/>
                     <br/>
-                    { edit && <form>
-                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
-                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
-                          Save
-                        </button>
-                      </form>}
                     {/* <div className="likesComments"> */}
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
-                      <br/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                     {/* </div> */}
                     <br/>

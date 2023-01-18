@@ -1,7 +1,7 @@
 .posts{
     background-color: #fff;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    border-radius: 8px;
+    border-radius: 18px;
     box-sizing: border-box;
     width: 650px;
     height: auto;
@@ -165,7 +165,6 @@
       width: 176px;
     }
     .editButton{
-        /* border: 3px solid black; */
         box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         color: gray;
         border-radius: 8px;
@@ -175,8 +174,8 @@
         justify-content: center;
         height: 18px;
         width: 55px;
-        margin-left: auto;
-        margin-top: -15px;
+        margin-left: 580px;
+        margin-top: -55px;
         padding: 0 16px;
     }
 }
@@ -236,7 +235,6 @@
       width: 176px;
     }
     .removeEdit{
-        /* border: 3px solid black; */
         box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         color: gray;
         border-radius: 8px;
@@ -246,7 +244,7 @@
         justify-content: center;
         height: 18px;
         width: 55px;
-        margin-left: auto;
+        margin-left: 580px;
         margin-top: -15px;
         padding: 0 16px;
     }
@@ -331,7 +329,7 @@
 }
 
 .likesComments{
-    width: auto;
+    width: 50px;
     display: flex;
 }
 
@@ -339,14 +337,16 @@
     width: 600px;
     height: 600px;
     margin-left: 25px;
+    border-radius: 18px;
 }
 
 .username{
   margin: 16px;
   margin-bottom: 10px;
-  border: 3px solid;
+  text-decoration: underline;
 }
 
 .postBody{
   margin: 10px;
+  margin-left: 35px;
 }

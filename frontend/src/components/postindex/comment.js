@@ -48,10 +48,10 @@ const CommentButton = ({post, body}) => {
             <br/>
             {comments.map(comment => (
                 <>
-                    <u>
+                    <h3 className="username">
                         <br/>
                         {user.username}
-                    </u>
+                    </h3>
                     <form onSubmit={handleDeleteComment}>
                         <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
                             Edit comment
