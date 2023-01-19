@@ -94,7 +94,7 @@ const PostIndex = () => {
                   <h4 className="posts">
                     <h3 className="username">{user.username}</h3>
                     <br/>
-                      <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
+                      <button className="editButton" onClick={() => {setEdit(prev => !prev, setEditBody(post.body));}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
                       <br/>
@@ -106,7 +106,7 @@ const PostIndex = () => {
                       {post.body}
                     { edit && <form>
                         <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
-                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post)}>
+                        <button className="updatePost" onClick={(e)=>handleEditPost(e, post, post.id)}>
                           Save
                         </button>
                       </form>}
