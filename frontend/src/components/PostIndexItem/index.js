@@ -12,7 +12,7 @@ const PostIndex = () => {
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
   const [edit, setEdit] = useState(false)
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
   const posts = useSelector((state) =>{
@@ -43,33 +43,33 @@ const PostIndex = () => {
     setEdit(false);
   }
 
-  const [photoFile, setPhotoFile] = useState(null)
-  const [photoUrl, setPhotoUrl] = useState(null)
+  // const [photoFile, setPhotoFile] = useState(null)
+  // const [photoUrl, setPhotoUrl] = useState(null)
 
-  const handlePhoto = (e) => {
-    const file = e.currentTarget.files[0]
-    setPhotoFile(file)
-  }
+  // const handlePhoto = (e) => {
+  //   const file = e.currentTarget.files[0]
+  //   setPhotoFile(file)
+  // }
 
-  const handlePhotoSubmit = () => async e => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('post[body]', body);
-    if (photoFile) {
-      formData.append('post[photo]', photoFile);
-    }
-    const response = await fetch('/api/posts', {
-      method: 'POST',
-      body: formData
-    });
-    if (response.ok) {
-      setBody("");
-      setPhotoFile(null);
-      setPhotoUrl(null);
-    }
-  }
+  // const handlePhotoSubmit = () => async e => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append('post[body]', body);
+  //   if (photoFile) {
+  //     formData.append('post[photo]', photoFile);
+  //   }
+  //   const response = await fetch('/api/posts', {
+  //     method: 'POST',
+  //     body: formData
+  //   });
+  //   if (response.ok) {
+  //     setBody("");
+  //     setPhotoFile(null);
+  //     setPhotoUrl(null);
+  //   }
+  // }
 
-  const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
+  // const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
 
   if (user){
     return(
@@ -94,7 +94,7 @@ const PostIndex = () => {
                   <h4 className="posts">
                     <h3 className="username">{user.username}</h3>
                     <br/>
-                      <button className="editButton" onClick={() => {setEdit(prev => !prev, setEditBody(post.body));}}>
+                      <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
                       <br/>
@@ -105,7 +105,7 @@ const PostIndex = () => {
                     <h4 className="postBody">
                       {post.body}
                     { edit && <form>
-                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value)} />
+                        <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value, post.id)}/>
                         <button className="updatePost" onClick={(e)=>handleEditPost(e, post, post.id)}>
                           Save
                         </button>
@@ -114,7 +114,7 @@ const PostIndex = () => {
                     <br/>
                     <br/>
                     { post.photoUrl && (
-                      <img className="images" src={post.photoUrl} alt="photo"></img>
+                      <img className="images" src={post.photoUrl} alt="photo"/>
                     )}
                     <br/>
                     <br/>

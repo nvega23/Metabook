@@ -57,9 +57,7 @@ const likeReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
         case RECIEVEPOSTS:
-            return {...newState, ...action.payload.likes}
-        case RECIEVEPOST:
-            return {...newState, [action.payload.like.id]: action.payload.like}
+            return {...newState, ...action.likes}
         case RECIEVE_LIKES:
             return {...newState, ...action.likes}
         case RECIEVE_LIKE:

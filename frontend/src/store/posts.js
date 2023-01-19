@@ -1,5 +1,4 @@
 import csrfFetch from "./csrf"
-import { RECIEVECOMMENTS, RECIEVECOMMENT, REMOVECOMMENT } from "./comments.js"
 
 export const RECIEVEPOST = 'posts/recievePost'
 export const RECIEVEPOSTS = 'posts/recievePosts'

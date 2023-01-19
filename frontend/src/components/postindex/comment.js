@@ -1,12 +1,12 @@
-import { createComment, deleteComment, fetchComment, updateComment } from "../../store/comments";
+import { createComment, deleteComment, updateComment } from "../../store/comments";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LikeButton from "./like";
+// import LikeButton from "./like";
 import './comment.css'
 
 const CommentButton = ({post, body}) => {
-    const likes = useSelector((store) => Object.values(store.likes))
-    const likedComments = likes.map((ele)=> ele.commentId)
+    // const likes = useSelector((store) => Object.values(store.likes))
+    // const likedComments = likes.map((ele)=> ele.commentId)
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const postId = post.id
@@ -24,10 +24,10 @@ const CommentButton = ({post, body}) => {
       dispatch(createComment( post.id, commentBody ))
     }
 
-    const handleFetchComment = async e => {
-        e.preventDefault()
-        dispatch(fetchComment(post.id, comment.id))
-    }
+    // const handleFetchComment = async e => {
+    //     e.preventDefault()
+    //     dispatch(fetchComment(post.id, comment.id))
+    // }
 
     const handleEditComment = (e, commentId) => {
         e.preventDefault()
