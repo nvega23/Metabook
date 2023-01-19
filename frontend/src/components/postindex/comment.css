@@ -4,9 +4,8 @@
     border-radius: 50px;
     box-sizing: border-box;
     width: 550px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    margin-left: 50px;
 }
 
 .commentButton {
@@ -69,7 +68,6 @@
       width: 176px;
     }
     .commentButton{
-      border: 1px solid ;
       border-radius: 8px;
       box-sizing: border-box;
       background-color: lightgray;
@@ -139,7 +137,6 @@
     width: 176px;
   }
   .editComment{
-      /* border: 3px solid black; */
       box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
       color: gray;
       border-radius: 8px;
@@ -223,7 +220,6 @@
 }
 
 .commentBody{
-  border: 3px solid #fff;
   background-color: rgb(238, 238, 238);
   box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   border-radius: 50px;
@@ -242,4 +238,8 @@
   height: 22px;
   line-height: 16px;
   vertical-align: middle;
+}
+
+.writeCommentButton{
+  margin-left: 50px;
 }

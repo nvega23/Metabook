@@ -94,6 +94,8 @@ const PostIndex = () => {
                   <h4 className="posts">
                     <h3 className="username">{user.username}</h3>
                     <br/>
+                      {/* const [edit, setEdit] = useState(false) */}
+                      {/* const [editBody, setEditBody] = useState(""); */}
                       <button className="editButton" onClick={() => {setEdit(prev => !prev); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>

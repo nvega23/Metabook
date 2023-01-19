@@ -1,5 +1,5 @@
-import { createComment, deleteComment, updateComment } from "../../store/comments";
-import { useState } from "react";
+import { createComment, deleteComment, fetchComments, updateComment } from "../../store/comments";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import LikeButton from "./like";
 import './comment.css'
@@ -17,21 +17,26 @@ const CommentButton = ({post, body}) => {
     });
 
     const [commentBody, setCommentBody] = useState("");
-    const [comment, setComment] = useState(false)
+    const [commentBool, setCommentBool] = useState(false)
 
     const handleCommentPost = async e => {
       e.preventDefault()
       dispatch(createComment( post.id, commentBody ))
+      commentBool(false)
     }
+
+    // useEffect(()=>{
+    //     dispatch(fetchComments());
+    // }, [dispatch])
 
     // const handleFetchComment = async e => {
     //     e.preventDefault()
-    //     dispatch(fetchComment(post.id, comment.id))
+    //     dispatch(fetchComment(post.id, commentBody))
     // }
 
     const handleEditComment = (e, commentId) => {
         e.preventDefault()
-        const newComment = { ...comment, body: commentBody };
+        const newComment = { ...commentBool, body: commentBody };
         dispatch(updateComment(postId, newComment, commentId))
     }
 
@@ -42,7 +47,9 @@ const CommentButton = ({post, body}) => {
 
     return (
         <>
-            <button className="commentButton" onClick={() => {setComment(prev => !prev); setCommentBody(comment.body);}}>
+                {/* const [commentBool, setCommentBool] = useState(false) */}
+                {/* const [commentBody, setCommentBody] = useState(""); */}
+            <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
                 <img src="./images/comments.png" alt="trash icon"/>
             </button>
             <br/>
@@ -67,9 +74,10 @@ const CommentButton = ({post, body}) => {
                     {/* <LikeButton post = {post} isLiked = {likedComments.includes(comment.id)} comment = {comment}/> */}
                 </>
             ))}
-            { comment && <form>
+            { commentBool && <form>
             <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-            <button onClick={handleCommentPost}>
+            <br/>
+            <button className="writeCommentButton" onClick={handleCommentPost}>
                 Write a comment...
             </button>
             </form>}

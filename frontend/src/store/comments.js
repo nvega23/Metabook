@@ -37,7 +37,7 @@ export const fetchComment = (commentId) => async dispatch => {
 }
 
 export const createComment = (postId, body) => async dispatch => {
-    const res = await csrfFetch(`api/posts/${postId}/comments`, {
+    const res = await csrfFetch(`/api/posts/${postId}/comments`, {
         method: "POST",
         body: JSON.stringify({body, postId})
     })
@@ -86,7 +86,7 @@ const commentReducer = (state = {}, action) => {
             // //
             // return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
         case RECIEVECOMMENTS:
-            return {...newState, ...action.comment}
+            return {...newState, ...action.comments}
         case RECIEVECOMMENT:
             return {...newState, [action.comment.id]: action.comment}
         case REMOVECOMMENT:
