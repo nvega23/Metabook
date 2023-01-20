@@ -116,7 +116,7 @@ const PostIndex = () => {
                     <br/>
                     <br/>
                     { post.photoUrl && (
-                      <img className="images" src={post.photoUrl} alt="photo"/>
+                      <img className="images" src={post.photoUrl[0]} alt="photo"/>
                     )}
                     <br/>
                     <br/>

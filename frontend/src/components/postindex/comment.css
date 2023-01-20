@@ -71,10 +71,8 @@
       border-radius: 8px;
       box-sizing: border-box;
       background-color: lightgray;
-      display: flex;
-      justify-content: center;
-      margin-left: 25px;
-      padding: 0 16px;
+      top: -25px;
+      margin-left: 85px;
       height: 25px;
       width: 55px;
     }
