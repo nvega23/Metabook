@@ -104,7 +104,7 @@ const PostIndex = () => {
                       <br/>
                     <h4 className="postBody">
                       {post.body}
-                    { edit === post.id && <form>
+                    { edit === post.id  && <form>
                         <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value, post.id)}/>
                         <button className="updatePost" onClick={(e)=>handleEditPost(e, post, post.id)}>
                           Save
