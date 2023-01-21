@@ -55,21 +55,21 @@ const CommentButton = ({post, body}) => {
             <br/>
             {comments.map(comment => (
                 <>
-                    <h3 className="username">
+                    {/* <h3 className="username">
                         <br/>
                         {user.username}
-                    </h3>
+                    </h3> */}
                     <form onSubmit={handleDeleteComment}>
                         <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
                             Edit comment
                         </button>
                         <br/>
                         <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                            Remove
+                        <img src="./images/trashpic.png" alt="trash icon"/> comment
                         </button>
                     </form>
                     <h5 className="commentBody">
-                        {comment.body}
+                        {user.username}: {comment.body}
                     </h5>
                     {/* <LikeButton post = {post} isLiked = {likedComments.includes(comment.id)} comment = {comment}/> */}
                 </>
