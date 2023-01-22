@@ -38,18 +38,14 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="pfp" onClick={openMenu}>
       <img src="images/maleicon.png"/>
         <i className="fa-solid fa-user-circle" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          {/* <link to="profilePage"><profilePage/></link> */}
-          {/* <button onClick={<Redirect to="/profilePage"/>}>profile</button> */}
-          <button onClick={profile}>{user.username}</button>
-          <br/>
-          <br/>
-          <button onClick={logout}>Log Out</button>
+          <button className="dropdown" onClick={profile}>{user.username}</button>
+          <button className="dropdown" onClick={logout}>Log Out</button>
         </ul>
       )}
     </>

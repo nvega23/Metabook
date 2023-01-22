@@ -1,7 +1,6 @@
-button {
+.pfp {
     appearance: none;
     backface-visibility: hidden;
-    border-radius: 10px;
     border-style: none;
     box-shadow: none;
     box-sizing: border-box;
@@ -9,7 +8,6 @@ button {
     display: inline-block;
     font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
     letter-spacing: normal;
-    line-height: 1.5;
     outline: none;
     overflow: hidden;
     position: relative;
@@ -24,25 +22,25 @@ button {
     white-space: nowrap;
   }
 
-  button:hover {
-    background-color: #1366d6;
+  .pfp:hover {
+    /* background-color: #f3f3f3; */
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
     transform: translateY(0);
     transition-duration: .35s;
   }
 
-  button:hover:after {
+  .pfp:hover:after {
     opacity: .5;
   }
 
-  button:active {
+  .pfp:active {
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
     transform: translateY(2px);
     transition-duration: .35s;
   }
 
-  button:active:after {
+  .pfp:active:after {
     opacity: 1;
   }
 
@@ -50,41 +48,108 @@ button {
     .button-65 {
       width: 176px;
     }
-    /* .link{
-        background-color: lightgray;
+    .pfp{
+        background-color: rgb(237, 237, 237);
         box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-        border-radius: 50px;
-        font-size: 17px;
-        line-height: 48px;
-        width: auto;
+        border-radius: 50%;
         padding: 0 16px;
-        position: relative;
-        text-align: center;
-        margin-left: auto;
-        margin-right: 365px;
+        margin-top: 30px;
+        height: 80px;
         display: block;
+        justify-content: flex-end;
         text-align: center;
-    } */
+        right: -750px;
+    }
 }
 
+.dropdown {
+  appearance: none;
+  backface-visibility: hidden;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.dropdown:hover {
+  background-color: #cacaca;
+  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.dropdown:hover:after {
+  opacity: .5;
+}
+
+.dropdown:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.dropdown:active:after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .button-65 {
+    width: 176px;
+  }
+  .dropdown{
+      background-color: rgb(237, 237, 237);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.125), 0 8px 16px rgba(0, 0, 0, 0.293);
+      border-radius: 8px;
+      padding: 0 16px;
+      width: 100px;
+      height: 40px;
+      display: block;
+      justify-content: flex-end;
+      text-align: center;
+      margin-top: 50px;
+  }
+}
+
+
 .title{
-  /* border: 3px solid black; */
   font-family: 'Poppins-SemiBold', Arial, sans-serif;
   font-weight: bold;
   font-size: 55px;
   color: #2f80ed;
-  position: static;
+  position: fixed;
 }
 
 .link {
-  /* border: 3px solid black; */
+  z-index: 1;
+  border: 1px solid lightgray;
+  top: -25px;
+  right: 0.1px;
+  position: fixed;
+  background-color: white;
   display: flex;
   justify-content: space-between;
-    /* justify-content: flex-end; */
-  position: static;
+  width: 100%;
 }
 
-.bob{
-    width: 30px;
-    height: auto;
+.profile-dropdown{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 1450px;
+  width: 100px;
 }

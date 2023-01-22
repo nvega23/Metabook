@@ -76,6 +76,8 @@ const PostIndex = () => {
       <>
         <div>
         <form onSubmit={handleSubmit}>
+            <br/>
+            <br/>
           <div >
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>

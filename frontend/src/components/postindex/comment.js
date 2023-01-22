@@ -47,18 +47,12 @@ const CommentButton = ({post, body}) => {
 
     return (
         <>
-                {/* const [commentBool, setCommentBool] = useState(false) */}
-                {/* const [commentBody, setCommentBody] = useState(""); */}
             <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
                 <img src="./images/comments.png" alt="trash icon"/>
             </button>
             <br/>
             {comments.map(comment => (
                 <>
-                    {/* <h3 className="username">
-                        <br/>
-                        {user.username}
-                    </h3> */}
                     <form onSubmit={handleDeleteComment}>
                         <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
                             Edit comment
@@ -76,6 +70,7 @@ const CommentButton = ({post, body}) => {
             ))}
             { commentBool && <form>
             <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+            <br/>
             <br/>
             <button className="writeCommentButton" onClick={handleCommentPost}>
                 Write a comment...
