@@ -81,7 +81,7 @@
     post11.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/deskSetUp.jpeg'),
     filename: "waterfall.jpeg")
 
-    post12 = Post.create!(body: "...",users_id: 1)
+    post12 = Post.create!(body: "New York views!",users_id: 1)
     post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/newyork.jpeg'),
     filename: "newyork.jpeg")
 
