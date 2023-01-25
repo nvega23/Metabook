@@ -4,6 +4,7 @@ import { applyMiddleware } from "redux";
 import { compose } from "redux";
 import thunk from "redux-thunk";
 import session from './session'
+import users from "./user"
 import posts from "./posts";
 import likes from "./likes"
 import comments from "./comments"
@@ -11,6 +12,7 @@ import comments from "./comments"
 let enhancer;
 export const rootReducer = combineReducers({
     session,
+    users,
     posts,
     likes,
     comments
