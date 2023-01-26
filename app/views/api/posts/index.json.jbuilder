@@ -6,7 +6,7 @@
                 json.username post.user.username
             end
             json.photo_url post.photo.url
-            # json.photoUrl url_for(post.photo)
+            json.photoUrl url_for(post.photo)
         end
     end
     json.comments do

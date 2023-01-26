@@ -43,35 +43,18 @@ const PostIndex = () => {
     setEdit(false);
   }
 
-  // const [photoFile, setPhotoFile] = useState(null)
-  // const [photoUrl, setPhotoUrl] = useState(null)
+  const [photoFile, setPhotoFile] = useState(null)
+  const [photoUrl, setPhotoUrl] = useState(null)
 
-  // const handlePhoto = (e) => {
-  //   const file = e.currentTarget.files[0]
-  //   setPhotoFile(file)
-  // }
+  const handleFile = (e) => {
+    const file = e.currentTarget.files[0]
+    setPhotoFile(file)
+  }
 
-  // const handlePhotoSubmit = () => async e => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append('post[body]', body);
-  //   if (photoFile) {
-  //     formData.append('post[photo]', photoFile);
-  //   }
-  //   const response = await fetch('/api/posts', {
-  //     method: 'POST',
-  //     body: formData
-  //   });
-  //   if (response.ok) {
-  //     setBody("");
-  //     setPhotoFile(null);
-  //     setPhotoUrl(null);
-  //   }
-  // }
-
-  // const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
+  const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
 
   if (user){
+    console.log(photoFile)
     return(
       <>
         <div>
@@ -83,6 +66,10 @@ const PostIndex = () => {
             <br/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
+            {/* <input type="file" onChange={handleFile} /> */}
+            <input type="file" accept=".jpg, .jpeg, .png" multiple
+            className="photoUpload" onChange={handleFile}/>
+            {preview}
           </div>
           {/* onClick={()=>showModal(true)} */}
           {/* {showModal && (
@@ -116,7 +103,7 @@ const PostIndex = () => {
                     <br/>
                     <br/>
                     { post.photoUrl && (
-                      <img className="images" src={post.photoUrl} alt="photo"/>
+                      <img className="images" src={post.photoUrl[0]} alt="photo"/>
                     )}
                     <br/>
                     <br/>
