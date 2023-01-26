@@ -104,7 +104,7 @@ const PostIndex = () => {
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
-                    <h4 className="postBody">
+                    <p className="postBody">
                       {post.body}
                     { edit === post.id  && <form>
                         <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value, post.id)}/>
@@ -112,7 +112,7 @@ const PostIndex = () => {
                           Save
                         </button>
                       </form>}
-                    </h4>
+                    </p>
                     <br/>
                     <br/>
                     { post.photoUrl && (

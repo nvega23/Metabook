@@ -1,11 +1,9 @@
-import { useSelector, useDispatch, useParams } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
-import { fetchUser } from "../../store/user";
-import { getUser } from "../../store/user";
 import './style.css'
 
 const NewsFeed = () => {
@@ -19,11 +17,6 @@ const NewsFeed = () => {
   const posts = useSelector((state) =>{
       return Object.values(state.posts).reverse()
   });
-
-  // const handleUser = e => {
-  //   e.preventDefault()
-  //   dispatch(fetchUser(userId))
-  // }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -52,12 +45,6 @@ const NewsFeed = () => {
       <>
         <div>
         <form className="poster" onSubmit={handleSubmit}>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
           <div>
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
@@ -68,7 +55,7 @@ const NewsFeed = () => {
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    <h3 className="username">{post.user.username}</h3>
+                    <p className="username">{post.user.username}</p>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
@@ -78,7 +65,7 @@ const NewsFeed = () => {
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
-                    <h4 className="postBody">
+                    <p className="postBody">
                       {post.body}
                     { edit === post.id  && <form>
                         <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value, post.id)}/>
@@ -86,7 +73,7 @@ const NewsFeed = () => {
                           Save
                         </button>
                       </form>}
-                    </h4>
+                    </p>
                     <br/>
                     <br/>
                     { post.photoUrl && (

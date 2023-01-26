@@ -1,12 +1,9 @@
-import { createComment, deleteComment, fetchComments, updateComment } from "../../store/comments";
-import { useState, useEffect } from "react";
+import { createComment, deleteComment, updateComment } from "../../store/comments";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import LikeButton from "./like";
 import './comment.css'
 
-const CommentButton = ({post, body}) => {
-    // const likes = useSelector((store) => Object.values(store.likes))
-    // const likedComments = likes.map((ele)=> ele.commentId)
+const CommentButton = ({post}) => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const postId = post.id
@@ -53,10 +50,9 @@ const CommentButton = ({post, body}) => {
                         <img src="./images/trashpic.png" alt="trash icon"/> comment
                         </button>
                     </form>
-                    <h5 className="commentBody">
+                    <p className="commentBody">
                         {user.username}: {comment.body}
-                    </h5>
-                    {/* <LikeButton post = {post} isLiked = {likedComments.includes(comment.id)} comment = {comment}/> */}
+                    </p>
                 </>
             ))}
             { commentBool && <form>
