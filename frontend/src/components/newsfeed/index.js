@@ -10,7 +10,6 @@ import './style.css'
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
-  // const userId = useSelector(state => state.session.user.id)
   const dispatch = useDispatch()
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
@@ -51,24 +50,25 @@ const NewsFeed = () => {
   if (user){
     return(
       <>
-        <br/>
-        <br/>
         <div>
-        <form onSubmit={handleSubmit}>
+        <form className="poster" onSubmit={handleSubmit}>
             <br/>
             <br/>
-          <div >
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+          <div>
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
           </div>
         </form>
-          <br/>
             {posts.map(post => (
-              <>
+              <div className="headers">
                   <h4 className="posts">
-                    <h3 className="username">{user.username}</h3>
+                    <h3 className="username">{post.user.username}</h3>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
@@ -98,7 +98,7 @@ const NewsFeed = () => {
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                     <br/>
                   </h4>
-              </>
+              </div>
             ))}
         </div>
       </>

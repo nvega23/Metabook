@@ -19,13 +19,11 @@ function Navigation(){
   return (
     <>
       <div className='link'>
-        <br/>
-        <br/>
-          <h1 className='title'>Metabook</h1>
+          <h1 className='title'>
+            <NavLink to={"/newsFeed"}>Metabook</NavLink>
+          </h1>
           {sessionLinks}
-        <br/>
       </div>
-      <br/>
     </>
   );
 }
