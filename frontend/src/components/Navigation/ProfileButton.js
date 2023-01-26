@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import profilePage from "../profilePage";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -32,10 +33,8 @@ function ProfileButton({ user }) {
   };
 
   const profile = () => {
-    if (!logout){
-      // <Link to={profilePage} id="dropdown"></Link>
-      // return (<Redirect to="../profilePage" />)
-      return <Redirect to={profilePage} />
+    if (user){
+      history.push("/profilePage")
     }
   }
 

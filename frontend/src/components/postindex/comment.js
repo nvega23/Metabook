@@ -22,17 +22,8 @@ const CommentButton = ({post, body}) => {
     const handleCommentPost = async e => {
       e.preventDefault()
       dispatch(createComment( post.id, commentBody ))
-      commentBool(false)
+    //   commentBool(false)
     }
-
-    // useEffect(()=>{
-    //     dispatch(fetchComments());
-    // }, [dispatch])
-
-    // const handleFetchComment = async e => {
-    //     e.preventDefault()
-    //     dispatch(fetchComment(post.id, commentBody))
-    // }
 
     const handleEditComment = (e, commentId) => {
         e.preventDefault()
