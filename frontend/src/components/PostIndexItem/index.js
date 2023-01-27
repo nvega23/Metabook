@@ -5,6 +5,7 @@ import './posts.css'
 import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
+import { useRef } from "react";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -12,6 +13,9 @@ const PostIndex = () => {
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
   const [edit, setEdit] = useState(false)
+  const [photoFile, setPhotoFile] = useState(null)
+  const [photoUrl, setPhotoUrl] = useState(null)
+  const fileRef = useRef(null);
   // const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
@@ -21,15 +25,24 @@ const PostIndex = () => {
     }
   });
 
-  const handleSubmit = e => {
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    dispatch(createPost({ body }));
-    setBody('');
+    const formData = new FormData();
+    if (photoFile) {
+      formData.append('post[photo]', photoFile);
+    }
+    formData.append('post[body]', body);
+    dispatch(createPost(formData)).then(() => {
+      setBody('');
+      setPhotoFile(null);
+      setPhotoUrl(null);
+    });
   }
 
   useEffect(()=>{
     dispatch(fetchAllPosts());
-  }, [dispatch])
+  }, [])
 
   const handleDeletePost = (e, postId) => {
     e.preventDefault();
@@ -43,18 +56,23 @@ const PostIndex = () => {
     setEdit(false);
   }
 
-  const [photoFile, setPhotoFile] = useState(null)
-  const [photoUrl, setPhotoUrl] = useState(null)
-
   const handleFile = (e) => {
-    const file = e.currentTarget.files[0]
-    setPhotoFile(file)
+    const file = e.currentTarget.files[0];
+
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPhotoFile(file);
+        setPhotoUrl(fileReader.result);
+      };
+    }
   }
 
-  const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
+  const preview = photoUrl ? <img className="images" src={photoUrl} alt=""/> : null;
+
 
   if (user){
-    console.log(photoFile)
     return(
       <>
         <div>
@@ -66,10 +84,8 @@ const PostIndex = () => {
             <br/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
-            {/* <input type="file" onChange={handleFile} /> */}
             <input type="file" accept=".jpg, .jpeg, .png" multiple
             className="photoUpload" onChange={handleFile}/>
-            {preview}
           </div>
           {/* onClick={()=>showModal(true)} */}
           {/* {showModal && (
@@ -102,9 +118,9 @@ const PostIndex = () => {
                     </p>
                     <br/>
                     <br/>
-                    { post.photoUrl && (
-                      <img className="images" src={post.photoUrl[0]} alt="photo"/>
-                    )}
+                    { post.photoUrl ? (
+                      <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
+                      ) : preview}
                     <br/>
                     <br/>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>

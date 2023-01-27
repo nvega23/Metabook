@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-    wrap_parameters include: Post.attribute_names + [:photo]
+    # wrap_parameters include: Post.attribute_names + [:photo]
 
     def index
         @posts = Post.all.includes(:comments, :likes)
@@ -14,6 +14,7 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.users_id = current_user.id
+        # debugger
         if @post.save
             @posts = Post.all
             render :show
