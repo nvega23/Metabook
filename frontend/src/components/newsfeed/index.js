@@ -84,7 +84,7 @@ const NewsFeed = () => {
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    <p className="username">{post.user.id}</p>
+                    <p className="username">{post.user.username}</p>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
