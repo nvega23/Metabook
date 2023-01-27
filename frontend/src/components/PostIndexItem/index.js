@@ -84,8 +84,9 @@ const PostIndex = () => {
             <br/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
-            <input type="file" accept=".jpg, .jpeg, .png" multiple
-            className="photoUpload" onChange={handleFile}/>
+              <input className="postImage" type="file" accept=".jpg, .jpeg, .png .gif"
+              multiple onChange={handleFile}/>
+
           </div>
           {/* onClick={()=>showModal(true)} */}
           {/* {showModal && (
