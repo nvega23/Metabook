@@ -25,6 +25,15 @@ const PostIndex = () => {
     }
   });
 
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  // document.querySelector("button").onclick = scrollToTop
+
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -129,6 +138,9 @@ const PostIndex = () => {
                   </h4>
               </>
             ))}
+          <button className="scrollToTop" onClick={scrollToTop}>
+            Scroll to top
+          </button>
         </div>
       </>
     )
