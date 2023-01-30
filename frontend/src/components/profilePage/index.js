@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, Redirect } from 'react-router-dom';
 import PostIndex from '../PostIndexItem';
-import './profilePage.css'
+import "./profilePage.css"
 
 const ProfilePage = () => {
   const user = useSelector(state => state.session.user)
