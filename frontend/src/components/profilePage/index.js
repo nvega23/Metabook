@@ -20,14 +20,11 @@ const ProfilePage = () => {
           <hr/>
           </div>
           <div className='links'>
-              <h4 class="text-uppercase mb-4">Around the Web</h4>
-              <a href="https://twitter.com/nvega24">twitter<i class="fab fa-fw fa-twitter"></i></a>
-              <br/>
-              <a href="https://angel.co/u/nestorvega23">wellfound<i class="fab fa-angellist"></i></a>
-              <br/>
-              <a href="https://www.linkedin.com/in/nestor-vega-233b43238/">linkedin<i class="fab fa-fw fa-linkedin-in"></i></a>
-              <br/>
-              <a href="https://github.com/nvega23">Github<i class="fab fa-fw fa-github"></i></a>
+              <h4 class="contacts">Get in touch</h4>
+              <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png"/></a>
+              <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png"/></a>
+              <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png"/></a>
+              <a href="https://github.com/nvega23"><img className='twitter' src="./images/github.png"/></a>
           </div>
           <div className='headers'>
             <PostIndex/>

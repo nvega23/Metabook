@@ -26,54 +26,28 @@
 }
 
 .profilePicture{
-    border: 3px solid black;
+    /* border: 3px solid black; */
+    border-radius: 50%;
     width: 100px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    border-radius: 10%;
     margin-bottom: 50px;
-}
+  }
 
-.links{
-    border: 3px solid black;
+  .links{
+    border-radius: 3%;
+    /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgba(0, 0, 0, 0.361); */
     width: 300px;
-    height: 300px;
-    margin-top: 50px;
-}
-btn .btn-outline-light {
-  color: #f8f9fa;
-  border-color: #f8f9fa;
-}
-btn .btn-outline-light:hover {
-  color: #000;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
-}
-btn .btn-check:focus + .btn-outline-light, .btn-outline-light:focus {
-  box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);
-}
-btn .btn-check:checked + .btn-outline-light, .btn-check:active + .btn-outline-light, .btn-outline-light:active, .btn-outline-light.active, .btn-outline-light.dropdown-toggle.show {
-  color: #000;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
-}
-btn .btn-check:checked + .btn-outline-light:focus, .btn-check:active + .btn-outline-light:focus, .btn-outline-light:active:focus, .btn-outline-light.active:focus, .btn-outline-light.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);
-}
-btn .btn-outline-light:disabled, .btn-outline-light.disabled {
-  color: #f8f9fa;
-  background-color: transparent;
+    height: 150px;
+    margin-top: -200px;
+    margin-left: 78%;
 }
 
-.col-lg-4 {
-    flex: 0 0 auto;
-    width: 33.33333333%;
-  }
+.twitter{
+  margin-left: 20px;
+}
 
-
-btn .mb-5 {
-    margin-bottom: 3rem !important;
-  }
-
-btn .mb-lg-0 {
-    margin-bottom: 0 !important;
-  }
+.contacts{
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+}
