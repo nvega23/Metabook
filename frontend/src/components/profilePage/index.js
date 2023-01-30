@@ -20,7 +20,6 @@ const ProfilePage = () => {
           <hr/>
           </div>
           <div className='links'>
-              <h4 class="contacts">Get in touch</h4>
               <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png"/></a>
               <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png"/></a>
               <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png"/></a>
