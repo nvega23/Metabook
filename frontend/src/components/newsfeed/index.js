@@ -75,17 +75,24 @@ const NewsFeed = () => {
           <div>
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
-            <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
+<<<<<<< HEAD
             <input type="file" accept=".jpg, .jpeg, .png .gif"
             multiple onChange={handleFile}/>
+=======
+            {/* <input type="file" accept=".jpg, .jpeg, .png" multiple
+            className="photoUpload" onChange={handleFile}/> */}
+>>>>>>> ca82ae3816a2b89bd2706267d98e2ddd4dda3cec
           </div>
         </form>
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
                     <p className="username">{post.user.username}</p>
+<<<<<<< HEAD
                     <br/>
+=======
+>>>>>>> ca82ae3816a2b89bd2706267d98e2ddd4dda3cec
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
@@ -103,8 +110,6 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    <br/>
-                    <br/>
                     { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
                       ) : preview}
@@ -112,7 +117,6 @@ const NewsFeed = () => {
                     <br/>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
-                    <br/>
                   </h4>
               </div>
             ))}
