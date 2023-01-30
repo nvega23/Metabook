@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
-import profilePage from "../profilePage";
+import ProfilePage from "../profilePage";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
