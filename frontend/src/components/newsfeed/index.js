@@ -76,23 +76,14 @@ const NewsFeed = () => {
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
-<<<<<<< HEAD
-            <input type="file" accept=".jpg, .jpeg, .png .gif"
-            multiple onChange={handleFile}/>
-=======
-            {/* <input type="file" accept=".jpg, .jpeg, .png" multiple
-            className="photoUpload" onChange={handleFile}/> */}
->>>>>>> ca82ae3816a2b89bd2706267d98e2ddd4dda3cec
+            <input type="file" accept=".jpg, .jpeg, .png" multiple
+            className="photoUpload" onChange={handleFile}/>
           </div>
         </form>
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
                     <p className="username">{post.user.username}</p>
-<<<<<<< HEAD
-                    <br/>
-=======
->>>>>>> ca82ae3816a2b89bd2706267d98e2ddd4dda3cec
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>

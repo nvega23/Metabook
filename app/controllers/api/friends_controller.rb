@@ -1,51 +1,33 @@
-class Api::friends_controller < ApplicationController
-    wrap_parameters include: User.attribute_names + ['requesterId', 'requesteeId', 'confirmed']
+class Api::FriendsController < ApplicationController
+    wrap_parameters include: Friend.attribute_names + ['requestee_id', 'requester_id']
+    before_action :require_logged_in
+
 
     def create
-        @friendship = Friendship.new(friendship_params)
-        if @friendship.save
-            @user1 = User.find(friendship_params[:requester_id])
-            @user2 = User.find(friendship_params[:requestee_id])
-            @users = [@user1, @user2]
+        @follow = Follow.new(follow_params)
 
-            render :update
+        @follow.follower_id = current_user.id
+        if @follow.save!
+            render :show
         else
-            render json: { errors: @friendship.errors.full_messages }, status: :unprocessable_entity
-        end
-    end
-
-    def index
-        @user = User.find(params[:user_id])
-        @friends = @user.friends
-        render :index
-    end
-
-    def update
-        @friendship = Friendship.find_request(friendship_params[:requester_id], friendship_params[:requestee_id])
-        if @friendship.update(friendship_params)
-            @user1 = User.find(friendship_params[:requester_id])
-            @user2 = User.find(friendship_params[:requestee_id])
-            @users = [@user1, @user2]
-            render :update
-        else
-            render json: { errors: @friendship.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @follow.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @friendship = Friendship.find_request(friendship_params[:requester_id], friendship_params[:requestee_id])
-        if @friendship
-            @friendship.destroy
-            @user1 = User.find(friendship_params[:requester_id])
-            @user2 = User.find(friendship_params[:requestee_id])
-            @users = [@user1, @user2]
-            render :update
+        @follow = Follow.find_by(follower_id: current_user.id, requestee: params[:id])
+
+        if @follow&.destroy
+            render json: { follow: nil }
+        else
+            render json: { errors: @follow.errors.full_messages }, status: :unprocessable_entity
         end
+
     end
 
     private
 
     def friendship_params
-        params.require(:friendship).permit(:id, :requester_id, :requestee_id, :confirmed)
+        params.require(:friendship).permit(:requester_id, :requestee_id)
     end
 end
