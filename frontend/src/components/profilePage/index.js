@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, Redirect } from 'react-router-dom';
+import FriendButton from '../friending/friends';
 import PostIndex from '../PostIndexItem';
 import "./profilePage.css"
 
@@ -20,10 +21,11 @@ const ProfilePage = () => {
           <hr/>
           </div>
           <div className='links'>
-              <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png"/></a>
-              <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png"/></a>
-              <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png"/></a>
-              <a href="https://github.com/nvega23"><img className='twitter' src="./images/github.png"/></a>
+              <FriendButton user = {user}/>
+              <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png" alt='twitter'/></a>
+              <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png" alt='angel list'/></a>
+              <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png" alt='linkedin'/></a>
+              <a href="https://github.com/nvega23"><img className='twitter' src="./images/github.png" alt='github'/></a>
           </div>
           <div className='headers'>
             <PostIndex/>

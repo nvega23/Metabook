@@ -32,9 +32,6 @@ const PostIndex = () => {
     })
   }
 
-  // document.querySelector("button").onclick = scrollToTop
-
-
   const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();

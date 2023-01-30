@@ -1,5 +1,4 @@
 .headers{
-    /* border: 3px solid black; */
     width: auto;
     display: flex;
     justify-content: center;
@@ -36,7 +35,7 @@
   .links{
     border-radius: 3%;
     /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgba(0, 0, 0, 0.361); */
-    width: 300px;
+    width: auto;
     height: 150px;
     margin-top: -200px;
     margin-left: 78%;

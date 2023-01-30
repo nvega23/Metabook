@@ -4,30 +4,30 @@ class Api::FriendsController < ApplicationController
 
 
     def create
-        @follow = Follow.new(follow_params)
+        @friend = Friend.new(friend_params)
 
-        @follow.follower_id = current_user.id
-        if @follow.save!
+        @friend.requester_id = current_user.id
+        if @friend.save!
             render :show
         else
-            render json: { errors: @follow.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @friend.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @follow = Follow.find_by(follower_id: current_user.id, requestee: params[:id])
+        @friend = Friend.find_by(requester_id: current_user.id, requestee: params[:id])
 
-        if @follow&.destroy
-            render json: { follow: nil }
+        if @friend&.destroy
+            render json: { friend: nil }
         else
-            render json: { errors: @follow.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @friend.errors.full_messages }, status: :unprocessable_entity
         end
 
     end
 
     private
 
-    def friendship_params
-        params.require(:friendship).permit(:requester_id, :requestee_id)
+    def friend_params
+        params.require(:friend).permit(:requester_id, :requestee_id)
     end
 end
