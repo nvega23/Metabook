@@ -22,10 +22,10 @@ const ProfilePage = () => {
           </div>
           <div className='links'>
               <FriendButton user = {user}/>
-              <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png" alt='twitter'/></a>
-              <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png" alt='angel list'/></a>
-              <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png" alt='linkedin'/></a>
-              <a href="https://github.com/nvega23"><img className='twitter' src="./images/github.png" alt='github'/></a>
+              <a target="_blank" href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png" alt='twitter'/></a>
+              <a target="_blank" href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png" alt='angel list'/></a>
+              <a target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png" alt='linkedin'/></a>
+              <a target="_blank" href="https://github.com/nvega23"><img className='twitter' src="./images/github.png" alt='github'/></a>
           </div>
           <div className='headers'>
             <PostIndex/>
