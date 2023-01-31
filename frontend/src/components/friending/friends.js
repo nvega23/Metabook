@@ -19,10 +19,10 @@ const FriendButton = () => {
     }
 
     useEffect(() => {
-        if (user.requester_id.includes(user.id)) {
+        if (user.requesterId.includes(user.id)) {
             setFriend(true)
         }
-    }, [dispatch])
+    }, [])
 
     if (friend) {
         return (
