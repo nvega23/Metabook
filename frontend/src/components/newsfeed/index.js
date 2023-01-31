@@ -106,6 +106,7 @@ const NewsFeed = () => {
                       ) : preview}
                     <br/>
                     <br/>
+                    <hr/>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                   </h4>

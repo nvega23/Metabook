@@ -45,9 +45,10 @@ export const fetchFriend = (friendId) => async (dispatch) => {
     }
 }
 
-export const createFriend = (requestee_id) => async (dispatch) => {
+export const createFriend = (requesteeId) => async (dispatch) => {
+    console.log(requesteeId)
     const friend = {
-        requestee_id
+            requesteeId
     }
     const res = await csrfFetch('/api/friends', {
         method: 'POST',
@@ -56,7 +57,7 @@ export const createFriend = (requestee_id) => async (dispatch) => {
         },
         body: JSON.stringify({friend})
     });
-
+    console.log(res)
     if (res.ok) {
         const friend = await res.json();
         dispatch(receiveFriend(friend));
@@ -74,9 +75,7 @@ export const deleteFriend = (requestee_id) => async (dispatch) => {
 }
 
 const friendReducer = (state = {}, action) => {
-    Object.freeze(state);
-    let newState = {...state};
-
+    const newState = {...state};
     switch (action.type) {
         case RECEIVE_FRIENDS:
             return {...state, ...action.friends}

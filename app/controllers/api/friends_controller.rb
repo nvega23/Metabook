@@ -1,11 +1,9 @@
 class Api::FriendsController < ApplicationController
-    wrap_parameters include: Friend.attribute_names + ['requestee_id', 'requester_id']
+    wrap_parameters include: Friend.attribute_names + ['requesteeId', 'requesterId']
     before_action :require_logged_in
-
 
     def create
         @friend = Friend.new(friend_params)
-
         @friend.requester_id = current_user.id
         if @friend.save!
             render :show
@@ -28,6 +26,8 @@ class Api::FriendsController < ApplicationController
     private
 
     def friend_params
-        params.require(:friend).permit(:requester_id, :requestee_id)
+        # params.permit(:friend)
+        params.require(:friend).permit(:requestee_id, :requester_id)
     end
+
 end

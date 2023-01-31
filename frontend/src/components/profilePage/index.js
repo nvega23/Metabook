@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import PostIndex from '../PostIndexItem';
 import "./profilePage.css"
-// import FriendButton from '../friending/friends';
+import FriendButton from '../friending/friends';
 
 const ProfilePage = () => {
   const user = useSelector(state => state.session.user)
@@ -21,7 +21,7 @@ const ProfilePage = () => {
           <hr/>
           </div>
           <div className='links'>
-              {/* <FriendButton user = {user}/> */}
+              <FriendButton user = {user}/>
               <a href="https://twitter.com/nvega24"><img className='twitter' src="./images/twitter1.png" alt='twitter'/></a>
               <a href="https://angel.co/u/nestorvega23"><img className='twitter' src="./images/angellist.png" alt='angel list'/></a>
               <a href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="./images/linkedin.png" alt='linkedin'/></a>

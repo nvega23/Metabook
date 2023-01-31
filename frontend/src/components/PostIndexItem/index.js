@@ -105,6 +105,7 @@ const PostIndex = () => {
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
+                        alert("are you sure you want to delete post?")
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
@@ -124,6 +125,7 @@ const PostIndex = () => {
                       ) : preview}
                     <br/>
                     <br/>
+                    <hr/>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                     <br/>

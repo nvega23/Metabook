@@ -3,8 +3,8 @@ import { createFriend, deleteFriend } from "../../store/friends";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const FriendButton = () => {
-    const user = useSelector(state => state.session.user)
+const FriendButton = ({user}) => {
+    const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const [friend, setFriend] = useState(false);
 
@@ -19,7 +19,7 @@ const FriendButton = () => {
     }
 
     useEffect(() => {
-        if (user.requesterId.includes(user.id)) {
+        if (user.requesteeIds.includes(currentUser.id)) {
             setFriend(true)
         }
     }, [])
