@@ -34,6 +34,24 @@ class User < ApplicationRecord
 
     has_many :likes
 
+    has_many :friends,
+    class_name: :Friend,
+    foreign_key: :requester_id,
+    dependent: :destroy
+
+    has_many :friended,
+        class_name: :Friend,
+        foreign_key: :requestee_id,
+        dependent: :destroy
+
+    has_many :requesters,
+        through: :friended,
+        source: :user
+
+    has_many :requestees,
+        through: :friends,
+        source: :requestee
+
     # spire
 
     def self.find_by_credentials(credential, password)

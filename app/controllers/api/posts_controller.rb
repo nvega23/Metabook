@@ -3,7 +3,6 @@ class Api::PostsController < ApplicationController
 
     def index
         @posts = Post.all.includes(:comments, :likes)
-        # @posts = @posts.where(users_id: return_users_id) if return_users_id
         if @posts
             render :index
         else
@@ -12,10 +11,10 @@ class Api::PostsController < ApplicationController
     end
 
     def create
+        debugger
         @post = Post.new(post_params)
         @post.users_id = current_user.id
-        # debugger
-        if @post.save
+        if @post.save!
             @posts = Post.all
             render :show
         else
@@ -48,8 +47,4 @@ class Api::PostsController < ApplicationController
         params.require(:post).permit(:body, :photo ,:users_id)
     end
 
-    def return_users_id
-        return nil unless params[:users_id]
-        params[:users_id]
-    end
 end

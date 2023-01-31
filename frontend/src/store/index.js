@@ -8,6 +8,7 @@ import users from "./user"
 import posts from "./posts";
 import likes from "./likes"
 import comments from "./comments"
+import friends from "./friends"
 
 let enhancer;
 export const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ export const rootReducer = combineReducers({
     users,
     posts,
     likes,
-    comments
+    comments,
+    friends
 })
 
 if (process.env.NODE_ENV === 'production') {

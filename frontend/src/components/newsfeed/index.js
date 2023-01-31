@@ -76,8 +76,8 @@ const NewsFeed = () => {
             <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
-            {/* <input type="file" accept=".jpg, .jpeg, .png" multiple
-            className="photoUpload" onChange={handleFile}/> */}
+            <input type="file" accept=".jpg, .jpeg, .png" multiple
+            className="photoUpload" onChange={handleFile}/>
           </div>
         </form>
             {posts.map(post => (
@@ -106,6 +106,7 @@ const NewsFeed = () => {
                       ) : preview}
                     <br/>
                     <br/>
+                    <hr/>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                   </h4>
