@@ -105,7 +105,6 @@ const PostIndex = () => {
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
-                        alert("are you sure you want to delete post?")
                         <img src="./images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>

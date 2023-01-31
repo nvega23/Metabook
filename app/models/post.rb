@@ -25,11 +25,4 @@ class Post < ApplicationRecord
     has_one_attached :photo
     # has_many_attached :photos
 
-    validate :ensure_photo
-
-    def ensure_photo
-        unless self.photo.attached?
-            errors.add(:photo, "must be attached")
-        end
-    end
 end
