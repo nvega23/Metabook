@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 80px; */
+    margin-top: 80px;
 }
 
 .profileName{
@@ -21,7 +21,7 @@
     min-width: 1080px;
     margin-top: 125px;
     border-radius: 8px;
-    box-shadow: 5px 1px 20px rgb(164, 164, 164);
+    box-shadow: 5px 1px 20px rgb(0, 0, 0);
 }
 
 .profilePicture{

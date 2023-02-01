@@ -7,6 +7,8 @@ const CommentButton = ({post}) => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const postId = post.id
+    let posts = useSelector(state=>state.posts)
+    posts = Object.values(posts).reverse()
     const comments = useSelector((state) =>{
         if (user){
           return Object.values(state.comments).filter((comment)=>comment.postId === post.id)
@@ -19,7 +21,6 @@ const CommentButton = ({post}) => {
     const handleCommentPost = async e => {
       e.preventDefault()
       dispatch(createComment( post.id, commentBody ))
-    //   commentBool(false)
     }
 
     const handleEditComment = (e, commentId) => {
@@ -50,9 +51,11 @@ const CommentButton = ({post}) => {
                         <img src="../images/trashpic.png" alt="trash icon"/> comment
                         </button>
                     </form>
-                    <p className="commentBody">
-                        {user.username}: {comment.body}
-                    </p>
+                        <>
+                            <p className="commentBody">
+                                {post?.user.username}: {comment.body}
+                            </p>
+                        </>
                 </>
             ))}
             { commentBool && <form>

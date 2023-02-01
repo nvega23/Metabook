@@ -1,14 +1,15 @@
 import React from 'react';
-import { useSelector } from "react-redux";
-import { Redirect, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import PostIndex from '../PostIndexItem';
 import "./profilePage.css"
 import FriendButton from '../friending/friends';
+import { fetchPosts } from '../../store/posts';
 
 const ProfilePage = () => {
+  const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
-  const profile = useSelector(state=>state.posts.user)
-  const {userId} = useParams()
   let posts = useSelector(state=>state.posts)
   posts = Object.values(posts).reverse()
 
@@ -19,8 +20,7 @@ const ProfilePage = () => {
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
-                {/* {user.username} */}
-                {profile} username
+                    {posts[0]?.user.username}
               </div>
             </div>
           <hr/>
