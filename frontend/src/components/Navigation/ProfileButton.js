@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { Redirect, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
-import ProfilePage from "../profilePage";
 
 function ProfileButton({ user }) {
+  const sessionUserId = useSelector(state=>state.session.user.id)
   const dispatch = useDispatch();
   const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
-
+  // const posts = useSelector((state) =>{
+  //   return Object.values(state.posts).reverse()
+  // });
+  const posts = useSelector((state) =>{
+    if (user){
+      return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
+    }
+  });
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -17,13 +23,10 @@ function ProfileButton({ user }) {
 
   useEffect(() => {
     if (!showMenu) return;
-
     const closeMenu = () => {
       setShowMenu(false);
     };
-
     document.addEventListener('click', closeMenu);
-
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -32,10 +35,9 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
-  const profile = () => {
-    if (user){
-      history.push("/profilePage")
-    }
+  const profile = (e) => {
+    e.preventDefault()
+    history.push(`/profilePage/${sessionUserId}`)
   }
 
   return (
@@ -46,8 +48,13 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <button className="dropdown" onClick={profile}>{user.username}</button>
-          <button className="dropdown" onClick={logout}>Log Out</button>
+            {/* {posts.map(post => ( */}
+              <>
+                <button className="dropdown" onClick={profile}>{posts[0].user.username}</button>
+                {/* <button className="dropdown" onClick={profile}>{user.username}</button> */}
+              </>
+            {/* ))} */}
+              <button className="dropdown" onClick={logout}>Log Out</button>
         </ul>
       )}
     </>

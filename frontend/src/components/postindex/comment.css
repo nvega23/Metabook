@@ -74,9 +74,9 @@
       box-sizing: border-box;
       background-color: lightgray;
       top: -25px;
-      margin-left: 185px;
+      margin-left: 50%;
       height: 25px;
-      width: 155px;
+      width: 45%;
     }
 }
 
@@ -302,7 +302,7 @@
 
 .username{
   font-size: 17px;
-  padding:  14px 16px;
+  padding:  0 16px;
   height: 22px;
   line-height: 16px;
   vertical-align: middle;

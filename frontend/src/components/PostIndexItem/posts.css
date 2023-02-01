@@ -172,7 +172,7 @@
         height: 18px;
         width: 55px;
         margin-left: 580px;
-        margin-top: -55px;
+        margin-top: -75px;
         padding: 0 16px;
     }
 }
@@ -369,6 +369,7 @@
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  margin-left: 75%;
 }
 
 .scrollToTop:active,
@@ -397,7 +398,6 @@
 }
 
 .postImage{
-  /* border: 3px solid black; */
   margin-top: 50px;
   margin-left: -30%;
 }

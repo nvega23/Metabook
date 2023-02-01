@@ -18,11 +18,11 @@ const FriendButton = ({user}) => {
         setFriend(!friend);
     }
 
-    useEffect(() => {
-        if (user.requesteeIds.includes(currentUser.id)) {
-            setFriend(true)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (user.requesteeIds.includes(currentUser.id)) {
+    //         setFriend(true)
+    //     }
+    // }, [])
 
     if (friend) {
         return (
@@ -36,7 +36,7 @@ const FriendButton = ({user}) => {
         return (
             <div>
                 <button onClick={handleClick}>
-                    <div>Friend</div>
+                    <div>Add Friend</div>
                 </button>
             </div>
         )

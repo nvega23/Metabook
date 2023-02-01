@@ -2,11 +2,11 @@
     json.posts do
         json.set! post.id do
             json.extract! post, :id, :body, :users_id, :created_at, :updated_at
+            # json.photoUrl url_for(post.photo)
             json.user do
                 json.username post.user.username
             end
             json.photo_url post.photo.url
-            # json.photoUrl url_for(post.photo)
         end
     end
     json.comments do

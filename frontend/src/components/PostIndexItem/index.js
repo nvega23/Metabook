@@ -32,7 +32,7 @@ const PostIndex = () => {
 
   useEffect(() => {
     dispatch(fetchPosts(userId))
-  }, []);
+  }, [dispatch]);
 
   const scrollToTop = () => {
     window.scroll({
@@ -107,6 +107,7 @@ const PostIndex = () => {
               <>
                   <h4 className="posts">
                     <button className="username">{post.user.username}
+                    {/* <button className="username">{user.username} */}
                     </button>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>

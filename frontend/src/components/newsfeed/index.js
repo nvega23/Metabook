@@ -33,7 +33,6 @@ const NewsFeed = () => {
 
   const profile = (userId) => (e) => {
     e.preventDefault()
-
     history.push(`/profilePage/${userId}`)
   }
 
@@ -54,6 +53,7 @@ const NewsFeed = () => {
   useEffect(()=>{
     dispatch(fetchAllPosts());
   }, [dispatch])
+
   const handleDeletePost = (e, postId) => {
     e.preventDefault();
     return dispatch(deletePost(postId));
@@ -92,12 +92,15 @@ const NewsFeed = () => {
             <button className="postbutton">What's on your mind, {user.username}?</button>
             <input type="file" accept=".jpg, .jpeg, .png" multiple
             className="photoUpload" onChange={handleFile}/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
           </div>
         </form>
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    {/* <p className="username">{post.user.username}</p> */}
                     <button onClick={profile(post.usersId)} className="username">{post.user.username}
                     </button>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
