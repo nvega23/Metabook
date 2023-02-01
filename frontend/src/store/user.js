@@ -68,8 +68,8 @@ export const deleteUser = (userId) => async dispatch => {
 }
 
 const userReducer = (state = {}, action) => {
-    Object.freeze(state);
-    let newState = {...state};
+    // Object.freeze(state);
+    const newState = {...state};
     switch (action.type) {
         case RECEIVEUSER:
             return {...state, [action.user.user.id]: action.user.user}

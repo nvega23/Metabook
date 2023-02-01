@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
+import { fetchPosts } from "../../store/posts";
+import { useParams } from "react-router";
 import './posts.css'
 import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
@@ -19,11 +21,18 @@ const PostIndex = () => {
   // const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
-  const posts = useSelector((state) =>{
-    if (user){
-      return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
-    }
-  });
+  // const posts = useSelector((state) =>{
+  //   if (user){
+  //     return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
+  //   }
+  // });
+  const {userId} = useParams()
+  let posts = useSelector(state=>state.posts)
+  posts = Object.values(posts).reverse()
+
+  useEffect(() => {
+    dispatch(fetchPosts(userId))
+  }, []);
 
   const scrollToTop = () => {
     window.scroll({
@@ -46,9 +55,9 @@ const PostIndex = () => {
     });
   }
 
-  useEffect(()=>{
-    dispatch(fetchAllPosts());
-  }, [])
+  // useEffect(()=>{
+  //   dispatch(fetchAllPosts());
+  // }, [])
 
   const handleDeletePost = (e, postId) => {
     e.preventDefault();
@@ -77,7 +86,6 @@ const PostIndex = () => {
 
   const preview = photoUrl ? <img className="images" src={photoUrl} alt=""/> : null;
 
-
   if (user){
     return(
       <>
@@ -98,14 +106,15 @@ const PostIndex = () => {
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    <h3 className="username">{user.username}</h3>
+                    <button className="username">{post.user.username}
+                    </button>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/>Edit
+                        <img src="../images/pencil.png" alt="pencil icon"/>Edit
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
-                        <img src="./images/trashpic.png" alt="trash icon"/>
+                        <img src="../images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
                     <p className="postBody">

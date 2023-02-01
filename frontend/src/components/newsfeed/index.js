@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
-import { Redirect } from "react-router";
+import { fetchAllPosts, createPost, deletePost, updatePost, fetchPosts } from "../../store/posts";
+import { Redirect, useParams } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
+import { useHistory } from "react-router";
 import { useRef } from "react";
-import './style.css'
+import './style.css';
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
@@ -16,11 +17,25 @@ const NewsFeed = () => {
   const [photoFile, setPhotoFile] = useState(null)
   const [photoUrl, setPhotoUrl] = useState(null)
   const fileRef = useRef(null);
+  const history = useHistory()
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
   const posts = useSelector((state) =>{
       return Object.values(state.posts).reverse()
   });
+
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  const profile = (userId) => (e) => {
+    e.preventDefault()
+
+    history.push(`/profilePage/${userId}`)
+  }
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -39,7 +54,6 @@ const NewsFeed = () => {
   useEffect(()=>{
     dispatch(fetchAllPosts());
   }, [dispatch])
-
   const handleDeletePost = (e, postId) => {
     e.preventDefault();
     return dispatch(deletePost(postId));
@@ -83,7 +97,9 @@ const NewsFeed = () => {
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    <p className="username">{post.user.username}</p>
+                    {/* <p className="username">{post.user.username}</p> */}
+                    <button onClick={profile(post.usersId)} className="username">{post.user.username}
+                    </button>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
                       </button>
@@ -112,6 +128,9 @@ const NewsFeed = () => {
                   </h4>
               </div>
             ))}
+            <button className="scrollToTop" onClick={scrollToTop}>
+              Scroll to top
+            </button>
         </div>
       </>
     )
