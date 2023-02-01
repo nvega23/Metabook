@@ -39,6 +39,14 @@ export const fetchPost = (postId) => async dispatch => {
     }
 }
 
+export const fetchPosts = (userId) => async dispatch => {
+    const res = await csrfFetch(`/api/posts?userId=${userId}`)
+    if (res.ok){
+        const posts = await res.json()
+        dispatch(recievePosts(posts))
+    }
+}
+
 export const fetchAllPosts = () => async dispatch => {
     const res = await csrfFetch('/api/posts')
     if (res.ok){
@@ -48,7 +56,6 @@ export const fetchAllPosts = () => async dispatch => {
 }
 
 export const createPost = (post) => async dispatch => {
-    // debugger
     const res = await csrfFetch(`/api/posts`, {
         method: "POST",
         body: post
@@ -88,7 +95,7 @@ const postReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
         case RECIEVEPOSTS:
-            return {...newState, ...action.payload.posts}
+            return {...action.payload.posts}
         case RECIEVEPOST:
             return {...newState, [action.payload.post.id]: action.payload.post}
         case REMOVEPOST:

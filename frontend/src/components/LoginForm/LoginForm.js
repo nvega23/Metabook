@@ -68,7 +68,7 @@ function LoginForm() {
     </>
   );
   } else {
-    return <Redirect to="/profilePage"/>
+    return <Redirect to="/newsFeed"/>
   }
 }
 

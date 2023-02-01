@@ -348,9 +348,15 @@
 .username{
   margin: 16px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .postBody{
   margin: 10px;
   margin-left: 35px;
+}
+
+.photoUpload{
+  margin-top: 15px;
+  margin-left: 280px;
 }

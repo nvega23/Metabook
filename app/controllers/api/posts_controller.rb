@@ -1,9 +1,22 @@
 class Api::PostsController < ApplicationController
     # wrap_parameters include: Post.attribute_names + [:photo]
 
+    # def index
+    #     @posts = Post.all.includes(:comments, :likes)
+    #     if @posts
+    #         render :index
+    #     else
+    #         render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+    #     end
+    # end
+
     def index
-        @posts = Post.all.includes(:comments, :likes)
-        if @posts
+        @user = User.find_by(id: params[:user_id])
+        if @user
+            @posts = @user.posts
+            render :index
+        elsif
+            @posts = Post.all.includes(:comments, :likes)
             render :index
         else
             render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
@@ -11,7 +24,6 @@ class Api::PostsController < ApplicationController
     end
 
     def create
-        debugger
         @post = Post.new(post_params)
         @post.users_id = current_user.id
         if @post.save!

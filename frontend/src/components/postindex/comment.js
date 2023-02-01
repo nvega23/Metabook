@@ -36,7 +36,7 @@ const CommentButton = ({post}) => {
     return (
         <>
             <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
-                <img src="./images/comments.png" alt="trash icon"/>
+                <img src="../images/comments.png" alt="trash icon"/>
             </button>
             <br/>
             {comments.map(comment => (
@@ -47,7 +47,7 @@ const CommentButton = ({post}) => {
                         </button>
                         <br/>
                         <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                        <img src="./images/trashpic.png" alt="trash icon"/> comment
+                        <img src="../images/trashpic.png" alt="trash icon"/> comment
                         </button>
                     </form>
                     <p className="commentBody">
