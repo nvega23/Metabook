@@ -14,9 +14,9 @@ json.extract! @comments, :id, :body, :users_id, :post_id, :created_at, :updated_
 #     end
 # end
 
-# json.comment do
-#     json.extract! @comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
+# json.comments do
 #     json.user do
-#         json.username comment.user.username
+#         json.extract! @comments, :id, :body, :users_id, :post_id, :created_at, :updated_at
+#         json.username comments.user.username
 #     end
 # end

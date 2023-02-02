@@ -53,7 +53,7 @@ const CommentButton = ({post}) => {
                     </form>
                         <>
                             <p className="commentBody">
-                                {post?.user.username}: {comment.body}
+                                {comments[0]?.user.username}: {comment.body}
                             </p>
                         </>
                 </>

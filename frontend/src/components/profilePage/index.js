@@ -30,7 +30,7 @@ const ProfilePage = () => {
           </div>
               <FriendButton user = {user}/>
           <div className='headers'>
-            <PostIndex/>
+            <PostIndex user = {user}/>
           </div>
       </>
     )
