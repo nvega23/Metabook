@@ -5,18 +5,18 @@ json.extract! @comments, :id, :body, :users_id, :post_id, :created_at, :updated_
 # end
 # puts @comment
 # json.extract! user, :id, :username, :created_at, :updated_at
-@comment.each do |comment|
-    json.set! comment.id do
-        json.extract! comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
-        json.user do
-            json.username comment.user.username
-        end
-    end
-end
+# @comment.each do |comment|
+#     json.set! comment.id do
+#         json.extract! comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
+#         json.user do
+#             json.username comment.user.username
+#         end
+#     end
+# end
 
-json.comment do
-    json.extract! @comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
-    json.user do
-        json.username comment.user.username
-    end
-end
+# json.comment do
+#     json.extract! @comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
+#     json.user do
+#         json.username comment.user.username
+#     end
+# end
