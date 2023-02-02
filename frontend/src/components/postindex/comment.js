@@ -34,13 +34,14 @@ const CommentButton = ({post}) => {
         dispatch(deleteComment(postId, commentId))
     }
 
-    return (
-        <>
+
+        return (
+            <>
             <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
                 <img src="../images/comments.png" alt="trash icon"/>
             </button>
             <br/>
-            {comments.map(comment => (
+            {comments?.map(comment => (
                 <>
                     <form onSubmit={handleDeleteComment}>
                         <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
@@ -53,19 +54,19 @@ const CommentButton = ({post}) => {
                     </form>
                         <>
                             <p className="commentBody">
-                                {comments[0]?.user.username}: {comment.body}
+                                {comment?.user?.username}: {comment.body}
                             </p>
                         </>
                 </>
             ))}
             { commentBool && <form>
-            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-            <br/>
-            <br/>
-            <button className="writeCommentButton" onClick={handleCommentPost}>
+                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+                <br/>
+                <br/>
+                <button className="writeCommentButton" onClick={handleCommentPost}>
                 Write a comment...
-            </button>
-            </form>}
+                </button>
+                </form>}
         </>
     )
 };
