@@ -13,18 +13,33 @@ const FriendButton = ({user}) => {
         e.preventDefault();
         if (friend) {
             dispatch(deleteFriend(user.id));
+            setFriend(false)
         } else {
             dispatch(createFriend(user.id));
+            setFriend(true)
         }
-        setFriend(!friend);
     }
 
     useEffect(() => {
         if (user.requesteeIds.includes(currentUser.id)) {
             setFriend(true)
         }
-    }, [])
+    }, [dispatch, currentUser.id, user.requesteeIds])
 
+
+    // return (
+    //     <>
+    //         <form>
+    //             <button className="friendButton" onClick={handleClick}>
+    //                 {friend ?
+    //                     <img src="../images/friend.png"/>
+    //                         :
+    //                     <img src="../images/addFriend.png"/>
+    //                 }
+    //             </button>
+    //         </form>
+    //     </>
+    // )
     if (friend) {
         return (
             <div className="friends">
@@ -37,7 +52,7 @@ const FriendButton = ({user}) => {
     } else {
         return (
             <div>
-                <button onClick={handleClick}>
+                <button className="unfriendButton" onClick={handleClick}>
                     <img src="../images/addFriend.png"/>
                     <div>Add Friend</div>
                 </button>
