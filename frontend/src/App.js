@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginForm/LoginForm";
-import HomePage from "./components/profilePage";
 import ProfilePage from "./components/profilePage";
 import NewsFeed from "./components/newsfeed";
 
