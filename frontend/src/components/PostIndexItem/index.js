@@ -108,7 +108,7 @@ const PostIndex = () => {
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    <button className="username">{post.user.username}
+                    <button className="username">{post?.user?.username}
                     {/* <button className="username">{user.username} */}
                     </button>
                     <br/>
