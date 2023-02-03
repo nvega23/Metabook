@@ -34,39 +34,39 @@ const CommentButton = ({post}) => {
         dispatch(deleteComment(postId, commentId))
     }
 
-
-        return (
+    return (
+        <>
+        <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
+            <img src="../images/comments.png" alt="trash icon"/>
+        </button>
+        <br/>
+        {comments?.map(comment => (
             <>
-            <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
-                <img src="../images/comments.png" alt="trash icon"/>
-            </button>
+                <form onSubmit={handleDeleteComment}>
+                    <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
+                        Edit comment
+                    </button>
+                    <br/>
+                    <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
+                    <img src="../images/trashpic.png" alt="trash icon"/> comment
+                    </button>
+                </form>
+                    <>
+                        <p className="commentBody">
+                            {comment?.user?.username}: {comment.body}
+                        </p>
+                    </>
+                    <hr/>
+            </>
+        ))}
+        { commentBool && <form>
+            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
             <br/>
-            {comments?.map(comment => (
-                <>
-                    <form onSubmit={handleDeleteComment}>
-                        <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
-                            Edit comment
-                        </button>
-                        <br/>
-                        <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                        <img src="../images/trashpic.png" alt="trash icon"/> comment
-                        </button>
-                    </form>
-                        <>
-                            <p className="commentBody">
-                                {comment?.user?.username}: {comment.body}
-                            </p>
-                        </>
-                </>
-            ))}
-            { commentBool && <form>
-                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-                <br/>
-                <br/>
-                <button className="writeCommentButton" onClick={handleCommentPost}>
-                Write a comment...
-                </button>
-                </form>}
+            <br/>
+            <button className="writeCommentButton" onClick={handleCommentPost}>
+            Write a comment...
+            </button>
+            </form>}
         </>
     )
 };

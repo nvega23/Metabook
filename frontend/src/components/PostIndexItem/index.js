@@ -8,6 +8,7 @@ import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 import { useRef } from "react";
+import { fetchComments } from "../../store/comments";
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -32,6 +33,7 @@ const PostIndex = () => {
 
   useEffect(() => {
     dispatch(fetchPosts(userId))
+    dispatch(fetchComments())
   }, [dispatch]);
 
   const scrollToTop = () => {
