@@ -5,6 +5,9 @@
 json.post do
     json.extract! @post, :id, :body, :users_id, :created_at, :updated_at
     json.photo_url @post.photo.url
+    json.user do
+        json.username @post.user.username
+    end
 end
 
 json.likes do

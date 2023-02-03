@@ -10,12 +10,16 @@
         end
     end
     json.comments do
-            post.comments.each do |comment|
-                json.set! comment.id do
+        post.comments.each do |comment|
+            json.set! comment.id do
                 json.extract! comment, :id, :body, :users_id, :post_id, :created_at, :updated_at
+                json.user do
+                    json.username comment.user.username
+                end
             end
         end
     end
+
     json.likes do
             post.likes.each do |like|
                 json.set! like.id do
