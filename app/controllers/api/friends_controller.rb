@@ -3,6 +3,7 @@ class Api::FriendsController < ApplicationController
     before_action :require_logged_in
 
     def create
+        # debugger
         @friend = Friend.new(friend_params)
         @friend.requester_id = current_user.id
         if @friend.save!

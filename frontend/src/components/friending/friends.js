@@ -1,10 +1,14 @@
 import {useDispatch, useSelector} from "react-redux"
-import { createFriend, deleteFriend } from "../../store/friends";
+import { createFriend, deleteFriend, fetchFriend } from "../../store/friends";
+import { useParams } from "react-router-dom";
+import { getUser } from "../../store/user";
 import { useState } from "react";
 import { useEffect } from "react";
 import "./friends.css"
 
 const FriendButton = ({user}) => {
+    // let {userId} = useParams();
+    // let user = useSelector(getUser(userId));
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const [friend, setFriend] = useState(false);
@@ -13,33 +17,18 @@ const FriendButton = ({user}) => {
         e.preventDefault();
         if (friend) {
             dispatch(deleteFriend(user.id));
-            setFriend(false)
         } else {
             dispatch(createFriend(user.id));
-            setFriend(true)
         }
+        setFriend(!friend)
     }
 
     useEffect(() => {
-        if (user.requesteeIds.includes(currentUser.id)) {
+        if (user?.requesterIds.includes(currentUser.id)) {
             setFriend(true)
         }
-    }, [dispatch, currentUser.id, user.requesteeIds])
+    }, [dispatch, user])
 
-
-    // return (
-    //     <>
-    //         <form>
-    //             <button className="friendButton" onClick={handleClick}>
-    //                 {friend ?
-    //                     <img src="../images/friend.png"/>
-    //                         :
-    //                     <img src="../images/addFriend.png"/>
-    //                 }
-    //             </button>
-    //         </form>
-    //     </>
-    // )
     if (friend) {
         return (
             <div className="friends">
@@ -50,15 +39,32 @@ const FriendButton = ({user}) => {
             </div>
         )
     } else {
-        return (
-            <div>
-                <button className="unfriendButton" onClick={handleClick}>
-                    <img src="../images/addFriend.png"/>
-                    <div>Add Friend</div>
-                </button>
-            </div>
-        )
-    }
+            return (
+                    <div>
+                        <button className="unfriendButton" onClick={handleClick}>
+                            <img src="../images/addFriend.png"/>
+                            <div>Add Friend</div>
+                        </button>
+                    </div>
+                )
+            }
+        //     return (
+        //         <>
+        //     <form>
+        //         {friend ?
+        //                 <button className="friendButton" onClick={handleClick}>
+        //                     <img src="../images/friend.png"/>
+        //                     <div>Friends</div>
+        //                 </button>
+        //             :
+        //                 <button className="unfriendButton" onClick={handleClick}>
+        //                     <img src="../images/addFriend.png"/>
+        //                     <div>Add Friend</div>
+        //                 </button>
+        //         }
+        //     </form>
+        // </>
+    // )
 }
 
 export default FriendButton

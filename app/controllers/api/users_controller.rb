@@ -14,7 +14,8 @@ class Api::UsersController < ApplicationController
 
     def show
       @user = User.find(params[:id])
-      render 'api/users/user_post_show'
+      # render 'api/users/user_post_show'
+      render :show
     end
 
     private
