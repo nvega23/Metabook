@@ -28,7 +28,7 @@ const ProfilePage = () => {
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
-                    {user.username}
+                    {user?.username}
               </div>
             </div>
           <hr/>
