@@ -28,7 +28,7 @@ const ProfilePage = () => {
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
-                    {posts[0]?.user.username}
+                    {user.username}
               </div>
             </div>
           <hr/>
@@ -41,7 +41,7 @@ const ProfilePage = () => {
           </div>
               <FriendButton user={user} />
           <div className='headers'>
-            <PostIndex/>
+            <PostIndex user = {user}/>
           </div>
       </>
     )
