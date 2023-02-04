@@ -19,14 +19,8 @@ const PostIndex = () => {
   const [photoFile, setPhotoFile] = useState(null)
   const [photoUrl, setPhotoUrl] = useState(null)
   const fileRef = useRef(null);
-  // const [showModal, setShowModal] = useState(false);
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
-  // const posts = useSelector((state) =>{
-  //   if (user){
-  //     return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
-  //   }
-  // });
   const {userId} = useParams()
   let posts = useSelector(state=>state.posts)
   posts = Object.values(posts).reverse()
@@ -131,9 +125,9 @@ const PostIndex = () => {
                     </p>
                     <br/>
                     <br/>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                     <hr/>

@@ -1,7 +1,7 @@
 import csrfFetch from "./csrf";
 
 export const RECEIVEUSER = 'users/RECEIVEUSER'
-export const RECEIVEUSERS = 'users/REIIEVEUSERS'
+export const RECEIVEUSERS = 'users/RECEIVEUSERS'
 export const REMOVEUSER = 'users/REMOVEUSER'
 
 const receiveUser = (user) => ({
