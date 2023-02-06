@@ -11,7 +11,6 @@ function LoginFormModal() {
       <button className='signUp' onClick={() => setShowModal(true)}>Create new account</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {/* <LoginForm /> */}
           <SignupFormPage />
         </Modal>
       )}
