@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf";
 
-export const RECEIVE_FRIEND = '/friend/RECEIVE_FRIEND';
-export const RECEIVE_FRIENDS = '/friend/RECEIVE_FRIENDS';
-export const REMOVE_FRIEND = '/friend/REMOVE_FRIEND';
+export const RECEIVE_FRIEND = 'friend/RECEIVE_FRIEND';
+export const RECEIVE_FRIENDS = 'friend/RECEIVE_FRIENDS';
+export const REMOVE_FRIEND = 'friend/REMOVE_FRIEND';
 
 const receiveFriend = (friend) => ({
     type: RECEIVE_FRIEND,
@@ -49,7 +49,6 @@ export const createFriend = (requesteeId) => async (dispatch) => {
     const friend = {
             requesteeId
     }
-    console.log(friend)
     const res = await csrfFetch('/api/friends', {
         method: 'POST',
         headers: {
@@ -57,7 +56,6 @@ export const createFriend = (requesteeId) => async (dispatch) => {
         },
         body: JSON.stringify({friend})
     });
-    console.log(res)
     if (res.ok) {
         const friend = await res.json();
         dispatch(receiveFriend(friend));

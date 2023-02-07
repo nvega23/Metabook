@@ -1,23 +1,34 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import PostIndex from '../PostIndexItem';
+import { useParams } from 'react-router-dom';
+import { getUser } from '../../store/user';
+import { useEffect } from 'react';
 import "./profilePage.css"
 import FriendButton from '../friending/friends';
+import { fetchUser } from '../../store/user';
 
 const ProfilePage = () => {
-  const user = useSelector(state => state.session.user)
+  const dispatch = useDispatch()
+  let {userId} = useParams();
+  let user = useSelector(getUser(userId));
+  const currentUser = useSelector(state => state.session.user)
   let posts = useSelector(state=>state.posts)
   posts = Object.values(posts).reverse()
 
-  if (user){
+  useEffect(() => {
+    dispatch(fetchUser(userId))
+  }, [dispatch]);
+
+  if (currentUser){
     return (
       <>
           <div className='header'>
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
-                    {user.username}
+                    {user?.username}
               </div>
             </div>
           <hr/>
@@ -28,7 +39,7 @@ const ProfilePage = () => {
               <a target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="../images/linkedin.png" alt='linkedin'/></a>
               <a target="_blank" href="https://github.com/nvega23"><img className='twitter' src="../images/github.png" alt='github'/></a>
           </div>
-              <FriendButton user = {user}/>
+              <FriendButton user={user} />
           <div className='headers'>
             <PostIndex user = {user}/>
           </div>

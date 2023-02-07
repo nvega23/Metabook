@@ -7,6 +7,7 @@ import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
+import FriendButton from "../friending/friends";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
