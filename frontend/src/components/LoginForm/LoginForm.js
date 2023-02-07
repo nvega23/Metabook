@@ -40,20 +40,19 @@ function LoginForm() {
   if (!sessionUser){
     return (
       <>
-        <h1 className="metabook">Metabook</h1>
-        <h5 className="connect">Connect with friends and the world around you on Metabook.</h5>
+      <div className="splashPage">
+        <h1 className="metabook">metabook</h1>
+        <p className="connect">Connect with friends and the world around you on Metabook.</p>
     <form className="loginForm" onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
       <label>
-        <input className="username" type="text" value={credential} placeholder="Username or Email"
+        <input className="username" type="text" value={credential} placeholder="Email or Username"
         onChange={(e) => setCredential(e.target.value)} required/>
       </label>
-      <br/>
-      <br/>
       <label>
-        <input className="username" type="password" value={password} placeholder="password"
+        <input className="username" type="password" value={password} placeholder="Password"
         onChange={(e) => setPassword(e.target.value)} required/>
       </label>
       <br/>
@@ -61,10 +60,21 @@ function LoginForm() {
       <button className="log_in" type="submit">Log In</button>
       <br/>
       <br/>
-      <button className="log_in" onClick={()=>setDemo()}> Log in as a demo user?</button>
+      <button className="demo" onClick={()=>setDemo()}> Log in as a demo user?</button>
+      <hr className="lineBreak"/>
+      <div className="">
+        <SignUpFormModal/>
+      </div>
     </form>
-      <br/>
-      <SignUpFormModal/>
+      <div className="textUnderForm">
+        <p>
+          <b>
+            Create a Page
+          </b>
+          <> </>for a celebrity, brand or business.
+          </p>
+      </div>
+    </div>
     </>
   );
   } else {

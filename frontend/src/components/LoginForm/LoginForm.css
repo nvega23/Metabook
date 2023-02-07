@@ -2,7 +2,7 @@
   appearance: none;
   backface-visibility: hidden;
   background-color: #2f80ed;
-  border-radius: 10px;
+  border-radius: 8px;
   border-style: none;
   box-shadow: none;
   box-sizing: border-box;
@@ -10,7 +10,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 500;
   height: 35px;
   width: 350px;
@@ -18,7 +18,7 @@
   line-height: 1.5;
   outline: none;
   overflow: hidden;
-  padding: 10px 30px;
+  padding: 0 16px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -66,18 +66,19 @@
   width: 396px;
   margin-left: auto;
   margin-right: 250px;
-  margin-top: -280px;
+  margin-top: -180px;
   padding: 10px;
   display: block;
   text-align: center;
   word-wrap: break-word;
   font-size: 22px;
   line-height: 1.43;
+  background-color: #fff;
 }
 
 .username{
   border-radius: 6px;
-  border: 1px solid #fff;
+  border: 2px solid #f0f2f5;
   font-family: inherit;
   font-size: 17px;
   padding:  0 16px;
@@ -85,4 +86,37 @@
   width: 150px;
   line-height: 16px;
   vertical-align: middle;
+  font-size: 17px;
+  padding: 14px 16px;
+  width: 330px;
+}
+
+.demo{
+  color: #1877f2;
+  background-color: rgba(234, 234, 234, 0);
+  font-size: 14px;
+  font-weight: 500;
+  font-style: bold;
+  border: none;
+  cursor: pointer;
+  margin-bottom: -150px;
+}
+
+.lineBreak{
+  border: 0.5px solid rgba(194, 194, 194, 0.806);
+}
+
+.connect{
+  font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+.splashPage{
+  display: block;
+  justify-content: center;
+}
+
+.textUnderForm{
+  /* border: 3px solid black; */
+  width: 320px;
+  margin-left: 800px;
 }

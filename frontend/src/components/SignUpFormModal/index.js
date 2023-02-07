@@ -6,12 +6,16 @@ import "./style.css"
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
 
+  const handleClick = (e) => {
+    e.preventDefault()
+    setShowModal(true)
+  }
+
   return (
     <>
-      <button className='signUp' onClick={() => setShowModal(true)}>Create new account</button>
+      <button className='signUp' onClick={handleClick}>Create new account</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {/* <LoginForm /> */}
           <SignupFormPage />
         </Modal>
       )}
