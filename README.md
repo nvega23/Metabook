@@ -9,7 +9,9 @@ Instructions
 
     2. User will now be redirected to their profile page, where they can create a post, edit a post, and delete a post.
     
-<img width="1278" alt="Screenshot 2023-01-13 at 9 06 42 AM" src="https://user-images.githubusercontent.com/93811834/212377744-6bc1a85d-1e62-4366-abf2-ed984cac69f2.png">
+
+<img width="1178" alt="Screenshot 2023-02-07 at 2 57 19 PM" src="https://user-images.githubusercontent.com/93811834/217385859-0a88a444-ae90-4404-9a60-3cdacf31b857.png">
+
 
 Functionality & MVPS
 
@@ -21,14 +23,14 @@ Functionality & MVPS
         Users can create, edit, and delete posts which appear on their profiles
         All users posts appear on the main feed on the homepage
 
-<img width="620" alt="Screenshot 2023-01-13 at 9 41 34 AM" src="https://user-images.githubusercontent.com/93811834/212385195-25bb3181-326d-422b-a550-a50e1027e83c.png">
+<img width="1436" alt="Screenshot 2023-02-07 at 2 59 17 PM" src="https://user-images.githubusercontent.com/93811834/217386138-cec25a61-f8bb-40a8-a800-400d49556480.png">
 
 
 
     3. Comments
         Users can create and delete comments, which will appear below the post
 
-<img width="236" alt="Screenshot 2023-01-13 at 9 40 53 AM" src="https://user-images.githubusercontent.com/93811834/212385081-b08b67ab-de65-42b5-8e5a-6d02be37c017.png">
+<img width="879" alt="Screenshot 2023-02-07 at 3 01 23 PM" src="https://user-images.githubusercontent.com/93811834/217386435-474a00c2-6743-4fb9-8482-dec6ffc749f4.png">
 
  
 
