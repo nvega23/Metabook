@@ -311,9 +311,3 @@
 .writeCommentButton{
   margin-left: 50px;
 }
-
-.lineBreak{
-  border: 3px solid rgba(234, 234, 234, 0.565);
-  /* border: 3px solid rgba(0, 0, 0, 0.565); */
-  border-radius: 10px;
-}
