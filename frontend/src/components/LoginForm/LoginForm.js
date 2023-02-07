@@ -56,11 +56,13 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)} required/>
       </label>
       <br/>
-      <br/>
       <button className="log_in" type="submit">Log In</button>
       <br/>
-      <br/>
-      <button className="demo" onClick={()=>setDemo()}> Log in as a demo user?</button>
+      <button className="demo" onClick={()=>setDemo()}>
+        <b>
+          Log in as a demo user?
+        </b>
+      </button>
       <hr className="lineBreak"/>
       <div className="">
         <SignUpFormModal/>

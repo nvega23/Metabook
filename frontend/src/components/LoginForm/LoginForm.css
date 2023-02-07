@@ -2,7 +2,8 @@
   appearance: none;
   backface-visibility: hidden;
   background-color: #2f80ed;
-  border-radius: 8px;
+  border-radius: 6px;
+  margin-top: 5px;
   border-style: none;
   box-shadow: none;
   box-sizing: border-box;
@@ -12,8 +13,8 @@
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
   font-size: 20px;
   font-weight: 500;
-  height: 35px;
-  width: 350px;
+  height: 50px;
+  width: 365px;
   letter-spacing: normal;
   line-height: 1.5;
   outline: none;
@@ -63,10 +64,10 @@
 .loginForm{
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  width: 396px;
+  width: 375px;
   margin-left: auto;
   margin-right: 250px;
-  margin-top: -180px;
+  margin-top: -225px;
   padding: 10px;
   display: block;
   text-align: center;
@@ -78,15 +79,13 @@
 
 .username{
   border-radius: 6px;
-  border: 2px solid #f0f2f5;
+  border: 1px solid #dddfe2;
   font-family: inherit;
   font-size: 17px;
-  padding:  0 16px;
   height: 25px;
   width: 150px;
   line-height: 16px;
   vertical-align: middle;
-  font-size: 17px;
   padding: 14px 16px;
   width: 330px;
 }
@@ -95,11 +94,11 @@
   color: #1877f2;
   background-color: rgba(234, 234, 234, 0);
   font-size: 14px;
+  padding: 15px;
   font-weight: 500;
   font-style: bold;
   border: none;
   cursor: pointer;
-  margin-bottom: -150px;
 }
 
 .lineBreak{
@@ -112,11 +111,13 @@
 
 .splashPage{
   display: block;
-  justify-content: center;
+  /* border: 3px solid black; */
 }
 
 .textUnderForm{
-  /* border: 3px solid black; */
   width: 320px;
   margin-left: 800px;
+  font-size: 14px;
+  padding-top: 15px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
