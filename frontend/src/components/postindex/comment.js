@@ -70,14 +70,6 @@ const CommentButton = ({post}) => {
                 Write a comment...
             </button>
             </form>}
-        {/* { !handleEditComment && <form>
-            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-            <br/>
-            <br/>
-            <button className="writeCommentButton" onClick={handleCommentPost}>
-                Update a comment...
-            </button>
-            </form>} */}
         </>
     )
 };
