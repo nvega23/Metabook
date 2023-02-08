@@ -40,18 +40,17 @@ function ProfileButton({ user }) {
   return (
     <>
       <button className="pfp" onClick={openMenu}>
-      <img src="../images/maleicon.png"/>
+        <img src="../images/maleicon.png"/>
         <i className="fa-solid fa-user-circle" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-            {/* {posts.map(post => ( */}
+          <div className="borderDropdown">
               <>
                 <button className="dropdown" onClick={profile}>{posts[0].user.username}</button>
-                {/* <button className="dropdown" onClick={profile}>{user.username}</button> */}
               </>
-            {/* ))} */}
               <button className="dropdown" onClick={logout}>Log Out</button>
+          </div>
         </ul>
       )}
     </>
