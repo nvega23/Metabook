@@ -1,5 +1,5 @@
 import { createComment, deleteComment, updateComment } from "../../store/comments";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './comment.css'
 
@@ -38,7 +38,11 @@ const CommentButton = ({post}) => {
         <>
         <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
             <img src="../images/comments.png" alt="trash icon"/>
+            <rect className="PostIndexCommentText">
+                Comment
+            </rect>
         </button>
+        <p className="lineBreaker"></p>
         <br/>
         {comments?.map(comment => (
             <>
@@ -53,7 +57,7 @@ const CommentButton = ({post}) => {
                 </form>
                     <>
                         <p className="commentBody">
-                            {comment?.user?.username}: {comment.body}
+                            {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}: {comment.body}
                         </p>
                     </>
             </>
@@ -63,7 +67,15 @@ const CommentButton = ({post}) => {
             <br/>
             <br/>
             <button className="writeCommentButton" onClick={handleCommentPost}>
-            Write a comment...
+                Write a comment...
+            </button>
+            </form>}
+        { !handleEditComment && <form>
+            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+            <br/>
+            <br/>
+            <button className="writeCommentButton" onClick={handleCommentPost}>
+                Update a comment...
             </button>
             </form>}
         </>
