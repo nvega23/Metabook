@@ -311,3 +311,71 @@
 .writeCommentButton{
   margin-left: 50px;
 }
+
+.dropDown {
+  appearance: none;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.dropDown:hover {
+  background-color: rgb(45, 45, 45);
+  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.dropDown:hover:after {
+  opacity: .5;
+}
+
+.dropDown:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.dropDown:active:after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .button-65 {
+    padding: 14px 22px;
+    width: 176px;
+  }
+  .dropDown{
+      box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+      color: gray;
+      border-radius: 8px;
+      box-sizing: border-box;
+      background-color: lightgray;
+      display: flex;
+      margin-left: 700px;
+      justify-content: center;
+      border: 3px solid black;
+  }
+}

@@ -1,5 +1,5 @@
 import { createComment, deleteComment, updateComment } from "../../store/comments";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './comment.css'
 
@@ -56,7 +56,6 @@ const CommentButton = ({post}) => {
                             {comment?.user?.username}: {comment.body}
                         </p>
                     </>
-                    <hr/>
             </>
         ))}
         { commentBool && <form>
