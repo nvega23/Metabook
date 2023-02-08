@@ -77,6 +77,16 @@ function LoginForm() {
           </p>
       </div>
     </div>
+      <div className="footers">
+        <p className="languages">
+          <a className="aboutLinks" target="_blank" href="https://twitter.com/nvega24">Twitter</a> |
+          <a className="aboutLinks" target="_blank" href="https://angel.co/u/nestorvega23"> AngelList </a> |
+          <a className="aboutLinks" target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"> Linkedin </a> |
+          <a className="aboutLinks" target="_blank" href="https://github.com/nvega23">Github</a> |
+          React.js | JavaScript (ES6) | Ruby |
+          Ruby on Rails | MongoDB | Render | AWS
+        </p>
+      </div>
     </>
   );
   } else {
