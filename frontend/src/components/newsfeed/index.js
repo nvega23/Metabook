@@ -10,6 +10,7 @@ import './style.css';
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
+  const fileRef = useRef(null);
   const dispatch = useDispatch()
   const [body, setBody] = useState("");
   const [editBody, setEditBody] = useState("");
@@ -119,9 +120,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    {/* { post.photoUrl ? (
+                    { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview} */}
+                      ) : preview}
                     <br/>
                     <br/>
                     <hr/>
