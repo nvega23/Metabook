@@ -157,7 +157,7 @@
   }
 
   .editButton:hover {
-    background-color: rgb(45, 45, 45);
+    background-color: #f0f2f5;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
     transform: translateY(0);
@@ -188,7 +188,7 @@
         color: gray;
         border-radius: 8px;
         box-sizing: border-box;
-        background-color: lightgray;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         height: 18px;
@@ -258,7 +258,7 @@
         color: gray;
         border-radius: 8px;
         box-sizing: border-box;
-        background-color: lightgray;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         height: 18px;
@@ -370,6 +370,7 @@
 }
 
 .newsFeedUserName{
+  background-color: transparent;
   border-radius: 6px;
   border: none;
   margin: 5px;
@@ -377,7 +378,7 @@
   margin-top: 15px;
   font-size: 17px;
   padding: 0 16px;
-  width: 130px;
+  width: 100px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
@@ -390,4 +391,23 @@
 .photoUpload{
   margin-top: 15px;
   margin-left: 280px;
+}
+
+.lineBreaker{
+  border: 1px solid rgba(155, 155, 155, 0.519);
+  width: 600px;
+  margin-left: 22px;
+  margin-top: -20px;
+}
+
+.lineBreakerTop{
+  border: 1px solid rgba(155, 155, 155, 0.519);
+  margin-top: -15px;
+  width: 600px;
+  margin-left: 22px;
+  margin-bottom: 4px;
+}
+
+.spacingEdit{
+  color: transparent;
 }

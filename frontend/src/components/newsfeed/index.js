@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
-import { Redirect, useParams } from "react-router";
+import { Redirect } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
@@ -101,10 +101,11 @@ const NewsFeed = () => {
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    <button onClick={profile(post.usersId)} className="newsFeedUserName">{post.user.username}
+                    <button onClick={profile(post.usersId)} className="newsFeedUserName">
+                      {post.user.username.charAt(0).toUpperCase() + post.user?.username.slice(1)}
                     </button>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/>Edit
+                        <img src="./images/pencil.png" alt="pencil icon"/><rect className="spacingEdit">=</rect>Edit
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
@@ -120,12 +121,12 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
-                    <hr/>
+                      <p className="lineBreakerTop"></p>
                       <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
                       <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
                   </h4>

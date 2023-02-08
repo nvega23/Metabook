@@ -28,7 +28,7 @@ const ProfilePage = () => {
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
-                    {user?.username}
+                    {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
               </div>
             </div>
           <hr/>

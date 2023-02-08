@@ -90,7 +90,7 @@ const PostIndex = () => {
             <br/>
             <br/>
           <div >
-            <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
+            <input className="profilePageInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
@@ -102,8 +102,7 @@ const PostIndex = () => {
             {posts.map(post => (
               <>
                   <h4 className="posts">
-                    <button className="username">{post?.user?.username}
-                    {/* <button className="username">{user.username} */}
+                    <button className="profilePageUsername">{post?.user?.username}
                     </button>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
@@ -125,15 +124,16 @@ const PostIndex = () => {
                     </p>
                     <br/>
                     <br/>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
-                    <hr/>
-                      <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
-                      <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
-                    <br/>
+                      <p className="PostIndexProfilelineBreaker"></p>
+                        <LikeButton post = {post} isLiked = {likedPosts.includes(post.id)} likes = {likes}/>
+                        <CommentButton className={"commentButton"} post = {post} body = {post.body}/>
+                      <p className="PostIndexProfilelineBreakerTop"></p>
+                      <br/>
                   </h4>
               </>
             ))}

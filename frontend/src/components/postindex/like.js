@@ -19,13 +19,17 @@ const LikeButton = ({post, isLiked, likes}) => {
     return (
         <>
             <form>
-                <button className="likes" onClick={(e)=>handleLike(e, post.id)}>
                 {!isLiked ?
-                    <img src="../images/like.png" alt="Like"/>
+                        <button className="likes" onClick={(e)=>handleLike(e, post.id)}>
+                            <img src="../images/like.png" alt="Like"/>
+                            <div className="like">Like</div>
+                        </button>
                     :
-                    <img src="../images/bl3.png" alt="unlike"/>
+                    <button className="likes" onClick={(e)=>handleLike(e, post.id)}>
+                            <img src="../images/bl3.png" alt="unlike"/>
+                            <div className="unlike">Like</div>
+                    </button>
                 }
-                </button>
             </form>
         </>
     )
