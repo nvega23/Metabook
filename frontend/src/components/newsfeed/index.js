@@ -1,13 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchAllPosts, createPost, deletePost, updatePost, fetchPosts } from "../../store/posts";
+import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
 import { Redirect, useParams } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
-import FriendButton from "../friending/friends";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
@@ -17,7 +16,6 @@ const NewsFeed = () => {
   const [edit, setEdit] = useState(false)
   const [photoFile, setPhotoFile] = useState(null)
   const [photoUrl, setPhotoUrl] = useState(null)
-  const fileRef = useRef(null);
   const history = useHistory()
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
@@ -88,7 +86,7 @@ const NewsFeed = () => {
         <div>
         <form className="poster" onSubmit={handleSubmit}>
           <div>
-            <input className="input" id="body" value={body} onChange={e => setBody(e.target.value)}/>
+            <input className="textInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <button className="postbutton">What's on your mind, {user.username}?</button>
             <input type="file" accept=".jpg, .jpeg, .png" multiple
@@ -102,7 +100,7 @@ const NewsFeed = () => {
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
-                    <button onClick={profile(post.usersId)} className="username">{post.user.username}
+                    <button onClick={profile(post.usersId)} className="newsFeedUserName">{post.user.username}
                     </button>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/>Edit
@@ -121,9 +119,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                     <hr/>

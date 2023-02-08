@@ -8,9 +8,6 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
-  // const posts = useSelector((state) =>{
-  //   return Object.values(state.posts).reverse()
-  // });
   const posts = useSelector((state) =>{
     if (user){
       return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
