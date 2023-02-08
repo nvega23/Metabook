@@ -106,7 +106,7 @@ const PostIndex = () => {
                     </button>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="../images/pencil.png" alt="pencil icon"/>Edit
+                        <img src="../images/pencil.png" alt="pencil icon"/>
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>

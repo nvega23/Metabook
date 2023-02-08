@@ -104,8 +104,8 @@ const NewsFeed = () => {
                     <button onClick={profile(post.usersId)} className="newsFeedUserName">
                       {post.user.username.charAt(0).toUpperCase() + post.user?.username.slice(1)}
                     </button>
-                      <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>Edit
+                      <button className="editPost" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                        <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
@@ -121,9 +121,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    {/* { post.photoUrl ? (
+                    { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview} */}
+                      ) : preview}
                     <br/>
                     <br/>
                       <p className="lineBreakerTop"></p>

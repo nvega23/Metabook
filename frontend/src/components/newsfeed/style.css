@@ -86,7 +86,7 @@
   }
 
   .postbutton:hover {
-    background-color: #1366d6;
+    background-color: transparent;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
     transform: translateY(0);
@@ -113,7 +113,7 @@
       width: 176px;
     }
     .postbutton{
-        background-color: lightgray;
+        background-color: #2f80ed;
         box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         border-radius: 50px;
         font-size: 17px;
@@ -123,12 +123,11 @@
         position: relative;
         text-align: center;
         margin-left: 250px;
-        text-align: center;
     }
 }
 
 
-.editButton {
+.editPost {
     appearance: none;
     backface-visibility: hidden;
     border-radius: 10px;
@@ -156,7 +155,7 @@
     white-space: nowrap;
   }
 
-  .editButton:hover {
+  .editPost:hover {
     background-color: #f0f2f5;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
@@ -164,17 +163,17 @@
     transition-duration: .35s;
   }
 
-  .editButton:hover:after {
+  .editPost:hover:after {
     opacity: .5;
   }
 
-  .editButton:active {
+  .editPost:active {
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
     transform: translateY(2px);
     transition-duration: .35s;
   }
 
-  .editButton:active:after {
+  .editPost:active:after {
     opacity: 1;
   }
 
@@ -183,7 +182,7 @@
       padding: 14px 22px;
       width: 176px;
     }
-    .editButton{
+    .editPost{
         box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         color: gray;
         border-radius: 8px;
@@ -193,7 +192,7 @@
         justify-content: center;
         height: 18px;
         width: 55px;
-        margin-left: 580px;
+        margin-left: 523px;
         margin-top: -35px;
         padding: 0 16px;
     }
@@ -264,7 +263,7 @@
         height: 18px;
         width: 55px;
         margin-left: 580px;
-        margin-top: -15px;
+        margin-top: -35px;
         padding: 0 16px;
     }
 }
