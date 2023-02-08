@@ -105,7 +105,7 @@ const NewsFeed = () => {
                       {post.user.username.charAt(0).toUpperCase() + post.user?.username.slice(1)}
                     </button>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/><rect className="spacingEdit">=</rect>Edit
+                        <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>Edit
                       </button>
                       <br/>
                       <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>

@@ -29,6 +29,3 @@ function Navigation(){
 }
 
 export default Navigation;
-// navlink to show only when logged in, return no html if not logged in
-// redirect to (post) page when logged in
-// demo user
