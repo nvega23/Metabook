@@ -93,7 +93,7 @@ const PostIndex = () => {
             <input className="profilePageInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
             <br/>
-            <button className="postbutton">What's on your mind, {user.username}?</button>
+            <button className="postbutton">What's on your mind, {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}?</button>
               <input className="postImage" type="file" accept=".jpg, .jpeg, .png .gif"
               multiple onChange={handleFile}/>
           </div>

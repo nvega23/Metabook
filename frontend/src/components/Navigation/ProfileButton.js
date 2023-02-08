@@ -47,7 +47,10 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <div className="borderDropdown">
               <>
-                <button className="dropdown" onClick={profile}>{posts[0].user.username}</button>
+                <button className="dropdown" onClick={profile}>
+                  {/* {posts[0].user.username} */}
+                  {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}
+                </button>
               </>
               <button className="dropdown" onClick={logout}>Log Out</button>
           </div>

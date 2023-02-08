@@ -212,7 +212,7 @@
       background-color: transparent;
       display: flex;
       justify-content: center;
-      margin-left: 530px;
+      margin-left: 415px;
   }
 }
 
@@ -272,7 +272,6 @@
     width: 176px;
   }
   .removeComment{
-      /* border: 3px solid black; */
       box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
       color: gray;
       border-radius: 8px;
@@ -281,11 +280,12 @@
       display: flex;
       justify-content: center;
       margin-left: 535px;
+      margin-top: -38px;
   }
 }
 
 .commentBody{
-  background-color: rgb(238, 238, 238);
+  background-color: #f0f2f5;
   box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   border-radius: 50px;
   box-sizing: border-box;

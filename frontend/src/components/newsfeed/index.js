@@ -89,7 +89,7 @@ const NewsFeed = () => {
           <div>
             <input className="textInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
             <br/>
-            <button className="postbutton">What's on your mind, {user.username}?</button>
+            <button className="postbutton">What's on your mind, {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}?</button>
             <input type="file" accept=".jpg, .jpeg, .png" multiple
             className="photoUpload" onChange={handleFile}/>
             <br/>
