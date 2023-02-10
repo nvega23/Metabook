@@ -40,7 +40,7 @@ const FriendButton = ({user}) => {
         )
     } else {
         return (
-            <div>
+            <div className="friends">
                 <button className="unfriendButton" onClick={handleClick}>
                     <img src="../images/addFriend.png"/>
                     <div>Add Friend</div>
