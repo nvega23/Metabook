@@ -41,6 +41,16 @@ const ProfilePage = () => {
           </div>
               <FriendButton user={user} />
           <div className='headers'>
+            <div className='aboutMe'>
+              <p className='aboutMeTitle'>
+                <b>
+                  Bio:
+                </b>
+              <div className='aboutMeText'>
+                Hi, nice to meet you i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
+              </div>
+              </p>
+            </div>
             <PostIndex user = {user}/>
           </div>
       </>

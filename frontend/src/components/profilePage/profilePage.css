@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 80px; */
-}
+    margin: 50px 0 0 0;
+  }
 
 .profileName{
     width: calc(100% - 560px);
@@ -16,12 +16,14 @@
 }
 
 .header{
+    /* border: 3px solid black; */
     width: auto;
     height: 200px;
     min-width: 1080px;
-    margin-top: 125px;
+    margin-top: 60px;
     border-radius: 8px;
     box-shadow: 5px 1px 20px rgb(164, 164, 164);
+    background-color: #fff;
 }
 
 .profilePicture{
@@ -34,7 +36,6 @@
 
   .links{
     border-radius: 3%;
-    /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgba(0, 0, 0, 0.361); */
     width: auto;
     height: 150px;
     margin-top: -200px;
@@ -49,4 +50,26 @@
   text-decoration: underline;
   display: flex;
   justify-content: center;
+}
+
+.aboutMe{
+  width: 350px;
+  height: 150px;
+  margin-bottom: auto;
+  margin-top: 38px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  position: sticky;
+}
+
+.aboutMeText{
+  /* border: 3px solid blue; */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
