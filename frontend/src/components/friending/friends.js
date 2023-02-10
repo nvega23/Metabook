@@ -39,32 +39,15 @@ const FriendButton = ({user}) => {
             </div>
         )
     } else {
-            return (
-                    <div>
-                        <button className="unfriendButton" onClick={handleClick}>
-                            <img src="../images/addFriend.png"/>
-                            <div>Add Friend</div>
-                        </button>
-                    </div>
-                )
-            }
-        //     return (
-        //         <>
-        //     <form>
-        //         {friend ?
-        //                 <button className="friendButton" onClick={handleClick}>
-        //                     <img src="../images/friend.png"/>
-        //                     <div>Friends</div>
-        //                 </button>
-        //             :
-        //                 <button className="unfriendButton" onClick={handleClick}>
-        //                     <img src="../images/addFriend.png"/>
-        //                     <div>Add Friend</div>
-        //                 </button>
-        //         }
-        //     </form>
-        // </>
-    // )
+        return (
+            <div>
+                <button className="unfriendButton" onClick={handleClick}>
+                    <img src="../images/addFriend.png"/>
+                    <div>Add Friend</div>
+                </button>
+            </div>
+        )
+    }
 }
 
 export default FriendButton

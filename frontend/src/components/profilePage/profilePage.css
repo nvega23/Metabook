@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 0 0;
+    /* margin: 50px 0 0 0; */
   }
 
 .profileName{
@@ -13,6 +13,7 @@
     font-weight: 700;
     margin-left: 135px;
     margin-top: -75px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .header{
@@ -72,4 +73,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hrprofilePage{
+  margin-top: 50px;
 }

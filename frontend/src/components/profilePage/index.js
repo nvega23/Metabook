@@ -31,15 +31,15 @@ const ProfilePage = () => {
                     {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
               </div>
             </div>
-          <hr/>
+          <hr className='hrprofilePage'/>
           </div>
-          <div className='links'>
+          {/* <div className='links'>
               <a target="_blank" href="https://twitter.com/nvega24"><img className='twitter' src="../images/twitter1.png" alt='twitter'/></a>
               <a target="_blank" href="https://angel.co/u/nestorvega23"><img className='twitter' src="../images/angellist.png" alt='angel list'/></a>
               <a target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="../images/linkedin.png" alt='linkedin'/></a>
               <a target="_blank" href="https://github.com/nvega23"><img className='twitter' src="../images/github.png" alt='github'/></a>
-          </div>
-              <FriendButton user={user} />
+          </div> */}
+          <FriendButton user={user} />
           <div className='headers'>
             <div className='aboutMe'>
               <p className='aboutMeTitle'>

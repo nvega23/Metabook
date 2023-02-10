@@ -4,11 +4,15 @@
     margin-left: 13px;
     margin-top: -25px;
     outline: none;
+    margin-left: auto;
+    margin-right: 25px;
+    margin-top: -165px;
+    margin-bottom: 125px;
 }
 
 .friendButton{
     cursor: pointer;
-    box-shadow: 5px 1px 15px rgba(0, 0, 0, 0.36);
+    background-color: transparent;
     border-radius: 5px;
     border: none;
 }
@@ -16,9 +20,11 @@
 .unfriendButton{
     cursor: pointer;
     border: none;
-    box-shadow: 5px 1px 15px rgba(0, 0, 0, 0.36);
+    background-color: transparent;
     border-radius: 5px;
     width: 63px;
-    margin-top: -65px;
-    margin-left: 13px;
+    margin-left: 93.5%;
+    margin-right: 25px;
+    top: -150px;
+    border: 3px solid black;
 }
