@@ -13,6 +13,11 @@ function ProfileButton({ user }) {
       return Object.values(state.posts).filter((post)=>post.usersId === user.id).reverse()
     }
   });
+
+  const openExternalSite = site => {
+    window.open(site);
+  };
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -48,10 +53,14 @@ function ProfileButton({ user }) {
           <div className="borderDropdown">
               <>
                 <button className="dropdown" onClick={profile}>
-                  {/* {posts[0].user.username} */}
                   {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}
                 </button>
               </>
+              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://github.com/nvega23">Github</a></button>
+              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/">Linkedin</a> </button>
+              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://angel.co/u/nestorvega23">Wellfound</a></button>
+              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://twitter.com/nvega24">Twitter</a></button>
+              <button className="dropdown" onClick={() => openExternalSite("mailto:vega.nestor1@gmail.com")}><a className="twitterLink">Email The Developer</a></button>
               <button className="dropdown" onClick={logout}>Log Out</button>
           </div>
         </ul>
