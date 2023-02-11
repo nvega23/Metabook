@@ -17,6 +17,7 @@ const CommentButton = ({post}) => {
 
     const [commentBody, setCommentBody] = useState("");
     const [commentBool, setCommentBool] = useState(false)
+    const [editBool, setEditBool] = useState(false)
 
     const handleCommentPost = async e => {
       e.preventDefault()
@@ -47,7 +48,7 @@ const CommentButton = ({post}) => {
         {comments?.map(comment => (
             <>
                 <form onSubmit={handleDeleteComment}>
-                    <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id)}>
+                    <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id, setEditBool(prev => !prev))}>
                         Edit comment
                     </button>
                     <br/>
@@ -69,6 +70,16 @@ const CommentButton = ({post}) => {
             <button className="writeCommentButton" onClick={handleCommentPost}>
                 Write a comment...
             </button>
+            </form>}
+            { editBool && <form>
+                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+                <br/>
+                <br/>
+                {comments.map(comment=> (
+                    <button className="writeCommentButton" onClick={(e)=>handleEditComment(e, comment.id, setEditBool(prev => !prev))}>
+                        update comment...
+                    </button>
+                ))}
             </form>}
         </>
     )

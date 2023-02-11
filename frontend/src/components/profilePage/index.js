@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import "./profilePage.css"
 import FriendButton from '../friending/friends';
 import { fetchUser } from '../../store/user';
+import { fetchFriend, fetchFriends } from '../../store/friends';
 
 const ProfilePage = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(fetchUser(userId))
+    dispatch(fetchFriends(userId))
   }, [dispatch]);
 
   if (currentUser){
@@ -33,13 +35,13 @@ const ProfilePage = () => {
             </div>
           <hr className='hrprofilePage'/>
           </div>
-          {/* <div className='links'>
+          <div className='links'>
               <a target="_blank" href="https://twitter.com/nvega24"><img className='twitter' src="../images/twitter1.png" alt='twitter'/></a>
               <a target="_blank" href="https://angel.co/u/nestorvega23"><img className='twitter' src="../images/angellist.png" alt='angel list'/></a>
               <a target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="../images/linkedin.png" alt='linkedin'/></a>
               <a target="_blank" href="https://github.com/nvega23"><img className='twitter' src="../images/github.png" alt='github'/></a>
-          </div> */}
-          <FriendButton user={user} />
+              <FriendButton className='twitter' user={user} />
+          </div>
           <div className='headers'>
             <div className='aboutMe'>
               <p className='aboutMeTitle'>
@@ -47,8 +49,20 @@ const ProfilePage = () => {
                   Bio:
                 </b>
               <div className='aboutMeText'>
-                Hi, nice to meet you i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
+                Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
               </div>
+              </p>
+            </div>
+            <div className='aboutMeText'>
+              <p className='aboutMe'>
+                <>
+                  my friends
+                  {user && user.requesteeIds.map(friend=>{
+                    <>
+                      friend.username
+                    </>
+                  })}
+                </>
               </p>
             </div>
             <PostIndex user = {user}/>
