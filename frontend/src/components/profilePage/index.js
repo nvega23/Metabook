@@ -40,7 +40,7 @@ const ProfilePage = () => {
               <a target="_blank" href="https://angel.co/u/nestorvega23"><img className='twitter' src="../images/angellist.png" alt='angel list'/></a>
               <a target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/"><img className='twitter' src="../images/linkedin.png" alt='linkedin'/></a>
               <a target="_blank" href="https://github.com/nvega23"><img className='twitter' src="../images/github.png" alt='github'/></a>
-              {currentUser.id !== user.id ? <FriendButton className='twitter' user={user} /> : <></>}
+                {currentUser.id !== user?.id ? <FriendButton className='twitter' user={user} /> : <></>}
           </div>
           <div className='headers'>
             <div className='aboutMe'>
