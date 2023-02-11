@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import "./profilePage.css"
 import FriendButton from '../friending/friends';
 import { fetchUser } from '../../store/user';
+import { fetchFriend, fetchFriends } from '../../store/friends';
 
 const ProfilePage = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(fetchUser(userId))
+    dispatch(fetchFriends(userId))
   }, [dispatch]);
 
   if (currentUser){
@@ -47,8 +49,20 @@ const ProfilePage = () => {
                   Bio:
                 </b>
               <div className='aboutMeText'>
-                Hi, nice to meet you i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
+                Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
               </div>
+              </p>
+            </div>
+            <div className='aboutMeText'>
+              <p className='aboutMe'>
+                <>
+                  my friends
+                  {user && user.requesteeIds.map(friend=>{
+                    <>
+                      friend.username
+                    </>
+                  })}
+                </>
               </p>
             </div>
             <PostIndex user = {user}/>
