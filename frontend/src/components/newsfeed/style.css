@@ -382,6 +382,8 @@
   width: 100px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   cursor: pointer;
+  /* color: #1366d6; */
+  color: #2f80ed;
 }
 
 .postBody{

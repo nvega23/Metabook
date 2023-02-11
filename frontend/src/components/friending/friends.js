@@ -29,31 +29,27 @@ const FriendButton = ({user}) => {
         }
     }, [dispatch, user])
 
-    // if (currentUser){
-    //     return (
-    //         friend
-    //     )
-    // } else{
-        if (friend) {
-            return (
-                <div className="friends">
-                    <button className="friendButton" onClick={handleClick}>
-                        <img src="../images/friend.png"/>
-                        <div>Friends</div>
-                    </button>
-                </div>
-            )
-        } else {
-            return (
-                <div className="friends">
-                    <button className="unfriendButton" onClick={handleClick}>
-                        <img src="../images/addFriend.png"/>
-                        <div>Add Friend</div>
-                    </button>
-                </div>
-            )
-        }
-    // }
+    // if (currentUser === `./api/profilePage/${user.id}`) return null
+
+    if (friend) {
+        return (
+            <div className="friends">
+                <button className="friendButton" onClick={handleClick}>
+                    <img src="../images/friend.png"/>
+                    <div>Friends</div>
+                </button>
+            </div>
+        )
+    } else {
+        return (
+            <div className="friends">
+                <button className="unfriendButton" onClick={handleClick}>
+                    <img src="../images/addFriend.png"/>
+                    <div>Add Friend</div>
+                </button>
+            </div>
+        )
+    }
 }
 
 export default FriendButton
