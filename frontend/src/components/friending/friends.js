@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./friends.css"
 
-const FriendButton = () => {
-    let {userId} = useParams();
-    let user = useSelector(getUser(userId));
+const FriendButton = ({user}) => {
+    // let {userId} = useParams();
+    // let user = useSelector(getUser(userId));
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const [friend, setFriend] = useState(false);
