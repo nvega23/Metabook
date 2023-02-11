@@ -40,7 +40,9 @@
     width: auto;
     height: 150px;
     margin-top: -200px;
-    margin-left: 78%;
+    margin-left: 74%;
+    margin-bottom: 50px;
+    display: flex;
 }
 
 .twitter{

@@ -86,37 +86,3 @@ const CommentButton = ({post}) => {
 };
 
 export default CommentButton;
-
-// <>
-// <form onSubmit={handleDeleteComment}>
-//     <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id, setEditBool(prev => !prev))}>
-//         Edit comment
-//     </button>
-//     <br/>
-//     <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-//     <img src="../images/trashpic.png" alt="trash icon"/> comment
-//     </button>
-// </form>
-//     <>
-//         <p className="commentBody">
-//             {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}: {comment.body}
-//         </p>
-//     </>
-// </>
-// ))}
-// { commentBool && <form>
-// <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-// <br/>
-// <br/>
-// <button className="writeCommentButton" onClick={handleCommentPost}>
-// Write a comment...
-// </button>
-// </form>}
-// {  editBool && <form>
-// <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-// <br/>
-// <br/>
-// <button className="writeCommentButton" onClick={handleEditComment}>
-// edit comment...
-// </button>
-// </form>}
