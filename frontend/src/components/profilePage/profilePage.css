@@ -25,11 +25,12 @@
     border-radius: 8px;
     box-shadow: 5px 1px 20px rgb(164, 164, 164);
     background-color: #fff;
+    padding: 15px;
 }
 
 .profilePicture{
-    /* border: 3px solid black; */
     border-radius: 50%;
+    margin-left: 100px;
     width: 100px;
     height: 100px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);

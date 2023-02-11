@@ -53,7 +53,7 @@ const ProfilePage = () => {
               </div>
               </p>
             </div>
-            <div className='aboutMeText'>
+            {/* <div className='aboutMeText'>
               <p className='aboutMe'>
                 <>
                   my friends
@@ -64,7 +64,7 @@ const ProfilePage = () => {
                   })}
                 </>
               </p>
-            </div>
+            </div> */}
             <PostIndex user = {user}/>
           </div>
       </>

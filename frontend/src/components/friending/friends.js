@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./friends.css"
 
-const FriendButton = ({user}) => {
-    // let {userId} = useParams();
-    // let user = useSelector(getUser(userId));
+const FriendButton = () => {
+    let {userId} = useParams();
+    let user = useSelector(getUser(userId));
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const [friend, setFriend] = useState(false);
@@ -29,31 +29,27 @@ const FriendButton = ({user}) => {
         }
     }, [dispatch, user])
 
-    // if (currentUser){
-    //     return (
-    //         friend
-    //     )
-    // } else{
-        if (friend) {
-            return (
-                <div className="friends">
-                    <button className="friendButton" onClick={handleClick}>
-                        <img src="../images/friend.png"/>
-                        <div>Friends</div>
-                    </button>
-                </div>
-            )
-        } else {
-            return (
-                <div className="friends">
-                    <button className="unfriendButton" onClick={handleClick}>
-                        <img src="../images/addFriend.png"/>
-                        <div>Add Friend</div>
-                    </button>
-                </div>
-            )
-        }
-    // }
+    // if (currentUser === `./api/profilePage/${user.id}`) return null
+
+    if (friend) {
+        return (
+            <div className="friends">
+                <button className="friendButton" onClick={handleClick}>
+                    <img src="../images/friend.png"/>
+                    <div>Friends</div>
+                </button>
+            </div>
+        )
+    } else {
+        return (
+            <div className="friends">
+                <button className="unfriendButton" onClick={handleClick}>
+                    <img src="../images/addFriend.png"/>
+                    <div>Add Friend</div>
+                </button>
+            </div>
+        )
+    }
 }
 
 export default FriendButton
