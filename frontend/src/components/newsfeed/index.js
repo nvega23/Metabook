@@ -7,6 +7,7 @@ import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
+import FriendList from "../friending/friendList";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
@@ -98,6 +99,7 @@ const NewsFeed = () => {
             <br/>
           </div>
         </form>
+        <FriendList/>
             {posts.map(post => (
               <div className="headers">
                   <h4 className="posts">
@@ -121,9 +123,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                       <p className="lineBreakerTop"></p>
