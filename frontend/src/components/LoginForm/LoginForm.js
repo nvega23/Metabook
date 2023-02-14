@@ -41,8 +41,10 @@ function LoginForm() {
     return (
       <>
       <div className="splashPage">
-        <h1 className="metabook">metabook</h1>
-        <p className="connect">Connect with friends and the world around you on Metabook.</p>
+        <div className="splashPageText">
+          <h1 className="metabook">metabook</h1>
+          <p className="connect">Connect with friends and the world around you on Metabook.</p>
+        </div>
     <form className="loginForm" onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
