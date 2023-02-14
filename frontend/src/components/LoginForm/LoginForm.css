@@ -62,12 +62,13 @@
 }
 
 .loginForm{
+  /* border: 3px solid black; */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   width: 375px;
-  margin-left: auto;
-  margin-right: 250px;
-  margin-top: -225px;
+  /* margin-left: auto; */
+  /* margin-right: 250px; */
+  /* margin-top: -225px; */
   padding: 10px;
   display: block;
   text-align: center;
@@ -107,14 +108,23 @@
 
 .connect{
   font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
-  margin-right: 650px;
 }
 
 .splashPage{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 50px;
+  padding: 50px;
+  margin-right: 175px
+}
+
+.splashPageText{
+  width: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .textUnderForm{
@@ -125,6 +135,38 @@
   padding-top: 15px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-left: 550px;
+}
+
+@media (max-width: 800px) {
+  .splashPage{
+    /* border: 3px solid gold; */
+    margin-top: -50px;
+  }
+  .splashPageText{
+    /* border: 3px solid #1877f2; */
+    margin-left: 150px;
+    padding: 0;
+    font-size: 24px;
+    line-height: 28px;
+    width: auto;
+    font-weight: normal;
+    margin: 0;
+  }
+  /* .loginForm{
+    border: 3px solid yellowgreen;
+  } */
+  .textUnderForm{
+    display: contents;
+    margin-right: 550px;
+  }
+  .signUp{
+    /* border: 3px solid green; */
+    margin-left: 85px;
+  }
+  .metabook{
+    /* border: 3px solid red; */
+    margin-right: 200px;
+  }
 }
 
 .footers{
