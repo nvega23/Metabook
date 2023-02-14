@@ -45,39 +45,41 @@ function LoginForm() {
           <h1 className="metabook">metabook</h1>
           <p className="connect">Connect with friends and the world around you on Metabook.</p>
         </div>
-    <form className="loginForm" onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
-      <label>
-        <input className="username" type="text" value={credential} placeholder="Email or Username"
-        onChange={(e) => setCredential(e.target.value)} required/>
-      </label>
-      <label>
-        <input className="username" type="password" value={password} placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)} required/>
-      </label>
-      <br/>
-      <button className="log_in" type="submit">Log In</button>
-      <br/>
-      <button className="demo" onClick={()=>setDemo()}>
-        <b>
-          Log in as a demo user?
-        </b>
-      </button>
-      <hr className="lineBreak"/>
-      <div className="">
-        <SignUpFormModal/>
-      </div>
-    </form>
-      <div className="textUnderForm">
-        <p>
+      <div className="borderLoginForm">
+        <form className="loginForm" onSubmit={handleSubmit}>
+          <ul>
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+          <label>
+            <input className="username" type="text" value={credential} placeholder="Email or Username"
+            onChange={(e) => setCredential(e.target.value)} required/>
+          </label>
+          <label>
+            <input className="username" type="password" value={password} placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)} required/>
+          </label>
+          <br/>
+          <button className="log_in" type="submit">Log In</button>
+          <br/>
+          <button className="demo" onClick={()=>setDemo()}>
+            <b>
+              Log in as a demo user?
+            </b>
+          </button>
+          <hr className="lineBreak"/>
+          <div className="">
+            <SignUpFormModal/>
+          </div>
+        </form>
+        <div>
+        <p className="formText">
           <b>
             Create a Page
           </b>
           <> </>for a celebrity, brand or business.
           </p>
       </div>
+        </div>
     </div>
       <div className="footers">
         <p className="languages">

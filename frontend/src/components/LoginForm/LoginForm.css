@@ -108,12 +108,16 @@
 
 .connect{
   font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+  align-items: center;
+  width: 359px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .splashPage{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin: 50px;
@@ -165,7 +169,20 @@
   }
   .metabook{
     /* border: 3px solid red; */
-    margin-right: 200px;
+    margin-right: 145px;
+    margin-left: 50px;
+  }
+  .connect{
+    /* margin-left: 165px; */
+    margin-left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    align-items: center;
+    width: 385px;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
@@ -208,10 +225,12 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 
-.meta2023{
-  border: 3px solid black;
-  height: 30px;
+.borderLoginForm{
+  height: auto;
+}
+
+.formText{
   display: flex;
-  flex-wrap: wrap;
-  align-self: center;
+  justify-content: center;
+  align-items: center;
 }
