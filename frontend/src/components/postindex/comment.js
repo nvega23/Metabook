@@ -1,5 +1,5 @@
-import { createComment, deleteComment, updateComment } from "../../store/comments";
-import { useState } from "react";
+import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "../../store/comments";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './comment.css'
 
@@ -15,6 +15,7 @@ const CommentButton = ({post}) => {
         }
     });
 
+    const newComment = useSelector(state=>state.comment)
     const [commentBody, setCommentBody] = useState("");
     const [commentBool, setCommentBool] = useState(false)
     const [editBool, setEditBool] = useState(false)
@@ -35,6 +36,7 @@ const CommentButton = ({post}) => {
         dispatch(deleteComment(postId, commentId))
     }
 
+    // console.log(comments, "im the comments")
     return (
         <>
         <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
@@ -76,7 +78,7 @@ const CommentButton = ({post}) => {
                 <br/>
                 <br/>
                 {comments.map(comment=> (
-                    <button className="writeCommentButton" onClick={(e)=>handleEditComment(e, comment.id, setEditBool(prev => !prev))}>
+                    <button className="writeCommentButton" onClick={(e)=>handleEditComment(e, comment?.id, setEditBool(prev => !prev))}>
                         update comment...
                     </button>
                 ))}

@@ -44,6 +44,8 @@ export const createComment = (postId, body) => async dispatch => {
     if (res.ok){
         const comment = await res.json()
         dispatch(recieveComment(comment))
+        return comment
+        // dispatch(fetchComment(postId))
     }
 }
 
@@ -77,7 +79,6 @@ const commentReducer = (state = {}, action) => {
         case RECIEVEPOSTS:
             return {...newState, ...action.payload.comments}
         case RECIEVEPOST:
-            //
             if (action.payload.post.comment) {
                 return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
             } else {
@@ -88,7 +89,8 @@ const commentReducer = (state = {}, action) => {
         case RECIEVECOMMENTS:
             return {...newState, ...action.comments}
         case RECIEVECOMMENT:
-            return {...newState, [action.comment.id]: action.comment}
+            console.log(action.comment, action.comment.id)
+            return {...newState, [action.comment.comment.id]: action.comment.comment}
         case REMOVECOMMENT:
             delete newState[action.commentId]
             return newState
