@@ -294,18 +294,21 @@
   display: flex;
   justify-content: flex-start;
   margin-left: 15px;
-  width: 250px;
-  height: 50px;
+  width: auto;
+  height: auto;
   margin: 5px;
-  padding: 0 16px;
+  padding: 0 16px 14px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .commentName{
-  /* border: 3px solid black; */
   display: flex;
-  /* margin-right: -15px; */
   color: #2f80ed;
   margin: 15px;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 35px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
