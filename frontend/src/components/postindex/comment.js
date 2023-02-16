@@ -59,9 +59,13 @@ const CommentButton = ({post}) => {
                     </button>
                 </form>
                     <>
-                        <p className="commentBody">
-                            {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}: {comment.body}
-                        </p>
+                        <div className="commentName">
+                            {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}
+                            <p className="commentBody">
+                            <br/>
+                            {comment.body}
+                            </p>
+                        </div>
                     </>
             </>
         ))}
