@@ -44,27 +44,15 @@ const ProfilePage = () => {
           </div>
           <div className='headers'>
             <div className='aboutMe'>
+              <div className='aboutMeText'>
               <p className='aboutMeTitle'>
                 <b>
                   Bio:
                 </b>
-              <div className='aboutMeText'>
                 Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
+              </p>
               </div>
-              </p>
             </div>
-            {/* <div className='aboutMeText'>
-              <p className='aboutMe'>
-                <>
-                  my friends
-                  {user && user.requesteeIds.map(friend=>{
-                    <>
-                      friend.username
-                    </>
-                  })}
-                </>
-              </p>
-            </div> */}
             <PostIndex user = {user}/>
           </div>
       </>
