@@ -9,7 +9,6 @@ json.post do
         json.username @post.user.username
     end
 end
-
 json.likes do
     @post.likes do |like|
         json.set! like.id do

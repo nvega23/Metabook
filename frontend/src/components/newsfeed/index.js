@@ -8,6 +8,7 @@ import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
 import { fetchComment, fetchComments } from "../../store/comments";
+import { fetchAllLikes } from "../../store/likes";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
@@ -20,10 +21,10 @@ const NewsFeed = () => {
   const [photoUrl, setPhotoUrl] = useState(null)
   const history = useHistory()
   const likes = useSelector((store) => Object.values(store.likes))
-  const likedPosts = likes.map((ele)=> ele.postId)
   const posts = useSelector((state) =>{
-      return Object.values(state.posts).reverse()
+    return Object.values(state.posts).reverse()
   });
+  const likedPosts = likes.map((like)=> like.postId)
 
   const scrollToTop = () => {
     window.scroll({
@@ -54,7 +55,8 @@ const NewsFeed = () => {
   useEffect(()=>{
     dispatch(fetchAllPosts());
     dispatch(fetchComment())
-  }, [])
+    dispatch(fetchAllLikes())
+  }, [dispatch])
 
   const handleDeletePost = (e, postId) => {
     e.preventDefault();

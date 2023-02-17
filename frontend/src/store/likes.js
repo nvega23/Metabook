@@ -30,9 +30,10 @@ export const fetchAllLikes = () =>  async dispatch => {
 }
 
 export const createLike = (postId) => async dispatch => {
+    let newBody = {like: {postId: postId}}
     const res = await csrfFetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
-        body: JSON.stringify({postId}),
+        body: JSON.stringify(newBody),
         Headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -57,11 +58,11 @@ const likeReducer = (state = {}, action) => {
     const newState = {...state}
     switch(action.type){
         case RECIEVEPOSTS:
-            return {...newState, ...action.likes}
+            return {...newState, ...action.posts}
         case RECIEVE_LIKES:
-            return {...newState, ...action.likes}
+            return {...newState, ...action.likes.likes}
         case RECIEVE_LIKE:
-            return {...newState, [action.like.id]: action.like}
+            return {...newState, [action.like.id]: action.like.like}
         case REMOVE_LIKE:
             delete newState[action.likeId]
             return newState
