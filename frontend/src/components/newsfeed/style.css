@@ -389,6 +389,9 @@
 .postBody{
   margin: 10px;
   margin-left: 35px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: smaller;
+  font-weight: 500;
 }
 
 .photoUpload{

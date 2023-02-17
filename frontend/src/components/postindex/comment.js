@@ -54,7 +54,8 @@ const CommentButton = ({post}) => {
                     </button>
                     <br/>
                     <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                    <img src="../images/trashpic.png" alt="trash icon"/> comment
+                    {/* <img src="../images/trashpic.png" alt="trash icon"/> comment */}
+                    Remove comment
                     </button>
                 </form>
                     <>
@@ -73,7 +74,7 @@ const CommentButton = ({post}) => {
             <br/>
             <br/>
             <button className="writeCommentButton" onClick={handleCommentPost}>
-                Write a comment...
+                <img className="right64" src="../images/right64.png" alt="trash icon"/>
             </button>
             </form>}
             { editBool && <form>

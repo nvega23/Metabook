@@ -26,7 +26,7 @@ const LikeButton = ({post, isLiked, likes}) => {
                         </button>
                     :
                     <button className="likes" onClick={(e)=>handleLike(e, post.id)}>
-                            <img src="../images/bl3.png" alt="unlike"/>
+                            <img className="LikeButtonDarkBlue" src="../images/blueLike.png" alt="unlike"/>
                             <div className="unlike">Like</div>
                     </button>
                 }

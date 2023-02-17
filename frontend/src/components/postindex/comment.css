@@ -112,7 +112,7 @@
   }
 
   .writeCommentButton:hover {
-    background-color: #fff;
+    background-color: #e6e9ed;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
     transform: translateY(0);
@@ -141,7 +141,7 @@
     .writeCommentButton{
       border-radius: 8px;
       box-sizing: border-box;
-      background-color: #f0f2f5;;
+      background-color: #fff;
       top: -25px;
       margin-left: 185px;
       height: 25px;
@@ -279,8 +279,8 @@
       background-color: transparent;
       display: flex;
       justify-content: center;
-      margin-left: 535px;
-      margin-top: -38px;
+      margin-left: 515px;
+      margin-top: -38.2px;
   }
 }
 
@@ -398,4 +398,9 @@
   color: rgb(135, 135, 135);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   font-weight: 400;
+}
+.right64{
+  margin: -18px;
+  margin-left: 45%;
+  height: 50px;
 }

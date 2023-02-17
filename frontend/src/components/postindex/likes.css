@@ -83,6 +83,10 @@
 .unlike{
   margin-left: 15px;
   margin-top: -2px;
-  color: rgb(1, 198, 198);
+  color: rgb(61, 61, 181);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+}
+
+.LikeButtonDarkBlue{
+  height: 18px;
 }
