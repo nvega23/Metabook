@@ -76,7 +76,7 @@ function LoginForm() {
           <b>
             Create a Page
           </b>
-          <> </>for a celebrity, brand or business.
+          for a celebrity, brand or business.
           </p>
       </div>
         </div>
