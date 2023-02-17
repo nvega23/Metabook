@@ -8,7 +8,6 @@ const LikeButton = ({post, isLiked, likes}) => {
 
     const handleLike = (e, postId) => {
         e.preventDefault()
-        console.log(postId)
         if (isLiked){
             const likeId = likes.find(ele => ele.postId === postId).id
             dispatch(deleteLike(postId, likeId))

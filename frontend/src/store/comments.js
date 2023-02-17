@@ -84,12 +84,9 @@ const commentReducer = (state = {}, action) => {
             } else {
                 return {...newState};
             }
-            // //
-            // return {...newState, [action.payload.post.comment.id]: action.payload.post.comment}
         case RECIEVECOMMENTS:
             return {...newState, ...action.comments}
         case RECIEVECOMMENT:
-            console.log(action.comment, action.comment.id)
             return {...newState, [action.comment.comment.id]: action.comment.comment}
         case REMOVECOMMENT:
             delete newState[action.commentId]

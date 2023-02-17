@@ -36,7 +36,6 @@ const CommentButton = ({post}) => {
         dispatch(deleteComment(postId, commentId))
     }
 
-    // console.log(comments, "im the comments")
     return (
         <>
         <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
