@@ -25,6 +25,7 @@ const NewsFeed = () => {
     return Object.values(state.posts).reverse()
   });
   const likedPosts = likes.map((like)=> like.postId)
+  console.log(likedPosts)
 
   const scrollToTop = () => {
     window.scroll({
