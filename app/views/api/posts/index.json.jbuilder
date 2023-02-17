@@ -9,13 +9,6 @@
             json.photo_url post.photo.url
         end
     end
-    # json.comment do
-    #     json.extract! @comments, :id, :body, :users_id, :post_id, :created_at, :updated_at
-    #     json.user do
-    #         json.username @comments.user.username
-    #     end
-    # end
-
     json.comments do
         post.comments.each do |comment|
             json.set! comment.id do
@@ -26,7 +19,6 @@
             end
         end
     end
-
     json.likes do
             post.likes.each do |like|
                 json.set! like.id do
