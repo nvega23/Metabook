@@ -1,15 +1,6 @@
 class Api::PostsController < ApplicationController
     # wrap_parameters include: Post.attribute_names + [:photo]
 
-    # def index
-    #     @posts = Post.all.includes(:comments, :likes)
-    #     if @posts
-    #         render :index
-    #     else
-    #         render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
-    #     end
-    # end
-
     def index
         @user = User.find_by(id: params[:user_id])
         if @user
@@ -45,7 +36,6 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-
         @post = Post.find(params[:id])
 
         if @post
