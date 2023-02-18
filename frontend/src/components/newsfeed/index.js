@@ -7,8 +7,10 @@ import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
-import { fetchComment, fetchComments } from "../../store/comments";
+import { fetchComment } from "../../store/comments";
 import { fetchAllLikes } from "../../store/likes";
+import personalLinks from "../postindex/links";
+import PersonalLinks from "../postindex/links";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
@@ -89,6 +91,7 @@ const NewsFeed = () => {
     return(
       <>
         <div>
+            <PersonalLinks/>
         <form className="poster" onSubmit={handleSubmit}>
           <div>
             <input className="textInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
