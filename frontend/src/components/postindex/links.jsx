@@ -12,7 +12,7 @@ const PersonalLinks = () => {
                     <a className="contactButtons" target="_blank" href="https://twitter.com/nvega24">Twitter</a>
                     <a className="contactButtons" target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/">Linkedin</a>
                     <a className="contactButtons" target="_blank" href="https://angel.co/u/nestorvega23">Wellfound</a>
-                    <button className="contactMe" onClick={() => openExternalSite("mailto:vega.nestor1@gmail.com")}><a className="emailMe">Email The Developer</a></button>
+                    {/* <button onClick={() => openExternalSite("mailto:vega.nestor1@gmail.com")}><a className="emailMe">Email The Developer</a></button> */}
             </div>
         </>
     )
