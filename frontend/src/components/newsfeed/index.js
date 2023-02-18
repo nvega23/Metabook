@@ -9,7 +9,6 @@ import { useRef } from "react";
 import './style.css';
 import { fetchComment } from "../../store/comments";
 import { fetchAllLikes } from "../../store/likes";
-import personalLinks from "../postindex/links";
 import PersonalLinks from "../postindex/links";
 
 const NewsFeed = () => {
