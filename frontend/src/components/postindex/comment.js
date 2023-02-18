@@ -1,5 +1,5 @@
-import { createComment, deleteComment, fetchComment, fetchComments, updateComment } from "../../store/comments";
-import { useState, useEffect } from "react";
+import { createComment, deleteComment, updateComment } from "../../store/comments";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './comment.css'
 
@@ -15,20 +15,39 @@ const CommentButton = ({post}) => {
         }
     });
 
-    const newComment = useSelector(state=>state.comment)
     const [commentBody, setCommentBody] = useState("");
-    const [commentBool, setCommentBool] = useState(false)
-    const [editBool, setEditBool] = useState(false)
+    const [editCommentId, setEditCommentId] = useState(-1)
+    const [commentEditBool, setCommentEditBool] = useState("")
 
     const handleCommentPost = async e => {
       e.preventDefault()
       dispatch(createComment( post.id, commentBody ))
     }
 
-    const handleEditComment = (e, commentId) => {
+    const handleComment = (e) => {
         e.preventDefault()
-        const newComment = { ...commentBool, body: commentBody };
-        dispatch(updateComment(postId, newComment, commentId))
+        if (commentEditBool === "comment"){
+            setCommentEditBool("")
+        } else {
+            setCommentEditBool("comment")
+        }
+    }
+
+    const handleEditComment = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
+        const newComment = { body: commentBody };
+        dispatch(updateComment(postId, newComment, editCommentId))
+    }
+
+    const editComment = (e, commentId) => {
+        e.preventDefault()
+        if (commentEditBool === "edit"){
+            setCommentEditBool("")
+        } else {
+            setCommentEditBool("edit")
+        }
+        setEditCommentId(commentId)
     }
 
     const handleDeleteComment = (e, commentId) => {
@@ -36,9 +55,14 @@ const CommentButton = ({post}) => {
         dispatch(deleteComment(postId, commentId))
     }
 
+    // only useful on onChange
+    // useEffect(() => {
+    //     console.log(commentBody)
+    // }, [commentBody]);
+
     return (
         <>
-        <button className="commentButton" onClick={() => {setCommentBool(prev => !prev); setCommentBody(commentBool.body);}}>
+        <button className="commentButton" onClick={handleComment}>
             <img src="../images/comments.png" alt="trash icon"/>
             <rect className="PostIndexCommentText">
                 Comment
@@ -49,13 +73,12 @@ const CommentButton = ({post}) => {
         {comments?.map(comment => (
             <>
                 <form onSubmit={handleDeleteComment}>
-                    <button className="editComment" onClick={(e)=>handleEditComment(e, comment.id, setEditBool(prev => !prev))}>
+                    <button className="editComment" onClick={(e)=>editComment(e, comment.id)}>
                         Edit comment
                     </button>
                     <br/>
                     <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                    {/* <img src="../images/trashpic.png" alt="trash icon"/> comment */}
-                    Remove comment
+                        Remove comment
                     </button>
                 </form>
                     <>
@@ -69,24 +92,24 @@ const CommentButton = ({post}) => {
                     </>
             </>
         ))}
-        { commentBool && <form>
-            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-            <br/>
-            <br/>
-            <button className="writeCommentButton" onClick={handleCommentPost}>
-                <img className="right64" src="../images/right64.png" alt="trash icon"/>
-            </button>
-            </form>}
-            { editBool && <form>
+            { commentEditBool === "comment" && <form>
                 <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
                 <br/>
                 <br/>
-                {comments.map(comment=> (
-                    <button className="writeCommentButton" onClick={(e)=>handleEditComment(e, comment?.id, setEditBool(prev => !prev))}>
+                <button className="writeCommentButton" onClick={handleCommentPost}>
+                    <img className="right64" src="../images/right64.png" alt="trash icon"/>
+                </button>
+                </form>
+            }
+            { commentEditBool === "edit" && <form>
+                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)}/>
+                <br/>
+                <br/>
+                    <button className="writeCommentButton" onClick={handleEditComment}>
                         update comment...
                     </button>
-                ))}
-            </form>}
+                </form>
+            }
         </>
     )
 };
