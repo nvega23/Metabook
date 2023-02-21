@@ -4,7 +4,13 @@
     justify-content: center;
     align-items: center;
     /* margin: 50px 0 0 0; */
+}
+
+@media (min-width: 350px) {
+  .header{
+    width: 25px;
   }
+}
 
 .profileName{
     width: calc(100% - 560px);
@@ -76,6 +82,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+@media (max-width: 900px) {
+  .aboutMe{
+    visibility: hidden;
+  }
 }
 
 .hrprofilePage{
