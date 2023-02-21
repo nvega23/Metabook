@@ -4,7 +4,7 @@
     border-radius: 5%;
     background-color: #fff;
     width: 100px;
-    margin-bottom: -33%;
+    margin-right: 15%;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -12,25 +12,23 @@
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.2) 0 15px 30px -5px;
 }
-/*
-@media (max-width: 420px) {
-    .diva{
-        border: 3px solid #2e81eeee;
-    }
-} */
+
 @media (max-width: 900px) {
     .diva{
-        border: 3px solid #2e81eeee;
         flex-direction: row;
-        width: 80%;
+        width: 42%;
         margin: 10px;
-        border-radius: 10px;
+        border-radius: 14px;
+        transform: translate(50%);
     }
     .contactText{
         flex-direction: row;
         color: #2e81eeee;
         text-decoration: underline;
         font-weight: 500;
+    }
+    .contactButtons{
+        width: 50px;
     }
 }
 .contactMe{

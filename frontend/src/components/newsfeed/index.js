@@ -89,8 +89,10 @@ const NewsFeed = () => {
   if (user){
     return(
       <>
+      <div className="newsFeedLinks">
+        <PersonalLinks/>
+      </div>
         <div>
-            <PersonalLinks/>
         <form className="poster" onSubmit={handleSubmit}>
           <div>
             <input className="textInput" id="body" value={body} onChange={e => setBody(e.target.value)}/>
@@ -127,9 +129,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                       <p className="lineBreakerTop"></p>

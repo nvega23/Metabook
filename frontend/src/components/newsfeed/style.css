@@ -47,11 +47,12 @@
 }
 
 .poster{
+    /* border: 3px solid lawngreen; */
     margin-left: auto;
     margin-right: auto;
     width: 700px;
-    margin-bottom: -40px;
-    margin-top: 140px;
+    /* margin-bottom: -40px; */
+    margin-top: auto;
 }
 
 .postbutton {
@@ -416,4 +417,20 @@
 
 .spacingEdit{
   color: transparent;
+}
+
+.newsFeedLinks{
+  border: 3px solid maroon;
+  width: auto;
+  margin-left: 2%;
+  margin-top: 150px;
+  margin-bottom: -250px;
+}
+
+@media (max-width: 900px) {
+  .newsFeedLinks{
+    border: 3px dotted pink;
+    margin: 55px;
+    padding: 15px;
+  }
 }
