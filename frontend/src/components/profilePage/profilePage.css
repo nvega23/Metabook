@@ -35,16 +35,19 @@
 
 @media (max-width: 900px){
   .header{
-    border: 3px dotted pink;
+    /* border: 3px dotted pink; */
+    width: auto;
+  }
+  .links{
+    border-radius: 3%;
+    width: auto;
+    height: 150px;
+    /* margin-top: -65px; */
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
   }
 }
-/*
-@media (min-width: 350px) {
-  .button-65 {
-    padding: 14px 22px;
-    width: 176px;
-  } */
-
 
 .profilePicture{
     border-radius: 50%;
@@ -59,9 +62,10 @@
     width: auto;
     height: 150px;
     margin-top: -200px;
-    margin-left: 74%;
     margin-bottom: 50px;
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .twitter{
