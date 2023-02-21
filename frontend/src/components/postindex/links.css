@@ -15,20 +15,8 @@
 
 @media (max-width: 900px) {
     .diva{
-        flex-direction: row;
-        width: 42%;
-        margin: 10px;
-        border-radius: 14px;
-        transform: translate(50%);
-    }
-    .contactText{
-        flex-direction: row;
-        color: #2e81eeee;
-        text-decoration: underline;
-        font-weight: 500;
-    }
-    .contactButtons{
-        width: 50px;
+        visibility: hidden;
+        margin-top: -250px;
     }
 }
 .contactMe{

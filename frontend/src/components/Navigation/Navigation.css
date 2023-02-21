@@ -151,8 +151,14 @@
 
 @media (max-width: 450px) {
   .link{
-    justify-content: flex-end;
-    width: max-content;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+  }
+  .title a{
+    /* border: 5px dotted #2f80ed; */
+    font-size: 25px;
+    margin-left: 15px;
   }
 }
 

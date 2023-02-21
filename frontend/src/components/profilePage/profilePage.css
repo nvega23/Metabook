@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 50px 0 0 0; */
 }
 
 @media (min-width: 350px) {
@@ -24,9 +23,9 @@
 
 .header{
     /* border: 3px solid black; */
-    width: auto;
+    width: 97.5%;
     height: 200px;
-    min-width: 1080px;
+    min-width: 68%;
     margin-top: 60px;
     border-radius: 8px;
     box-shadow: 5px 1px 20px rgb(164, 164, 164);
@@ -34,12 +33,25 @@
     padding: 15px;
 }
 
+@media (max-width: 900px){
+  .header{
+    border: 3px dotted pink;
+  }
+}
+/*
+@media (min-width: 350px) {
+  .button-65 {
+    padding: 14px 22px;
+    width: 176px;
+  } */
+
+
 .profilePicture{
     border-radius: 50%;
     margin-left: 100px;
-    width: 100px;
+    width: 50px;
     height: 100px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
   }
 
   .links{
