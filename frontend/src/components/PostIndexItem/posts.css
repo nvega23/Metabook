@@ -99,7 +99,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
@@ -170,7 +170,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
@@ -239,7 +239,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
@@ -325,7 +325,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
@@ -415,7 +415,7 @@
   background: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 350px) {
   .scrollToTop {
     font-size: 24px;
     min-width: 196px;

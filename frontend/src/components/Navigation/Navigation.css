@@ -44,7 +44,7 @@
     opacity: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 350px) {
     .button-65 {
       width: 176px;
     }
@@ -107,7 +107,7 @@
   opacity: 1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 350px) {
   .button-65 {
     width: 176px;
   }
@@ -147,6 +147,13 @@
   justify-content: space-between;
   width: 100%;
   height: 60px;
+}
+
+@media (max-width: 450px) {
+  .link{
+    justify-content: flex-end;
+    width: max-content;
+  }
 }
 
 .profile-dropdown{

@@ -54,7 +54,7 @@
   opacity: 1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 350px) {
   .button-65 {
     padding: 14px 22px;
     width: 176px;
