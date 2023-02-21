@@ -75,7 +75,7 @@
   background-color: #fff;
 }
 
-@media (min-width: 300px) {
+@media (max-width: 900px) {
   .loginForm{
     /* border: 3px solid gold; */
     display: flex;
