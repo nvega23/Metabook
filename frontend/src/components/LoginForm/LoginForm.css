@@ -66,9 +66,6 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   width: 375px;
-  /* margin-left: auto; */
-  /* margin-right: 250px; */
-  /* margin-top: -225px; */
   padding: 10px;
   display: block;
   text-align: center;
@@ -76,6 +73,22 @@
   font-size: 22px;
   line-height: 1.43;
   background-color: #fff;
+}
+
+@media (min-width: 300px) {
+  .loginForm{
+    /* border: 3px solid gold; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 150px;
+  }
+  .formText{
+    /* border: 3px dotted green; */
+    margin-left: 150px;
+    margin-bottom: 15px;
+  }
 }
 
 .username{
@@ -141,7 +154,7 @@
   margin-left: 550px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 300px) {
   .splashPage{
     /* border: 3px solid gold; */
     margin-top: -50px;
