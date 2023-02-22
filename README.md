@@ -48,4 +48,5 @@ Technologies, Libraries, APIs
     npm/webpack/babel
 
 Technical implementation details with code snippets.
-    <img width="1221" alt="Screenshot 2023-02-22 at 2 55 48 PM" src="https://user-images.githubusercontent.com/93811834/220780461-f53a0137-b4a9-4116-b93a-d261078e5e4b.png">
+    <img width="1236" alt="Screenshot 2023-02-22 at 2 58 18 PM" src="https://user-images.githubusercontent.com/93811834/220781895-3c9e8597-a242-42e7-b129-b277c4ede4bd.png">
+
