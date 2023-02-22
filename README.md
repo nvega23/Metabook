@@ -22,16 +22,16 @@ Functionality & MVPS
         Users can create, edit, and delete posts which appear on their profiles
         All users posts appear on the main feed on the homepage
 
-<img width="1439" alt="Screenshot 2023-02-08 at 11 58 43 AM" src="https://user-images.githubusercontent.com/93811834/217638038-05b5f53c-4c94-4990-a653-3e82a9bdf96d.png">
-
-
-
+<img width="1440" alt="Screenshot 2023-02-22 at 2 50 12 PM" src="https://user-images.githubusercontent.com/93811834/220778179-a05453ff-8018-48c7-97d3-f358242981a7.png">
 
     3. Comments
         Users can create and delete comments, which will appear below the post
 
-<img width="515" alt="Screenshot 2023-02-08 at 11 57 28 AM" src="https://user-images.githubusercontent.com/93811834/217637771-f953bce2-2b0f-482c-ba23-600361526a6a.png">
- 
+<img width="1440" alt="Screenshot 2023-02-22 at 2 51 50 PM" src="https://user-images.githubusercontent.com/93811834/220778505-e98ffa3b-48b0-46e4-ba6e-4cef213c82dd.png">
+
+    4. profile page
+        Posts are filtered to only show the persons posts
+<img width="1440" alt="Screenshot 2023-02-22 at 2 53 00 PM" src="https://user-images.githubusercontent.com/93811834/220779058-057b48d4-3693-4af1-a4b2-38efc14bf976.png">
 
 Technologies, Libraries, APIs
     Javascript
@@ -46,3 +46,6 @@ Technologies, Libraries, APIs
     PostgreSQL
     Heroku
     npm/webpack/babel
+
+Technical implementation details with code snippets.
+    <img width="1221" alt="Screenshot 2023-02-22 at 2 55 48 PM" src="https://user-images.githubusercontent.com/93811834/220780461-f53a0137-b4a9-4116-b93a-d261078e5e4b.png">
