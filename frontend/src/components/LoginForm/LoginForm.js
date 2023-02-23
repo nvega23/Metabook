@@ -74,7 +74,7 @@ function LoginForm() {
         <div>
         <p className="formText">
           <b>
-            Create a Page
+            Create a Page &nbsp;
           </b>
           for a celebrity, brand or business.
           </p>
