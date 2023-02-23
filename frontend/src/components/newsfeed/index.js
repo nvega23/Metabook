@@ -117,8 +117,8 @@ const NewsFeed = () => {
                           <time title={new Date(post.createdAt).toLocaleDateString('en-us',
                               { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }>
                                   {moment(post.createdAt).fromNow()}
+                              <img className="worldIcon" src="../images/worldIcon3.png" />
                           </time>
-                          <img className="worldIcon" src="../images/worldIcon3.png" />
                       </p>
                       <button className="editPost" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>

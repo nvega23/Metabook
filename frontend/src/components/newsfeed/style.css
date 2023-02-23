@@ -443,12 +443,15 @@
   font-family: monospace;
   font-weight: 300;
   color: gray;
-  margin-left: 65px;
+  margin-left: 55px;
   margin-top: -27px;
 }
 
 .worldIcon{
-  width: 25px;
-  height: 25px;
-  color: #1366d6;
+  width: 15px;
+  height: 15px;
+  margin-top: 15px;
+  margin-left: 5px;
+  opacity: 0.5;
+  filter: alpha(opacity=40);
 }
