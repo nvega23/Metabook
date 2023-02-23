@@ -1,6 +1,7 @@
 import { createComment, deleteComment, updateComment } from "../../store/comments";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import dayjs from "dayjs";
 import moment from 'moment'
 import relativeTime from "dayjs/plugin/relativeTime"
@@ -20,14 +21,24 @@ const CommentButton = ({post}) => {
           return Object.values(state.comments).filter((comment)=>comment.postId === post.id)
         }
     });
+    const commentId = comments.id
 
     const [commentBody, setCommentBody] = useState("");
     const [editCommentId, setEditCommentId] = useState(-1)
     const [commentEditBool, setCommentEditBool] = useState("")
+    // const [commentPlaceholder, setCommentPlaceholder] = useState("")
+    const [commentIndex, setCommentIndex] = useState(0)
+
+    useEffect(() => {
+        if (editCommentId){
+            setEditCommentId(commentId)
+        }
+    }, []);
 
     const handleCommentPost = async e => {
       e.preventDefault()
       dispatch(createComment( post.id, commentBody ))
+      setCommentEditBool("")
     }
 
     const handleComment = (e) => {
@@ -43,6 +54,7 @@ const CommentButton = ({post}) => {
         e.preventDefault()
         const newComment = { body: commentBody };
         dispatch(updateComment(postId, newComment, editCommentId))
+        setCommentEditBool("")
     }
 
     const editComment = (e, commentId) => {
@@ -53,6 +65,7 @@ const CommentButton = ({post}) => {
             setCommentEditBool("edit")
         }
         setEditCommentId(commentId)
+        setCommentIndex(commentId)
     }
 
     const handleDeleteComment = (e, commentId) => {
@@ -85,7 +98,7 @@ const CommentButton = ({post}) => {
         {comments?.map(comment => (
             <>
                 <form onSubmit={handleDeleteComment}>
-                    <button className="editComment" onClick={(e)=>editComment(e, comment.id)}>
+                    <button className="editComment" onClick={(e)=>{editComment(e, comment.id); setCommentBody(comment.body)}}>
                         Edit comment
                     </button>
                     <br/>
@@ -114,23 +127,23 @@ const CommentButton = ({post}) => {
             </>
         ))}
             { commentEditBool === "comment" && <form>
-                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-                <br/>
-                <br/>
-                <button className="writeCommentButton" onClick={handleCommentPost}>
-                    <img className="right64" src="../images/right64.png" alt="trash icon"/>
-                </button>
-                </form>
-            }
+            <textarea className="commentText" onChange={e => setCommentBody(e.target.value)} />
+            <br/>
+            <br/>
+            <button className="writeCommentButton" onClick={handleCommentPost}>
+            <img className="right64" src="../images/right64.png" alt="trash icon"/>
+            </button>
+            </form>
+        }
             { commentEditBool === "edit" && <form>
-                <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)}/>
-                <br/>
-                <br/>
-                    <button className="writeCommentButton" onClick={handleEditComment}>
-                        update comment...
-                    </button>
-                </form>
-            }
+            <textarea className="commentText" value={commentBody} onChange={e => setCommentBody(e.target.value)}/>
+            <br/>
+            <br/>
+            <button className="writeCommentButton" onClick={handleEditComment}>
+                update comment...
+            </button>
+            </form>
+        }
         </>
     )
 };

@@ -67,7 +67,7 @@ export const createPost = (post) => async dispatch => {
 }
 
 export const updatePost = (post) => async dispatch => {
-    const res = await csrfFetch(`api/posts/${post.id}`, {
+    const res = await csrfFetch(`/api/posts/${post.id}`, {
         method: 'PATCH',
         body: JSON.stringify(post),
         headers: {
