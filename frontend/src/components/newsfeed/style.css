@@ -434,3 +434,15 @@
     padding: 15px;
   }
 }
+
+.postTime{
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-weight: 300;
+  color: gray;
+  margin-left: 65px;
+  margin-top: -27px;
+}

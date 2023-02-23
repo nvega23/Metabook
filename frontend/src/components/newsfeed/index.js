@@ -7,6 +7,7 @@ import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
 import { useRef } from "react";
 import './style.css';
+import moment from 'moment'
 import { fetchComment } from "../../store/comments";
 import { fetchAllLikes } from "../../store/likes";
 import PersonalLinks from "../postindex/links";
@@ -112,6 +113,12 @@ const NewsFeed = () => {
                     <button onClick={profile(post.usersId)} className="newsFeedUserName">
                       {post.user.username.charAt(0).toUpperCase() + post.user?.username.slice(1)}
                     </button>
+                    <p className="postTime">
+                          <time title={new Date(post.createdAt).toLocaleDateString('en-us',
+                              { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }>
+                                  {moment(post.createdAt).fromNow()}
+                          </time>
+                      </p>
                       <button className="editPost" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>
                       </button>
@@ -129,9 +136,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                       <p className="lineBreakerTop"></p>

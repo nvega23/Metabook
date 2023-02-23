@@ -404,3 +404,16 @@
   margin-left: 45%;
   height: 50px;
 }
+
+.commentTime{
+  height: 15px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 300;
+  color: gray;
+  margin-top: 35px;
+}

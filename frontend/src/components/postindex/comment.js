@@ -1,6 +1,9 @@
 import { createComment, deleteComment, updateComment } from "../../store/comments";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import dayjs from "dayjs";
+import moment from 'moment'
+import relativeTime from "dayjs/plugin/relativeTime"
 import './comment.css'
 
 const CommentButton = ({post}) => {
@@ -35,7 +38,6 @@ const CommentButton = ({post}) => {
 
     const handleEditComment = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
         const newComment = { body: commentBody };
         dispatch(updateComment(postId, newComment, editCommentId))
     }
@@ -52,7 +54,9 @@ const CommentButton = ({post}) => {
 
     const handleDeleteComment = (e, commentId) => {
         e.preventDefault()
-        dispatch(deleteComment(postId, commentId))
+        if (window.confirm("are you sure?")){
+            dispatch(deleteComment(postId, commentId))
+        }
     }
 
     // only useful on onChange
@@ -85,9 +89,16 @@ const CommentButton = ({post}) => {
                         <div className="commentName">
                             {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}
                             <p className="commentBody">
-                            <br/>
-                            {comment.body}
+                                <br/>
+                                {comment.body}
                             </p>
+                            <div className="commentTime">
+                                <p>
+                                    <time title={new Date(comment.createdAt).toLocaleDateString('en-us',
+                                        { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }>{moment(comment.createdAt).fromNow()}
+                                    </time>
+                                </p>
+                            </div>
                         </div>
                     </>
             </>
