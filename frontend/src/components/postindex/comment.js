@@ -5,8 +5,11 @@ import dayjs from "dayjs";
 import moment from 'moment'
 import relativeTime from "dayjs/plugin/relativeTime"
 import './comment.css'
+import { useHistory } from "react-router";
+
 
 const CommentButton = ({post}) => {
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const postId = post.id
@@ -59,6 +62,11 @@ const CommentButton = ({post}) => {
         }
     }
 
+    const profile = (userId) => (e) => {
+        e.preventDefault()
+        history.push(`/profilePage/${userId}`)
+    }
+
     // only useful on onChange
     // useEffect(() => {
     //     console.log(commentBody)
@@ -87,7 +95,9 @@ const CommentButton = ({post}) => {
                 </form>
                     <>
                         <div className="commentName">
-                            {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}
+                            <button onClick={profile(comment.usersId)} className="commentersName">
+                                {comment?.user?.username.charAt(0).toUpperCase() + comment?.user?.username.slice(1)}
+                            </button>
                             <p className="commentBody">
                                 <br/>
                                 {comment.body}
