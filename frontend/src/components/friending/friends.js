@@ -16,7 +16,9 @@ const FriendButton = ({user}) => {
     const handleClick = (e) => {
         e.preventDefault();
         if (friend) {
-            dispatch(deleteFriend(user.id));
+            if (window.confirm("are you sure you want to remove this friend?")){
+                dispatch(deleteFriend(user.id));
+              }
         } else {
             dispatch(createFriend(user.id));
         }

@@ -15,8 +15,16 @@ const ProfilePage = () => {
   let {userId} = useParams();
   let user = useSelector(getUser(userId));
   const currentUser = useSelector(state => state.session.user)
+  let friends = useSelector(state=>state.friends)
+  friends = Object.values(friends)
   let posts = useSelector(state=>state.posts)
   posts = Object.values(posts).reverse()
+  let users = useSelector(state=>state.users)
+  users = Object.values(users)
+
+  // const fetchFriends = () => {
+  //   dispatch(fetchFriends)
+  // }
 
   useEffect(() => {
     dispatch(fetchUser(userId))
@@ -47,10 +55,33 @@ const ProfilePage = () => {
               <div className='aboutMeText'>
               <p className='aboutMeTitle'>
                 <b>
-                  Bio:
+                  <u>
+                    Bio
+                  </u>
                 </b>
                 <p className='bioBody'>
                   Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
+                  <p>
+                    <br/>
+                  {/* <div className='friendBorder'>
+                    {users?.map(user=>
+                      <>
+                        <b>
+                          <u>
+                            Friend list
+                          </u>
+                        </b>
+                        <p className='friendId'>
+                          <ul>
+                            <li>
+                              {user?.requesteeIds[0]}
+                            </li>
+                          </ul>
+                        </p>
+                      </>
+                    )}
+                  </div> */}
+                  </p>
                 </p>
               </p>
               </div>

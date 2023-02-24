@@ -9,6 +9,7 @@ import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 import { useRef } from "react";
 import { fetchComments } from "../../store/comments";
+import moment from 'moment'
 
 const PostIndex = () => {
   const user = useSelector(state => state.session.user)
@@ -22,9 +23,9 @@ const PostIndex = () => {
   const likes = useSelector((store) => Object.values(store.likes))
   const likedPosts = likes.map((ele)=> ele.postId)
   const {userId} = useParams()
+
   let posts = useSelector(state=>state.posts)
   posts = Object.values(posts).reverse()
-
   useEffect(() => {
     dispatch(fetchPosts(userId))
     dispatch(fetchComments())
@@ -102,6 +103,13 @@ const PostIndex = () => {
                   <h4 className="posts">
                     <button className="profilePageUsername">{post?.user?.username}
                     </button>
+                    <p className="postTime">
+                          <time title={new Date(post.createdAt).toLocaleDateString('en-us',
+                              { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }>
+                                  {moment(post.createdAt).fromNow()}
+                              <img className="worldIcon" src="../images/worldIcon3.png" />
+                          </time>
+                      </p>
                     <br/>
                       <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="../images/pencil.png" alt="pencil icon"/>
