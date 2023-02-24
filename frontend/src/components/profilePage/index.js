@@ -49,7 +49,9 @@ const ProfilePage = () => {
                 <b>
                   Bio:
                 </b>
-                Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
+                <p className='bioBody'>
+                  Hi, i'm {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} nice to meet you.
+                </p>
               </p>
               </div>
             </div>
