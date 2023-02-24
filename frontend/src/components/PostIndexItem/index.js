@@ -53,7 +53,9 @@ const PostIndex = () => {
 
   const handleDeletePost = (e, postId) => {
     e.preventDefault();
-    return dispatch(deletePost(postId));
+    if (window.confirm("are you sure?")){
+        dispatch(deletePost(postId));
+    }
   }
 
   const handleEditPost = (e, post) => {

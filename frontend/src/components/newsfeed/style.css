@@ -439,14 +439,15 @@
 
 .postTime{
   width: 150px;
+  height: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-family: monospace;
   font-weight: 300;
   color: gray;
   margin-left: 7px;
-  margin-top: -7px;
+  margin-top: -25px;
+  margin-bottom: 25px;
 }
 
 .worldIcon{

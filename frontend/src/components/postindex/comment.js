@@ -97,7 +97,18 @@ const CommentButton = ({post}) => {
         <br/>
         {comments?.map(comment => (
             <>
-                <form onSubmit={handleDeleteComment}>
+                {
+                    comment.usersId === user?.id && <form onSubmit={handleDeleteComment}>
+                        <button className="editComment" onClick={(e)=>{editComment(e, comment.id); setCommentBody(comment.body)}}>
+                            Edit comment
+                        </button>
+                        <br/>
+                        <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
+                            Remove comment
+                        </button>
+                    </form>
+                }
+                {/* <form onSubmit={handleDeleteComment}>
                     <button className="editComment" onClick={(e)=>{editComment(e, comment.id); setCommentBody(comment.body)}}>
                         Edit comment
                     </button>
@@ -105,7 +116,7 @@ const CommentButton = ({post}) => {
                     <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
                         Remove comment
                     </button>
-                </form>
+                </form> */}
                     <>
                         <div className="commentName">
                             <button onClick={profile(comment.usersId)} className="commentersName">

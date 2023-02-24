@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPosts, createPost, deletePost, updatePost } from "../../store/posts";
-import { Redirect } from "react-router";
+import { Redirect, useParams } from "react-router";
 import LikeButton from "../postindex/like";
 import CommentButton from "../postindex/comment";
 import { useHistory } from "react-router";
@@ -14,6 +14,7 @@ import PersonalLinks from "../postindex/links";
 
 const NewsFeed = () => {
   const user = useSelector(state => state.session.user)
+  const userId = useParams()
   const fileRef = useRef(null);
   const dispatch = useDispatch()
   const [body, setBody] = useState("");
@@ -120,13 +121,17 @@ const NewsFeed = () => {
                               <img className="worldIcon" src="../images/worldIcon3.png" />
                           </time>
                       </p>
-                      <button className="editPost" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="./images/pencil.png" alt="pencil icon"/><p className="spacingEdit">=</p>
-                      </button>
-                      <br/>
-                      <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
-                        <img src="./images/trashpic.png" alt="trash icon"/>
-                      </button>
+                      {
+                        post.usersId === user?.id && <div>
+                        <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                          <img src="../images/pencil.png" alt="pencil icon"/>
+                        </button>
+                        <br/>
+                        <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
+                          <img src="../images/trashpic.png" alt="trash icon"/>
+                        </button>
+                      </div>
+                    }
                       <br/>
                     <p className="postBody">
                       {post.body}
