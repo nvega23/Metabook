@@ -63,7 +63,7 @@ function LoginForm() {
           <br/>
           <button className="demo" onClick={()=>setDemo()}>
             <b>
-              Log in as a demo user?
+              Log in as a demo user
             </b>
           </button>
           <hr className="lineBreak"/>

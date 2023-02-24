@@ -113,7 +113,8 @@
         width: auto;
         padding: 0 16px;
         position: relative;
-        text-align: center;
+        display: flex;
+        align-items: center;
         margin-left: 250px;
         text-align: center;
     }
@@ -249,7 +250,7 @@
         color: gray;
         border-radius: 8px;
         box-sizing: border-box;
-        background-color: lightgray;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         height: 18px;
@@ -423,8 +424,8 @@
 }
 
 .postImage{
-  margin-top: 50px;
-  margin-left: -30%;
+  margin-top: 15px;
+  margin-left: 42%;
 }
 
 .PostIndexProfilelineBreaker{

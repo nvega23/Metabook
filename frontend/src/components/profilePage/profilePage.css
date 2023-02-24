@@ -111,3 +111,16 @@
 .hrprofilePage{
   margin-top: 50px;
 }
+
+.aboutMeTitle{
+  /* border: 3px dotted darkviolet; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 75px;
+}
+
+/* .bioBody{
+  border: 3px solid salmon;
+} */

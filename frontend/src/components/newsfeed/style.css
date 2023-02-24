@@ -76,6 +76,8 @@
     overflow: hidden;
     padding: 0 16px;
     position: relative;
+    display: flex;
+    align-items: center;
     text-align: center;
     text-decoration: none;
     transform: translate3d(0, 0, 0);
@@ -443,8 +445,8 @@
   font-family: monospace;
   font-weight: 300;
   color: gray;
-  margin-left: 55px;
-  margin-top: -27px;
+  margin-left: 7px;
+  margin-top: -7px;
 }
 
 .worldIcon{
