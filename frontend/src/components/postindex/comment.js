@@ -108,15 +108,6 @@ const CommentButton = ({post}) => {
                         </button>
                     </form>
                 }
-                {/* <form onSubmit={handleDeleteComment}>
-                    <button className="editComment" onClick={(e)=>{editComment(e, comment.id); setCommentBody(comment.body)}}>
-                        Edit comment
-                    </button>
-                    <br/>
-                    <button className="removeComment" onClick={(e)=>handleDeleteComment(e, comment.id, comment.body)}>
-                        Remove comment
-                    </button>
-                </form> */}
                     <>
                         <div className="commentName">
                             <button onClick={profile(comment.usersId)} className="commentersName">
