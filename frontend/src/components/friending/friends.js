@@ -20,7 +20,9 @@ const FriendButton = ({user}) => {
                 dispatch(deleteFriend(user.id));
               }
         } else {
-            dispatch(createFriend(user.id));
+            if (window.confirm("are you sure you want to add this friend?")){
+                dispatch(createFriend(user.id));
+                }
         }
         setFriend(!friend)
     }
