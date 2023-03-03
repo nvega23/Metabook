@@ -51,11 +51,11 @@ function LoginForm() {
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
           <label>
-            <input className="username" type="text" value={credential} placeholder="Email or Username"
+            <input className="LoginFormUsername" type="text" value={credential} placeholder="Email or Username"
             onChange={(e) => setCredential(e.target.value)} required/>
           </label>
           <label>
-            <input className="username" type="password" value={password} placeholder="Password"
+            <input className="LoginFormUsername" type="password" value={password} placeholder="Password"
             onChange={(e) => setPassword(e.target.value)} required/>
           </label>
           <br/>

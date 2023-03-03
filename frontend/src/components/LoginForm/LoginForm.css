@@ -91,17 +91,15 @@
   }
 }
 
-.username{
-  border-radius: 6px;
-  border: 1px solid #dddfe2;
-  font-family: inherit;
+.LoginFormUsername{
+  margin: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
   font-size: 17px;
-  height: 25px;
-  width: 150px;
-  line-height: 16px;
-  vertical-align: middle;
   padding: 14px 16px;
   width: 330px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 .demo{
