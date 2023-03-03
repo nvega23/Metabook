@@ -14,7 +14,7 @@ const FriendButton = ({user}) => {
     const [friend, setFriend] = useState(false);
 
     const handleClick = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         if (friend) {
             if (window.confirm("are you sure you want to remove this friend?")){
                 dispatch(deleteFriend(user.id));
