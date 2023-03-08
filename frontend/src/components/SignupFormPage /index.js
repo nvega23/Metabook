@@ -34,13 +34,13 @@ const SignupFormPage = () => {
     return (
       <>
         <div className="divBorder">
-          <div className="text">
+          <div className="textSign">
             <h1>Sign up
             </h1>
-            <p>it's quick and easy.</p>
+            <p className="textUnderSign">it's quick and easy.</p>
             <hr/>
           </div>
-          <form className="signupFormDiv" onSubmit={handleSubmit}>
+          <form className="signupButton" onSubmit={handleSubmit}>
             <ul>
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
@@ -63,7 +63,14 @@ const SignupFormPage = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)} required/>
             </label>
             <br/>
-            <button className="signup" type="submit">Create new account</button>
+            <p className="dontSueText">
+              People who use our service may have uploaded your contact information to Facebook. Learn more.
+            </p>
+            <p className="dontSueText2">
+              By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive
+              SMS Notifications from us and can opt out any time.
+            </p>
+              <button className="signupButton" type="submit">Sign Up</button>
             </form>
           </div>
         </>
