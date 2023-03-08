@@ -1,14 +1,25 @@
 .divBorder{
-  box-shadow: 0 2px 10px 0 rgba(108, 108, 108, 0.645);
-  width: 450px;
-  height: 500px;
-  border-radius: 8px;
-  margin-top: 10px;
+  box-shadow: 0 2px 10px 0 rgb(108 108 108 / 65%);
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #dadde1;
+  box-sizing: border-box;
+  padding: 16px;
+  position: relative;
+  width: 500px;
 }
 
-.text{
+.textSign{
+  color: #1c1e21;
   font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  margin-left: 15px;
+  font-size: 16px;
+  line-height: 38px;
+  margin: 25px;
+}
+
+.textUnderSign{
+  margin-top: -25px;
+  color: #606770;
 }
 
 .input{
@@ -22,39 +33,24 @@
   width: 300px;
   border: none;
 }
-.signup button {
-    appearance: none;
-    backface-visibility: hidden;
-    background-color: #42b72a;
-    border-radius: 10px;
-    border-style: none;
+.signupButton button {
+    background: none;
+    background-color: #00a400;
+    border: none;
+    /* border-radius: 6px; */
+    border-radius: 4px;
     box-shadow: none;
-    box-sizing: border-box;
     color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    height: 35px;
-    letter-spacing: normal;
-    line-height: 1.5;
-    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    height: 36px;
+    width: 50%;
     overflow: hidden;
-    padding: 10px 30px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transform: translate3d(0, 0, 0);
-    transition: all .3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
+    padding: 5px 16px;
+    text-shadow: none;
   }
 
-  .signup button:hover {
+  .signupButton button:hover {
     background-color: #3ba625;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
@@ -62,48 +58,94 @@
     transition-duration: .35s;
   }
 
-  .signup button:hover:after {
+  .signupButton button:hover:after {
     opacity: .5;
   }
 
-  .signup button:active {
+  .signupButton button:active {
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
     transform: translateY(2px);
     transition-duration: .35s;
   }
 
-  .signup button:active:after {
+  .signupButton button:active:after {
     opacity: 1;
   }
 
-  @media (min-width: 350px) {
-    .button-65 {
+  @media (min-width: 150px) {
+    .signupButton .button-65 {
       padding: 14px 22px;
       width: 176px;
   }
 }
-.signup{
+.signupButton{
   font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  line-height: 38px;
-  display: block;
   text-align: center;
   word-wrap: break-word;
   font-size: 12px;
   line-height: 1.43;
-  padding: 16px;
-}
-/*
-.input{
-  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  background-color: rgb(234, 234, 234);
-  border: 1px solid lightgray;
-  border-radius: 5px;
+  padding: 0 16px;
+  margin: 35px;
+  cursor: pointer;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-self: center;
+}
+
+
+.signUpFormInputUser{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  line-height: 38px;
   text-align: center;
   word-wrap: break-word;
-  font-size: 12px;
+  line-height: 1.43;
   padding: 16px;
-} */
+  background-color: #f5f6f7;
+  border: 1px solid lightgray;
+  /* border-radius: 6px; */
+  border-radius: 4px;
+  height: 5px;
+}
+
+.signUpFormInputUserDiv{
+  width: 100%;
+}
+
+.signUpFormInput{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.43;
+  padding: 16px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 5px;
+  width: 1700%;
+  /* border-radius: 4px; */
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  background-color: #f5f6f7;
+  margin-left: -165px;
+}
+
+.dontSueText{
+  /* border: 3px solid black; */
+  color: #777;
+  font-size: 11px;
+  width: 316px;
+  margin: -10px;
+  font-size: 10px;
+  width: 100%;
+}
+.dontSueText2{
+  /* border: 3px solid pink; */
+  color: #777;
+  font-size: 11px;
+  width: 316px;
+  font-size: 10px;
+  width: 100%;
+}
