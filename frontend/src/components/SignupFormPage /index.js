@@ -33,36 +33,38 @@ const SignupFormPage = () => {
 
     return (
       <>
-      <div className="divBorder">
-        <div className="text">
-          <h1>Sign up
-          </h1>
-          <p>it's quick and easy.</p>
-          <hr/>
-        </div>
-        <form className="signup" onSubmit={handleSubmit}>
-          <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-          </ul>
-          <label>
-          <label>
-            <input className="input" type="text" value={username} placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)} required/>
-          </label>
-            <input className="input" type="text" value={email} placeholder="Email" onChange={(e) =>
-            setEmail(e.target.value)} required/>
-          </label>
-          <label>
-            <input className="input" type="password" value={password} placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)} required/>
-          </label>
-          <label>
-            <input className="input" type="password" value={confirmPassword} placeholder="Confirm Password"
-              onChange={(e) => setConfirmPassword(e.target.value)} required/>
-          </label>
-          <br/>
-          <button className="signup" type="submit">Create new account</button>
-        </form>
+        <div className="divBorder">
+          <div className="text">
+            <h1>Sign up
+            </h1>
+            <p>it's quick and easy.</p>
+            <hr/>
+          </div>
+          <form className="signupFormDiv" onSubmit={handleSubmit}>
+            <ul>
+              {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+              <div className="signUpFormInputUserDiv">
+                <label>
+                  <label>
+                    <input className="signUpFormInputUser" type="text" value={username} placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)} required/>
+                  </label>
+                  <input className="signUpFormInputUser" type="text" value={email} placeholder="Email" onChange={(e) =>
+                  setEmail(e.target.value)} required/>
+                </label>
+              </div>
+            <label>
+              <input className="signUpFormInput" type="password" value={password} placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)} required/>
+            </label>
+            <label>
+              <input className="signUpFormInput" type="password" value={confirmPassword} placeholder="Confirm Password"
+                onChange={(e) => setConfirmPassword(e.target.value)} required/>
+            </label>
+            <br/>
+            <button className="signup" type="submit">Create new account</button>
+            </form>
           </div>
         </>
     );
