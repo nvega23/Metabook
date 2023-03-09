@@ -50,6 +50,7 @@ const SignupFormPage = () => {
                     <input className="signUpFormInputUser" type="text" value={username} placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)} required/>
                   </label>
+                  &nbsp;
                   <input className="signUpFormInputUser" type="text" value={email} placeholder="Email" onChange={(e) =>
                   setEmail(e.target.value)} required/>
                 </label>
