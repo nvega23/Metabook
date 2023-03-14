@@ -50,18 +50,21 @@ const SignupFormPage = () => {
                     <input className="signUpFormInputUser" type="text" value={username} placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)} required/>
                   </label>
+                  &nbsp;
                   <input className="signUpFormInputUser" type="text" value={email} placeholder="Email" onChange={(e) =>
                   setEmail(e.target.value)} required/>
                 </label>
               </div>
-            <label>
-              <input className="signUpFormInput" type="password" value={password} placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)} required/>
-            </label>
-            <label>
-              <input className="signUpFormInput" type="password" value={confirmPassword} placeholder="Confirm Password"
-                onChange={(e) => setConfirmPassword(e.target.value)} required/>
-            </label>
+            <div className="divSignUpForm">
+              <label>
+                <input className="signUpFormInput" type="password" value={password} placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)} required/>
+              </label>
+              <label>
+                <input className="signUpFormInput" type="password" value={confirmPassword} placeholder="Confirm Password"
+                  onChange={(e) => setConfirmPassword(e.target.value)} required/>
+              </label>
+            </div>
             <br/>
             <p className="dontSueText">
               People who use our service may have uploaded your contact information to Facebook. Learn more.

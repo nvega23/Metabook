@@ -113,6 +113,7 @@
   font-style: bold;
   border: none;
   cursor: pointer;
+  margin: -25px;
 }
 
 .lineBreak{
