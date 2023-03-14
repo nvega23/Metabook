@@ -23,7 +23,6 @@
   }
 
   .pfp:hover {
-    /* background-color: #f3f3f3; */
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
     transform: translateY(0);
@@ -50,7 +49,6 @@
     }
     .pfp{
         background-color: transparent;
-        /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
         border-radius: 50%;
         margin-right: 30px;
         height: 60px;
@@ -156,7 +154,6 @@
     position: fixed;
   }
   .title a{
-    /* border: 5px dotted #2f80ed; */
     font-size: 25px;
     margin-left: 15px;
   }
