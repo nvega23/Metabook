@@ -48,6 +48,9 @@
     overflow: hidden;
     padding: 5px 16px;
     text-shadow: none;
+    margin: -5px;
+    margin-top: 15px;
+    margin-bottom: -25px;
   }
 
   .signupButton button:hover {
