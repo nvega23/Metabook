@@ -14,15 +14,18 @@ const FriendButton = ({user}) => {
     const [friend, setFriend] = useState(false);
 
     const handleClick = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         if (friend) {
-            if (window.confirm("are you sure you want to remove this friend?")){
+            if (window.confirm(`are you sure you want to remove ${user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} as a friend?`)){
                 dispatch(deleteFriend(user.id));
               }
         } else {
-            if (window.confirm("are you sure you want to add this friend?")){
+            if (window.confirm(`are you sure you want to add ${user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} as a friend?`)){
                 dispatch(createFriend(user.id));
-                }
+                setTimeout(function(){
+                    alert(`Congratulations you and ${user?.username.charAt(0).toUpperCase() + user?.username.slice(1)} are now friends!`);
+               },1000);
+            }
         }
         setFriend(!friend)
     }
@@ -32,8 +35,6 @@ const FriendButton = ({user}) => {
             setFriend(true)
         }
     }, [dispatch, user])
-
-    // if (currentUser === `./api/profilePage/${user.id}`) return null
 
     if (friend) {
         return (
