@@ -16,7 +16,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, length: { in: 3..30 }, uniqueness: {case_sensitive: true},
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
 
-    validates :email, uniqueness: true, length: { in: 5..100 }
+    validates :email, uniqueness: true, length: { in: 5..100 },
     format: { with: URI::MailTo::EMAIL_REGEXP }
 
     validates :session_token, presence: true, uniqueness: true
@@ -64,7 +64,7 @@ class User < ApplicationRecord
         self.session_token = generate_unique_session_token
         self.save!
         self.session_token
-    en
+    end
 
     def generate_unique_session_token
         output = SecureRandom.base64
