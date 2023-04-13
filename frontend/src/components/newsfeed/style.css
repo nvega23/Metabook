@@ -1,4 +1,5 @@
 .posts{
+    border: 3px solid black;
     background-color: #fff;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 18px;
@@ -6,6 +7,38 @@
     width: 650px;
     height: auto;
     margin-left: 50px;
+}
+
+.headers{
+  border: 3px solid blue;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.textInput{
+  border: none;
+  box-shadow: 2px 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 650px;
+  height: 35px;
+  margin-left: 50px;
+  margin-bottom: 15px;
+  margin-top: -50px;
+}
+
+@media (min-width: 350px) {
+  .headers{
+    margin-left: 285px;
+  }
+  .textInput{
+    margin-left: 25px;
+  }
 }
 
 .input{
@@ -19,22 +52,6 @@
     height: auto;
     margin-top: 30px;
     margin-left: 25px;
-}
-
-.textInput{
-    border: none;
-    box-shadow: 2px 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 8px;
-    box-sizing: border-box;
-    width: 650px;
-    height: 35px;
-    margin-left: 50px;
-    margin-bottom: 15px;
-    margin-top: -50px;
 }
 
 .postsform{
