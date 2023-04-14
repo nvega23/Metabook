@@ -285,6 +285,7 @@
 }
 
 .commentBody{
+  /* border: 3px solid black; */
   background-color: transparent;
   color: black;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -295,7 +296,7 @@
   justify-content: flex-start;
   width: 300%;
   height: 10%;
-  margin: 5px;
+  margin: 20px;
   padding: 0 16px 14px;
   font-size: smaller;
   font-weight: 500;
@@ -303,10 +304,11 @@
 }
 
 .commentName{
+  /* border: 3px solid black; */
   display: flex;
   color: #2f80ed;
   font-size: 18px;
-  margin: -20px;
+  margin: -25px;
   font-weight: 400;
   margin-left: 35px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
