@@ -56,10 +56,10 @@ function ProfileButton({ user }) {
                   {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}
                 </button>
               </>
-              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://github.com/nvega23">Github</a></button>
-              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/">Linkedin</a> </button>
-              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://angel.co/u/nestorvega23">Wellfound</a></button>
-              <button className="dropdown"><a className="twitterLink" target="_blank" href="https://twitter.com/nvega24">Twitter</a></button>
+              <a className="dropdownNoButton" target="_blank" href="https://github.com/nvega23">Github</a>
+              <a className="dropdownNoButton" target="_blank" href="https://www.linkedin.com/in/nestor-vega-233b43238/">Linkedin</a>
+              <a className="dropdownNoButton" target="_blank" href="https://angel.co/u/nestorvega23">Wellfound</a>
+              <a className="dropdownNoButton" target="_blank" href="https://twitter.com/nvega24">Twitter</a>
               <button className="dropdown" onClick={() => openExternalSite(window.open('mailto:vega.nestor1@gmail.com?subject=subject&body=body'))}><a className="twitterLink">Email The Developer</a></button>
               <button className="dropdown" onClick={logout}>Log Out</button>
           </div>
