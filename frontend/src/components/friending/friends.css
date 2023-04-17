@@ -20,3 +20,12 @@
     border-radius: 5px;
     border: none;
 }
+
+.friendImageText{
+    display: flex;
+    margin-top: -25px;
+}
+.notFriendImageText{
+    display: flex;
+    margin-top: -10px;
+}

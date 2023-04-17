@@ -1,4 +1,4 @@
-.posts{
+.postsProfilePage{
     background-color: #fff;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 18px;
@@ -6,6 +6,24 @@
     width: 650px;
     height: auto;
     margin-left: 50px;
+}
+
+.postTimeProfilePage{
+  width: 150px;
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  font-weight: 300;
+  color: gray;
+  margin-left: 7px;
+}
+
+@media (max-width: 450px) {
+  .postsProfilePage{
+    width: 550px;
+    margin-left: 145px;
+  }
 }
 
 .input{
@@ -30,9 +48,9 @@
   align-items: center;
   border-radius: 8px;
   box-sizing: border-box;
-  width: 650px;
+  width: 550px;
   height: 35px;
-  margin-left: 50px;
+  margin-left: 145px;
   margin-bottom: 15px;
 }
 
@@ -125,35 +143,22 @@
 }
 
 
-.editButton {
-    appearance: none;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    border-style: none;
-    box-shadow: none;
+.editButtonProfilePage {
+    box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
     box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-    letter-spacing: normal;
-    line-height: 1.5;
-    outline: none;
-    overflow: hidden;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    height: 18px;
+    width: 55px;
+    margin-left: 510px;
+    margin-top: -75px;
     padding: 0 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transform: translate3d(0, 0, 0);
-    transition: all .3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
+    border: none;
   }
 
-  .editButton:hover {
+  .editButtonProfilePage:hover {
     background-color: #f0f2f5;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
@@ -161,26 +166,26 @@
     transition-duration: .35s;
   }
 
-  .editButton:hover:after {
+  .editButtonProfilePage:hover:after {
     opacity: .5;
   }
 
-  .editButton:active {
+  .editButtonProfilePage:active {
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
     transform: translateY(2px);
     transition-duration: .35s;
   }
 
-  .editButton:active:after {
+  .editButtonProfilePage:active:after {
     opacity: 1;
   }
 
-  @media (min-width: 350px) {
+  @media (max-width: 450px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
     }
-    .editButton{
+    .editButtonProfilePage{
         box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         border-radius: 8px;
         box-sizing: border-box;
@@ -189,40 +194,29 @@
         justify-content: center;
         height: 18px;
         width: 55px;
-        margin-left: 523px;
-        margin-top: -35px;
+        margin-left: 440px;
+        margin-top: -75px;
         padding: 0 16px;
     }
 }
-.removeEdit {
-    appearance: none;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    border-style: none;
-    box-shadow: none;
+.removeEditProfilePage {
+    box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    color: gray;
+    border-radius: 8px;
     box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-    letter-spacing: normal;
-    line-height: 1.5;
-    outline: none;
-    overflow: hidden;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    height: 18px;
+    width: 55px;
+    margin-left: 555px;
+    margin-top: -35px;
+    top: -1px;
     padding: 0 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transform: translate3d(0, 0, 0);
-    transition: all .3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
+    border: none;
   }
 
-  .removeEdit:hover {
+  .removeEditProfilePage:hover {
     background-color: rgba(205, 0, 0, 0.789);
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
@@ -230,26 +224,26 @@
     transition-duration: .35s;
   }
 
-  .removeEdit:hover:after {
+  .removeEditProfilePage:hover:after {
     opacity: .5;
   }
 
-  .removeEdit:active {
+  .removeEditProfilePage:active {
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
     transform: translateY(2px);
     transition-duration: .35s;
   }
 
-  .removeEdit:active:after {
+  .removeEditProfilePage:active:after {
     opacity: 1;
   }
 
-  @media (min-width: 350px) {
+  @media (max-width: 450px) {
     .button-65 {
       padding: 14px 22px;
       width: 176px;
     }
-    .removeEdit{
+    .removeEditProfilePage{
         box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
         color: gray;
         border-radius: 8px;
@@ -259,7 +253,8 @@
         justify-content: center;
         height: 18px;
         width: 55px;
-        margin-left: 580px;
+        margin-left: 490px;
+        margin-top: -35px;
         top: -1px;
         padding: 0 16px;
     }
@@ -371,9 +366,11 @@
   color: #2f80ed;
 }
 
-.postBody{
+.postBodyProfilePage{
   margin: 10px;
-  margin-left: 35px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin-left: 25px;
+  margin-top: -10px;
 }
 
 .scrollToTop {
@@ -434,8 +431,18 @@
 
 .PostIndexProfilelineBreaker{
   border: 1px solid rgba(155, 155, 155, 0.519);
-  width: 600px;
+  /* width: 500px; */
   margin-left: 22px;
   margin-bottom: 5px;
   margin-top: -15px;
+}
+
+@media (max-width: 350px) {
+  .PostIndexProfilelineBreaker{
+    border: 1px solid rgba(155, 155, 155, 0.519);
+    width: 600px;
+    margin-left: 22px;
+    margin-bottom: 5px;
+    margin-top: -15px;
+  }
 }

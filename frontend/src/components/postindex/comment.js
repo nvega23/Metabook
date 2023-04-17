@@ -92,7 +92,8 @@ const CommentButton = ({post}) => {
                 Comment
             </rect>
         </button>
-        <p className="lineBreaker"></p>
+        {/* <p className="lineBreaker"></p> */}
+        <p className="lineBreakerBottomNewsFeed"></p>
         <br/>
         {comments?.map(comment => (
             <>

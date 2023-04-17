@@ -125,7 +125,7 @@ const NewsFeed = () => {
                       </p>
                       {
                         post.usersId === user?.id && <div>
-                        <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                        <button className="editButtonNewsFeed" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                           <img src="../images/pencil.png" alt="pencil icon"/>
                         </button>
                         <br/>
@@ -144,9 +144,9 @@ const NewsFeed = () => {
                         </button>
                       </form>}
                     </p>
-                    {/* { post.photoUrl ? (
+                    { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview} */}
+                      ) : preview}
                     <br/>
                     <br/>
                       <p className="lineBreakerTop"></p>

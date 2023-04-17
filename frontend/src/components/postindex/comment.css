@@ -150,31 +150,15 @@
 }
 
 .editComment {
-  appearance: none;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  border-style: none;
-  box-shadow: none;
+  box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  color: gray;
+  border-radius: 8px;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  letter-spacing: normal;
-  line-height: 1.5;
-  outline: none;
-  overflow: hidden;
-  padding: 0 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin-left: 490px;
+  border: none;
 }
 
 .editComment:hover {
@@ -212,36 +196,21 @@
       background-color: transparent;
       display: flex;
       justify-content: center;
-      margin-left: 390px;
+      margin-left: 400px;
   }
 }
 
 .removeComment {
-  appearance: none;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  border-style: none;
-  box-shadow: none;
+  box-shadow: 10 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  color: gray;
+  border-radius: 8px;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  letter-spacing: normal;
-  line-height: 1.5;
-  outline: none;
-  overflow: hidden;
-  padding: 0 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin-left: 500px;
+  margin-top: -35.2px;
+  border: none;
 }
 
 .removeComment:hover {
@@ -266,7 +235,7 @@
   opacity: 1;
 }
 
-@media (min-width: 350px) {
+@media (max-width: 350px) {
   .button-65 {
     padding: 14px 22px;
     width: 176px;
@@ -279,7 +248,7 @@
       background-color: transparent;
       display: flex;
       justify-content: center;
-      margin-left: 490px;
+      margin-left: 400px;
       margin-top: -38.2px;
   }
 }

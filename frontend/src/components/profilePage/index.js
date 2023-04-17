@@ -34,7 +34,7 @@ const ProfilePage = () => {
   if (currentUser){
     return (
       <>
-          <div className='header'>
+          <div className='headerProfilePage'>
             <div className='profilePicture'>
               <img src='../images/bpfp.png'/>
               <div className='profileName'>
