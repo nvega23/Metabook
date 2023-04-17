@@ -9,8 +9,7 @@
     margin-left: 50px;
 }
 
-.headers{
-  /* border: 3px solid blue; */
+.headersNewsFeed{
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -32,10 +31,12 @@
   margin-top: -50px;
 }
 
-@media (min-width: 350px) {
-  /* .headers{
-    margin-left: 285px;
-  } */
+@media (max-width: 450px) {
+  .headersNewsFeed{
+    display: inline-grid;
+    margin-right: -55px;
+    margin-left: -25px;
+  }
   .textInput{
     margin-left: 25px;
   }
