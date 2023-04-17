@@ -122,6 +122,67 @@
   }
 }
 
+.dropdownNoButton {
+  appearance: none;
+  backface-visibility: hidden;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: normal;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.dropdownNoButton:hover {
+  background-color: rgb(231, 231, 231);
+  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.dropdownNoButton:hover:after {
+  opacity: .5;
+}
+
+.dropdownNoButton:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.dropdownNoButton:active:after {
+  opacity: 1;
+}
+
+
+.dropdownNoButton{
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 0 16px;
+  width: 225px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 
 .title a{
   font-family: 'Poppins-SemiBold', Arial, sans-serif;

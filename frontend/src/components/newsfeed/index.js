@@ -111,7 +111,7 @@ const NewsFeed = () => {
           </div>
         </form>
             {posts.map(post => (
-              <div className="headers">
+              <div className="headersNewsFeed">
                   <h4 className="posts">
                     <button onClick={profile(post.usersId)} className="newsFeedUserName">
                       {post.user.username.charAt(0).toUpperCase() + post.user?.username.slice(1)}
@@ -125,7 +125,7 @@ const NewsFeed = () => {
                       </p>
                       {
                         post.usersId === user?.id && <div>
-                        <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                        <button className="editButtonNewsFeed" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                           <img src="../images/pencil.png" alt="pencil icon"/>
                         </button>
                         <br/>

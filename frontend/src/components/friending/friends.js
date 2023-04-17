@@ -40,8 +40,10 @@ const FriendButton = ({user}) => {
         return (
             <div className="friends">
                 <button className="friendButton" onClick={handleClick}>
-                    <img src="../images/friend.png"/>
-                    <div>Friends</div>
+                    <div className="notFriendImageText">
+                        <img src="../images/friend.png"/>
+                        <h5>Friends</h5>
+                    </div>
                 </button>
             </div>
         )
@@ -49,8 +51,10 @@ const FriendButton = ({user}) => {
         return (
             <div className="friends">
                 <button className="unfriendButton" onClick={handleClick}>
-                    <img src="../images/addFriend.png"/>
-                    <div>Add Friend</div>
+                    <div className="friendImageText">
+                        <img src="../images/addFriend.png"/>
+                        <div>Add Friend</div>
+                    </div>
                 </button>
             </div>
         )

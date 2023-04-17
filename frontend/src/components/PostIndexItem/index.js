@@ -100,10 +100,10 @@ const PostIndex = () => {
           <br/>
             {posts.map(post => (
               <>
-                  <h4 className="posts">
+                  <h4 className="postsProfilePage">
                     <button className="profilePageUsername">{post?.user?.username}
                     </button>
-                    <p className="postTime">
+                    <p className="postTimeProfilePage">
                           <time title={new Date(post.createdAt).toLocaleDateString('en-us',
                               { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }>
                                   {moment(post.createdAt).fromNow()}
@@ -111,15 +111,15 @@ const PostIndex = () => {
                           </time>
                       </p>
                     <br/>
-                      <button className="editButton" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                      <button className="editButtonProfilePage" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
                         <img src="../images/pencil.png" alt="pencil icon"/>
                       </button>
                       <br/>
-                      <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
+                      <button className="removeEditProfilePage" onClick={(e)=>handleDeletePost(e, post.id)}>
                         <img src="../images/trashpic.png" alt="trash icon"/>
                       </button>
                       <br/>
-                    <p className="postBody">
+                    <p className="postBodyProfilePage">
                       {post.body}
                     { edit === post.id  && <form>
                         <textarea className="editTextArea" value={editBody} onChange={e => setEditBody(e.target.value, post.id)}/>

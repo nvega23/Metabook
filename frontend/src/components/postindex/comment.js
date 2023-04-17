@@ -26,7 +26,6 @@ const CommentButton = ({post}) => {
     const [commentBody, setCommentBody] = useState("");
     const [editCommentId, setEditCommentId] = useState(-1)
     const [commentEditBool, setCommentEditBool] = useState("")
-    // const [commentPlaceholder, setCommentPlaceholder] = useState("")
     const [commentIndex, setCommentIndex] = useState(0)
 
     useEffect(() => {
@@ -93,7 +92,8 @@ const CommentButton = ({post}) => {
                 Comment
             </rect>
         </button>
-        <p className="lineBreaker"></p>
+        {/* <p className="lineBreaker"></p> */}
+        <p className="lineBreakerBottomNewsFeed"></p>
         <br/>
         {comments?.map(comment => (
             <>
