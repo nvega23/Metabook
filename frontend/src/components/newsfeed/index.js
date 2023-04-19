@@ -126,11 +126,11 @@ const NewsFeed = () => {
                       {
                         post.usersId === user?.id && <div>
                         <button className="editButtonNewsFeed" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                          <img src="../images/pencil.png" alt="pencil icon"/>
+                          <img src="../images/pencil.png" alt="edit post"/>
                         </button>
                         <br/>
                         <button className="removeEdit" onClick={(e)=>handleDeletePost(e, post.id)}>
-                          <img src="../images/trashpic.png" alt="trash icon"/>
+                          <img src="../images/trashpic.png" alt="remove post"/>
                         </button>
                       </div>
                     }

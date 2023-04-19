@@ -111,13 +111,17 @@ const PostIndex = () => {
                           </time>
                       </p>
                     <br/>
-                      <button className="editButtonProfilePage" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
-                        <img src="../images/pencil.png" alt="pencil icon"/>
-                      </button>
-                      <br/>
-                      <button className="removeEditProfilePage" onClick={(e)=>handleDeletePost(e, post.id)}>
-                        <img src="../images/trashpic.png" alt="trash icon"/>
-                      </button>
+                    {
+                      post?.usersId === user?.id && <div>
+                        <button className="editButtonProfilePage" onClick={() => {setEdit(post.id); setEditBody(post.body);}}>
+                          <img src="../images/pencil.png" alt="pencil icon"/>
+                        </button>
+                        <br/>
+                        <button className="removeEditProfilePage" onClick={(e)=>handleDeletePost(e, post.id)}>
+                          <img src="../images/trashpic.png" alt="trash icon"/>
+                        </button>
+                      </div>
+                      }
                       <br/>
                     <p className="postBodyProfilePage">
                       {post.body}
@@ -130,9 +134,9 @@ const PostIndex = () => {
                     </p>
                     <br/>
                     <br/>
-                    { post.photoUrl ? (
+                    {/* { post.photoUrl ? (
                       <img className="images" ref={fileRef} src={post.photoUrl} alt="photo"/>
-                      ) : preview}
+                      ) : preview} */}
                     <br/>
                     <br/>
                       <p className="PostIndexProfilelineBreaker"></p>
