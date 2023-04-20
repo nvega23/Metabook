@@ -4,7 +4,7 @@ import { RECIEVEPOST } from "./posts"
 
 const RECIEVE_LIKES = 'posts/recieve_likes'
 const RECIEVE_LIKE = 'posts/recieve_like'
-const REMOVE_LIKE = 'posts/remove_like'
+const REMOVELIKE = 'posts/likes/REMOVELIKE'
 
 export const recieve_likes = likes => ({
     type: RECIEVE_LIKES,
@@ -16,8 +16,8 @@ export const recieve_like = like => ({
     like
 })
 
-export const remove_like = likeId => ({
-    type: REMOVE_LIKE,
+export const removeLike = likeId => ({
+    type: REMOVELIKE,
     likeId
 })
 
@@ -50,7 +50,7 @@ export const deleteLike = (postId, likeId) => async dispatch => {
         method: 'DELETE',
     })
     if (res.ok){
-        dispatch(remove_like(likeId))
+        dispatch(removeLike(likeId))
     }
 }
 
@@ -63,7 +63,7 @@ const likeReducer = (state = {}, action) => {
             return {...newState, ...action.likes.likes}
         case RECIEVE_LIKE:
             return {...newState, [action.like.id]: action.like}
-        case REMOVE_LIKE:
+        case REMOVELIKE:
             delete newState[action.likeId]
             return newState
         default:

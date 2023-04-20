@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf"
+import axios from 'axios';
 
 export const RECIEVEPOST = 'posts/recievePost'
 export const RECIEVEPOSTS = 'posts/recievePosts'
