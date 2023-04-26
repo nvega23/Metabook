@@ -114,6 +114,45 @@
   width: 100%;
 }
 
+.signUpFormInputUserError{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  line-height: 38px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.43;
+  padding: 16px;
+  background-color: #f5f6f7;
+  border: 1px solid red;
+  border-radius: 4px;
+  height: 5px;
+}
+
+.signUpFormInputUserEmail{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  line-height: 38px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.43;
+  padding: 16px;
+  background-color: #f5f6f7;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  height: 5px;
+}
+
+.signUpFormInputUserEmailError{
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  line-height: 38px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.43;
+  padding: 16px;
+  background-color: #f5f6f7;
+  border: 1px solid red;
+  border-radius: 4px;
+  height: 5px;
+}
+
 .signUpFormInput{
   font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
   text-align: center;
@@ -153,4 +192,45 @@
 
 .divSignUpForm{
   width: 100%;
+}
+/* this is the border around errors in the signup form */
+/* .errorHandlingSignUpPage{
+  border: 3px solid black;
+} */
+
+.errorTextSignUpPage{
+  color: firebrick;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: larger;
+}
+
+.green{
+  color: green;
+  display: flex;
+  align-items: center;
+}
+.red{
+  color: rgba(218, 30, 30, 0.779);
+  display: flex;
+  align-items: center;
+}
+
+#Password-Requirements {
+  width: 90%;
+  display: flex;
+  border-radius: 0;
+}
+
+#Password-Requirements > span {
+  padding: 12px;
+  padding-left: 13px;
+  font-size: larger;
+}
+
+.Pass-Req-Icon-Container {
+  height: 15px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import { IoIosCheckmarkCircle } from  "react-icons/io"
+import { RiCheckboxBlankCircleLine } from "react-icons/ri"
 import './SignupForm.css';
 
 const SignupFormPage = () => {
@@ -10,6 +12,9 @@ const SignupFormPage = () => {
     const [email, setEmail] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([])
+    const handleError = errors.map((error) => {
+      return React.createElement('p', { key: error }, error);
+    });
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -30,6 +35,34 @@ const SignupFormPage = () => {
         }
         return setErrors(['Confirm Password field must be the same as the Password field']);
     }
+    // make sure the inputs are always empty
+
+    const passwordRequirements = () => {
+      if (password.length > 0) {
+          return (
+              <div id="Password-Requirements">
+                  {passwordLengthReq()}
+                  {passwordMatchReq()}
+              </div>
+          )
+      }
+    }
+
+    const passwordMatchReq = () => {
+      if (password === confirmPassword) {
+          return (<span className="green"><div className="Pass-Req-Icon-Container"><IoIosCheckmarkCircle style={{fontSize: '14px'}} /></div>Passwords must match</span>)
+      } else {
+          return (<span className="red"><div className="Pass-Req-Icon-Container"><RiCheckboxBlankCircleLine style={{ fontSize: '13px' }} /></div>Passwords must match</span>)
+      }
+    }
+
+    const passwordLengthReq = () => {
+      if (password.length >= 6) {
+          return (<span className="green"><div className="Pass-Req-Icon-Container"><IoIosCheckmarkCircle style={{ fontSize: '14px' }} /></div>Password must be at least 6 characters</span>)
+      }else{
+          return (<span className="red"><div className="Pass-Req-Icon-Container"><RiCheckboxBlankCircleLine style={{ fontSize: '13px' }} /></div>Password must be at least 6 characters</span>)
+      }
+    }
 
     return (
       <>
@@ -41,29 +74,63 @@ const SignupFormPage = () => {
             <hr/>
           </div>
           <form className="signupButton" onSubmit={handleSubmit}>
-            <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
+            <div className="errorHandlingSignUpPage">
+              {errors.map(error => <p className="errorTextSignUpPage" key={error}>{error}</p>
+              )}
+            </div>
               <div className="signUpFormInputUserDiv">
                 <label>
                   <label>
-                    <input className="signUpFormInputUser" type="text" value={username} placeholder="Username"
-                    onChange={(e) => setUsername(e.target.value)} required/>
+                    <input
+                    // className={ errors ? "signUpFormInputUser" : "signUpFormInputUserError"}
+                    className={errors.length ? "signUpFormInputUserError" : "signUpFormInputUser"}
+                    type="text"
+                    value={username}
+                    placeholder="Username"
+                    onChange={
+                      (e) => setUsername(e.target.value)}
+                    required/>
                   </label>
+
                   &nbsp;
-                  <input className="signUpFormInputUser" type="text" value={email} placeholder="Email" onChange={(e) =>
-                  setEmail(e.target.value)} required/>
+
+                  <input
+                  // className={ errors ? "signUpFormInputUserEmailError" : "signUpFormInputUserEmail"}
+                  className={errors.length ? "signUpFormInputUserEmailError" : "signUpFormInputUserEmail"}
+                  type="text"
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) =>
+                  setEmail(e.target.value)}
+                  required/>
                 </label>
+
               </div>
             <div className="divSignUpForm">
               <label>
-                <input className="signUpFormInput" type="password" value={password} placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)} required/>
+                <input
+                className="signUpFormInput"
+                type="password"
+                value={password}
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                required/>
               </label>
+
+              <div>
+                {passwordRequirements()}
+              </div>
+
               <label>
-                <input className="signUpFormInput" type="password" value={confirmPassword} placeholder="Confirm Password"
-                  onChange={(e) => setConfirmPassword(e.target.value)} required/>
+                <input
+                className="signUpFormInput"
+                type="password"
+                value={confirmPassword}
+                placeholder="Confirm Password"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                required/>
               </label>
+
             </div>
             <br/>
             <p className="dontSueText">
