@@ -29,7 +29,6 @@ function LoginForm() {
     });
   };
 
-
   const setDemo = () => {
     setCredential(`demo@user.io`);
     setPassword(`password`);
@@ -47,17 +46,46 @@ function LoginForm() {
         </div>
       <div className="borderLoginForm">
         <form className="loginForm" onSubmit={handleSubmit}>
-          <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-          </ul>
           <label>
-            <input className="LoginFormUsername" type="text" value={credential} placeholder="Email or Username"
-            onChange={(e) => setCredential(e.target.value)} required/>
+            <input
+              className={errors.length ? "LoginFormUsernameError" : "LoginFormUsername"}
+              type="text"
+              value={credential}
+              placeholder="Email or Username"
+              onChange={(e) =>
+              setCredential(e.target.value)}
+              required
+              />
           </label>
+
+          <div className="ErrorLoginPage">
+          {errors.map(error => {
+            console.log(error);
+            return (
+              <div key={error}>
+                <div className="errorImgContainer">
+                  <img class="_9ay6" src="https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/O287_AcFyg4.png" alt="" width="20" height="20" />
+                </div>
+                <h1 className="errorTextLoginPage">The email or mobile number you entered isn’t connected to an account.
+                  &nbsp;
+                <strong>Please try again.</strong>
+              </h1>
+              </div>
+            );
+          })}
+          </div>
+
           <label>
-            <input className="LoginFormUsername" type="password" value={password} placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)} required/>
+            <input
+            className={errors.length ? "LoginFormPasswordError" : "LoginFormPassword"}
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            />
           </label>
+
           <br/>
           <button className="log_in" type="submit">Log In</button>
           <br/>
