@@ -96,7 +96,7 @@
 .LoginFormUsername{
   margin: 5px;
   margin-bottom: 10px;
-  cursor: pointer;
+  cursor: text;
   font-size: 17px;
   padding: 14px 16px;
   width: 330px;
@@ -109,7 +109,7 @@
 .LoginFormUsernameError{
   margin: 5px;
   margin-bottom: 10px;
-  cursor: pointer;
+  cursor: text;
   font-size: 17px;
   padding: 14px 16px;
   width: 330px;
@@ -122,7 +122,7 @@
 .LoginFormPassword{
   margin: 5px;
   margin-bottom: 10px;
-  cursor: pointer;
+  cursor: text;
   font-size: 17px;
   padding: 14px 16px;
   width: 330px;
@@ -135,7 +135,7 @@
 .LoginFormPasswordError{
   margin: 5px;
   margin-bottom: 10px;
-  cursor: pointer;
+  cursor: text;
   font-size: 17px;
   padding: 14px 16px;
   width: 330px;
