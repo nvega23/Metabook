@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import SignUpFormModal from "../SignUpFormModal";
@@ -8,25 +8,33 @@ import { Redirect } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const [documentTitle, setDocumentTitle] = useState("metabook - log in or sign up");
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  useEffect(()=>{
+    document.title = documentTitle;
+  }, [documentTitle])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
-    .catch(async (res) => {
-      let data;
-      try {
-        data = await res.clone().json();
-      } catch {
-        data = await res.text();
-      }
-      if (data?.errors) setErrors(data.errors);
-      else if (data) setErrors([data]);
-      else setErrors([res.statusText]);
-    });
+    dispatch(sessionActions.login({ credential, password }))
+      .then(() => {
+        document.title = 'Metabook'
+      })
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
   };
 
   const setDemo = () => {
@@ -122,7 +130,11 @@ function LoginForm() {
     </>
   );
   } else {
-    return <Redirect to="/newsFeed"/>
+    return (
+      <>
+        <Redirect to="/newsFeed"/>
+      </>
+    )
   }
 }
 

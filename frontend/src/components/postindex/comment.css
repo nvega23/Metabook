@@ -159,10 +159,12 @@
   justify-content: center;
   margin-left: 490px;
   border: none;
+  cursor: pointer;
 }
 
 .editComment:hover {
-  background-color: #f0f2f5;;
+  background-color: #bfbfbf;;
+  color: white;
   box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
   opacity: 1;
   transform: translateY(0);
@@ -197,6 +199,7 @@
       display: flex;
       justify-content: center;
       margin-left: 400px;
+      cursor: pointer;
   }
 }
 
@@ -211,10 +214,12 @@
   margin-left: 500px;
   margin-top: -35.2px;
   border: none;
+  cursor: pointer;
 }
 
 .removeComment:hover {
   background-color: rgba(205, 0, 0, 0.789);
+  color: white;
   box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
   opacity: 1;
   transform: translateY(0);
@@ -250,6 +255,7 @@
       justify-content: center;
       margin-left: 400px;
       margin-top: -38.2px;
+      cursor: pointer;
   }
 }
 
