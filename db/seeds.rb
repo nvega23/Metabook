@@ -121,7 +121,7 @@
     url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/kiado.jpg')
     response = Net::HTTP.get_response(url)
     post10.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
-    
+
     post11 = Post.create!(body: "Where can I buy gokus jacket!?",users_id: 4)
     url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/smilinggoku.webp')
     response = Net::HTTP.get_response(url)
