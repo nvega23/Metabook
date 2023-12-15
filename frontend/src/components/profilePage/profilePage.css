@@ -15,6 +15,12 @@
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+@media (max-width: 900px) {
+  .profileName{
+    width: 100px;
+  }
+}
+
 .headerProfilePage{
     margin-top: 150px;
     height: 200px;
@@ -50,6 +56,16 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+@media (max-width: 900px) {
+  .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+  }
+}
+
 
 .twitter{
   margin-left: 20px;

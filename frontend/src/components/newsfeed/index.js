@@ -104,10 +104,10 @@ const NewsFeed = () => {
             <button className="postbutton">What's on your mind, {user.username.charAt(0).toUpperCase() + user?.username.slice(1)}?</button>
             <input type="file" accept=".jpg, .jpeg, .png" multiple
             className="photoUpload" onChange={handleFile}/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            {/* <br/> */}
+            {/* <br/> */}
+            {/* <br/> */}
+            {/* <br/> */}
           </div>
         </form>
             {posts.map(post => (
