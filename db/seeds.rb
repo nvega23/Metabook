@@ -73,84 +73,99 @@
     end
 
     post1 = Post.create!(body: " 🌉",users_id: 1)
-    # post1.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/bridge.jpeg'),
     url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/bridge.jpeg')
     response = Net::HTTP.get_response(url)
     post1.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
-    # filename: "bridge.jpeg")
+    
+    post2 = Post.create!(body: "No words needed...",users_id: 1)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg')
+    response = Net::HTTP.get_response(url)
+    post2.photo.attach(io: StringIO.new(response.body), filename: "Church.jpeg")
+    
+    post3 = Post.create!(body: "Amazing creatures",users_id: 7)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/idean-azad-TOKbfHc1iOw-unsplash.jpg')
+    response = Net::HTTP.get_response(url)
+    post3.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post4 = Post.create!(body: "humble...",users_id: 7)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/travel.jpeg')
+    response = Net::HTTP.get_response(url)
+    post4.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post5 = Post.create!(body: "New York views!",users_id: 2)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/newyork.jpeg')
+    response = Net::HTTP.get_response(url)
+    post5.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post6 = Post.create!(body: "Cute Dog!",users_id: 6)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/cutedog.jpeg')
+    response = Net::HTTP.get_response(url)
+    post6.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post7 = Post.create!(body: "Devil z",users_id: 2)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/devilz.jpeg')
+    response = Net::HTTP.get_response(url)
+    post7.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post8 = Post.create!(body: "one persons trash is another mans gold",users_id: 2)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/oldz.jpeg')
+    response = Net::HTTP.get_response(url)
+    post8.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post9 = Post.create!(body: "this reminds me of my childhood",users_id: 6)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/horse.jpeg')
+    response = Net::HTTP.get_response(url)
+    post9.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post10 = Post.create!(body: "One piece!!!",users_id: 4)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/kiado.jpg')
+    response = Net::HTTP.get_response(url)
+    post10.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post11 = Post.create!(body: "Where can I buy gokus jacket!?",users_id: 4)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/smilinggoku.webp')
+    response = Net::HTTP.get_response(url)
+    post11.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post12 = Post.create!(body: "Trust yourself that you can do it and get it.",users_id: 5)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/soccerstadium.jpeg')
+    response = Net::HTTP.get_response(url)
+    post12.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post13 = Post.create!(body: "If you can dream it, you can do it",users_id: 5)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/soccerball.jpeg')
+    response = Net::HTTP.get_response(url)
+    post13.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post14 = Post.create!(body: "My love for Mexico still remains",users_id: 3)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose1.jpeg')
+    response = Net::HTTP.get_response(url)
+    post14.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post15 = Post.create!(body: "It's Beautiful",users_id: 3)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose2.jpeg')
+    response = Net::HTTP.get_response(url)
+    post15.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post16 = Post.create!(body: "My Culture",users_id: 3)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose3.jpeg')
+    response = Net::HTTP.get_response(url)
+    post16.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post17 = Post.create!(body: "perfect view",users_id: 2)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/newyorkflyover.jpeg')
+    response = Net::HTTP.get_response(url)
+    post17.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
+    
+    post18 = Post.create!(body: "My New Funko Pop!",users_id: 2)
+    url = URI.parse('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/gokusleeping.jpeg')
+    response = Net::HTTP.get_response(url)
+    post18.photo.attach(io: StringIO.new(response.body), filename: "bridge.jpeg")
 
-    # post2 = Post.create!(body: "No words needed...",users_id: 1)
-    # post2.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/church.jpeg'),
-    # filename: "church.jpeg")
-
-    # post4 = Post.create!(body: "Amazing creatures",users_id: 7)
-    # post4.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/idean-azad-TOKbfHc1iOw-unsplash.jpg'),
-    # filename: "unsplash.jpeg")
-
-    # post4 = Post.create!(body: "humble...",users_id: 7)
-    # post4.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/travel.jpeg'),
-    # filename: "travel.jpeg")
-
-    # post5 = Post.create!(body: "New York views!",users_id: 2)
-    # post5.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/newyork.jpeg'),
-    # filename: "newyork.jpeg")
-
-    # post6 = Post.create!(body: "Cute Dog!",users_id: 6)
-    # post6.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/cutedog.jpeg'),
-    # filename: "cutedog.jpeg")
-
-    # post7 = Post.create!(body: "Devil z",users_id: 2)
-    # post7.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/devilz.jpeg'),
-    # filename: "dz.jpeg")
-
-    # post12 = Post.create!(body: "one persons trash is another mans gold",users_id: 2)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/oldz.jpeg'),
-    # filename: "oldz.jpeg")
-
-    # post12 = Post.create!(body: "this reminds me of my childhood",users_id: 6)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/horse.jpeg'),
-    # filename: "horse.jpeg")
-
-    # post12 = Post.create!(body: "One piece!!!",users_id: 4)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/kiado.jpg'),
-    # filename: "kiado.jpg")
-
-    # post12 = Post.create!(body: "Where can I buy gokus jacket!?",users_id: 4)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/smilinggoku.webp'),
-    # filename: "smilinggoku.webp")
-
-    # post12 = Post.create!(body: "Trust yourself that you can do it and get it.",users_id: 5)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/soccerstadium.jpeg'),
-    # filename: "soccerstadium.jpeg")
-
-    # post12 = Post.create!(body: "If you can dream it, you can do it",users_id: 5)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/soccerball.jpeg'),
-    # filename: "soccerball.jpeg")
-
-    # post12 = Post.create!(body: "My love for Mexico still remains",users_id: 3)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose1.jpeg'),
-    # filename: "jose1.jpeg")
-
-    # post12 = Post.create!(body: "It's Beautiful",users_id: 3)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose2.jpeg'),
-    # filename: "jose2.jpeg")
-
-    # post12 = Post.create!(body: "My Culture",users_id: 3)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/jose3.jpeg'),
-    # filename: "jose3.jpeg")
-
-    # post3 = Post.create!(body: "perfect view",users_id: 2)
-    # post3.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/newyorkflyover.jpeg'),
-    # filename: "waterfall.jpeg")
-
-    # post12 = Post.create!(body: "My New Funko Pop!",users_id: 2)
-    # post12.photo.attach(io: URI.open('https://nestors-demo-seed.s3.us-west-1.amazonaws.com/images/gokusleeping.jpeg'),
-    # filename: "gokusleeping.jpeg")
-
-    # comment1 = Comment.create!(post_id: 5, users_id: 2, body: "nice shot!")
-    # comment1 = Comment.create!(post_id: 18, users_id: 3, body: "He looks so relaxed!")
-    # comment1 = Comment.create!(post_id: 14, users_id: 2, body: "We need to go back sometime!")
-    # comment1 = Comment.create!(post_id: 11, users_id: 5, body: "Please lmk if you find it")
+    comment1 = Comment.create!(post_id: 5, users_id: 2, body: "nice shot!")
+    comment1 = Comment.create!(post_id: 18, users_id: 3, body: "He looks so relaxed!")
+    comment1 = Comment.create!(post_id: 14, users_id: 2, body: "We need to go back sometime!")
+    comment1 = Comment.create!(post_id: 11, users_id: 5, body: "Please lmk if you find it")
 
     puts "Done!"
 # end
